@@ -1,0 +1,7 @@
+{
+  "name": "gestionEventos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
