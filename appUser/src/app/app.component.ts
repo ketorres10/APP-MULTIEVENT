@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { AlertController, MenuController, NavController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { firebase } from '@firebase/app';
+import { AuthService } from './shared/servicios/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +15,13 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Inicio',
-      url: '/folder/Inicio',
+      url: '/home/Inicio',
       icon: 'home'
+    },
+    {
+      title: 'Login',
+      url: '/perfil',
+      icon: 'people'
     },
     {
       title: 'Login',
@@ -31,10 +38,15 @@ export class AppComponent implements OnInit {
       url: '/agenda',
       icon: 'calendar'
     },
+
+    {
+      title: 'Detectar',
+      url: '/detection-beacon',
+      icon: 'radio',
+    },
     {
       title: 'Cerrar sesión',
       url: '/cerrar',
-
       icon: 'close-circle',
     },
   ];
@@ -42,7 +54,11 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private menu: MenuController,
+    private navController: NavController,
+    private alertCtrl: AlertController,
+    private authservice: AuthService,
   ) {
     this.initializeApp();
   }
@@ -57,5 +73,55 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+  inicio(){
+    this.menu.close();
+    this.navController.navigateForward(['folder/Inicio']);
+  }
+  perfil(){
+    this.menu.close();
+    this.navController.navigateForward(['perfil']);
+  }
+  login(){
+    this.menu.close();
+    this.navController.navigateForward(['login']);
+  }
+  irEventos() {
+    this.menu.close();
+    this.navController.navigateForward(['eventos']);
+  }
+  agenda(){
+    this.menu.close();
+    this.navController.navigateForward(['agenda']);
+  }
+  deteccion(){
+    this.menu.close();
+    this.navController.navigateForward(['deteccion']);
+  }
+  async cerrarSesion() {
+    this.menu.close();
+    const alert = await this.alertCtrl.create({
+      header: '¿Está seguro de que quiere cerrar sesión?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: (blah) => {
+            console.log('Cancelar');
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Okey');
+            this.navController.navigateForward(['folder/Inicio']);
+            this.authservice.logout();
+          }
+        }
+
+      ]
+    });
+    await alert.present();
+    let result = await alert.onDidDismiss();
+    console.log(result);
+
   }
 }

@@ -6,7 +6,6 @@ import { MoreinformationPage } from './componentes/eventos/moreinformation/morei
 import { RegistroPage } from './componentes/registro/registro.page';
 import { AuthService } from './shared/servicios/auth.service';
 import { from } from 'rxjs';
-import { MoreinformationSubeventComponent } from './componentes/eventos/moreinformation-subevent/moreinformation-subevent.component';
 import { DetailSubeventPage } from './componentes/eventos/detail-subevent/detail-subevent.page';
 const routes: Routes = [
   {
@@ -39,15 +38,15 @@ const routes: Routes = [
     loadChildren: () => import('./componentes/agenda/agenda.module').then( m => m.AgendaPageModule),canActivate: [AuthGuard]
   },
   {
-    path: 'cerrar',
-    loadChildren: () => import('./componentes/cerrar/cerrar.module').then( m => m.CerrarPageModule),canActivate: [AuthGuard]
+    path: 'deteccion',
+    loadChildren: () => import('./componentes/deteccion/deteccion.module').then( m => m.DeteccionPageModule)
   },
  
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy'})
   ],
   exports: [RouterModule]
 })

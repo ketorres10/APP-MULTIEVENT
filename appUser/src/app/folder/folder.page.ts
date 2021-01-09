@@ -29,5 +29,19 @@ export class FolderPage implements OnInit {
       this.router.navigate(['/login']);
     
   }
+  slides = [
+    {
+      img: 'assets/icon/slide1.png',
+      titulo: 'Obtener información del evento<br>en tiempo real'
+    },
+    {
+      img: 'assets/icon/slide2.png',
+      titulo: 'Facilidad de inscrcibirte<br>en el evento'
+    },
+    {
+      img: 'assets/icon/slide3.png',
+      titulo: 'Actualización de la<br>agenda de eventos'
+    }
+  ];
 
 }

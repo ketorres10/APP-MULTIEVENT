@@ -1,0 +1,43 @@
+a{
+    color: white;
+    text-decoration: none;
+    font-family: "Agency FB";
+}
+.cardEventos{
+    width: 100%;
+}
+.button-container{
+    display:inline-block;
+    position:relative;
+    }
+    
+    ion-card-subtitle{
+        font-style: italic;
+    }
+    a:hover{
+        color: lightslategrey;
+    }
+    .card-principal{
+        background-color: #73C6B6;
+        border-radius: 1%;
+        box-shadow: 
+           inset 0 -3em 3em rgba(0,0,0,0.1), 
+                 0 0  0 2px rgb(255,255,255),
+                 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    }
+    .card-secundaria{
+        border: #F2F3F4 2px solid;
+        background-color: #E5E8E8;
+    }
+    ion-card-subtitle{
+        color: #E67E22;
+    }
+    .title{
+        color: #34495E;
+    }
+    ion-icon{
+        font-size: large;
+    }
+    p{
+        color: #E67E22;
+    }

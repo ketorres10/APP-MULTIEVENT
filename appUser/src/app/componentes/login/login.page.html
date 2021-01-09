@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
-    <ion-title>Login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Inicio sesión</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content padding>
-  <img class="imagen" src="assets/icon/icono.png" alt="">
+  <img class="imagen" src="assets/icon/logo.png" alt="">
 <ion-item>
   <ion-label position="floating">Correo Electrónico</ion-label >
   <ion-input type="text" [(ngModel)]="email" name="Email"></ion-input>
@@ -18,6 +18,6 @@
   <ion-label position="floating">Contraseña</ion-label >
   <ion-input [(ngModel)]="password" type="password" name="Password"></ion-input>
 </ion-item>
-<ion-button color="danger" class="boton-entrar" (click)="onSubmitLogin()" expand="block">Entrar</ion-button>
-<p class="crear" style="text-align: center;" routerLink="/registro">Crear cuenta</p>
+<ion-button  class="boton-entrar" (click)="onSubmitLogin()" shape="round">Entrar</ion-button>
+<p style="text-align: center;" routerLink="/registro">Crear cuenta</p>
 </ion-content>

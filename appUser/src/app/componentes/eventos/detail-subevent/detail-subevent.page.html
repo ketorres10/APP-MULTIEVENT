@@ -1,27 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Subeventos</ion-title>
+  <ion-toolbar color="light">
+    <ion-title>Más información</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/eventos"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="container" *ngIf="subevent$ | async as subevent;">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>{{subevent.siglas}}</ion-card-subtitle>
-        <ion-card-title>
-          {{subevent.title}}
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        {{subevent.descrip}}
-      </ion-card-content>
-      <ion-item-divider></ion-item-divider>
-      <h4>&nbsp;Topicos de Interés</h4>
-      <ion-card-content selected *ngFor="let topic of subevent.topics" [ngClass]="topic">
-        {{topic}}
-      </ion-card-content>
-      <ion-button (click)="onLogout()">Añadir</ion-button>
+  <div *ngIf="subevent$ | async as subevent;" class="container">
+    <ion-card class="container-general">
+      <ion-card>
+        <ion-card class="card-header" style="background-color:  #34495E;">
+          <ion-card-header>
+            <ion-card-subtitle style="color: #2ADEAB;"><strong>{{subevent.siglas}}</strong></ion-card-subtitle>
+            <ion-card-title style="color: white;">
+              {{subevent.title}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <p><strong>Fecha inicio: </strong> {{subevent.date | date:'dd/MM/yy' }}</p>
+            <p><strong>Fecha fin: </strong> {{subevent.finishdate | date:'dd/MM/yy' }}</p>
+            <p>
+              <ion-icon name="time"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{subevent.time}}
+            </p>
+            <p>
+              <ion-icon name="business"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}
+            </p>
+            <br>
+            <h2><strong>Descripción del evento</strong></h2><br>
+            <p style="text-align: justify;">{{subevent.descrip}}</p>
+            <br>
+            <h2><strong>Topicos de Interés</strong></h2>
+            <ion-card-content class="topicos" selected *ngFor="let topic of subevent.topics" [ngClass]="topic">- {{topic}}
+              </ion-card-content>
+            <div style="text-align: center;">
+              <ion-button (click)="registerEvent()" class="btn-registrarme" color="primary">Registrarme</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-card>
     </ion-card>
   </div>
 </ion-content>

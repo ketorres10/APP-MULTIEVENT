@@ -1,0 +1,36 @@
+h1, h2{
+    text-align: center;
+    background-color: #D5DBDB; 
+    color: #17A589;
+}
+h3{
+    text-align: center;
+    color: white;
+}
+.container-general{
+    background-color: #D5DBDB;
+}
+.card-subeventos{
+    background-color: #EEEEEE;
+    border: #A3E4D7 2px solid;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+.subtitle-subevento{
+    color: #34495E;
+}
+.title-subevento{
+    font-family: 'Candara';
+    font-size: 1.3em;
+}
+p, .topicos{
+    color: #34495E;
+}
+.card-header{
+    background-color:  #34495E;
+}
+ion-icon{
+    color: #17A589;
+}

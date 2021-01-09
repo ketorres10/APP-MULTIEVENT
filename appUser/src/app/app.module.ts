@@ -14,6 +14,8 @@ import { firebaseConfig } from "../environments/environment";
 import { AngularFireModule }  from "@angular/fire";
 //importar el modulo de autenticacion de firebase
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { CommonModule } from '@angular/common';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent],

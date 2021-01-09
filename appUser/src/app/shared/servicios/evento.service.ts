@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { EventI } from '../models/events.interface';
 import { map } from 'rxjs/operators';
 import { BeaconI } from '../models/beacon.interface';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { resolve } from 'dns';
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +16,14 @@ export class EventosService {
 
   private eventsCollection: AngularFirestoreCollection<EventI>;
   private subeventsCollection: AngularFirestoreCollection<EventI>;
-  constructor(private db: AngularFirestore) {
+  private beaconCollection: AngularFirestoreCollection<BeaconI>;
+  public userData$: Observable<firebase.User>;
+
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
     this.eventsCollection = db.collection<EventI>('events');
     this.subeventsCollection = db.collection<EventI>('subevents');
+    this.beaconCollection = db.collection<BeaconI>('beacons');
+    this.userData$ = auth.authState;
   }
 
   public getAllEvents(): Observable<EventI[]> {
@@ -40,5 +48,25 @@ export class EventosService {
   }
   getOneSubEvent(id: string): Observable<EventI> {
     return this.db.doc<EventI>(`subevents/${id}`).valueChanges();
+  }
+  registerUserOnSubEvent(id: string) {
+    this.userData$.subscribe(user => {
+      const eventRef = this.db.collection('subevents').doc(id);
+      console.log(eventRef);
+      eventRef.update({
+        //funcion de firestore: agg datos a un arreglo
+        idUsers: firebase.firestore.FieldValue.arrayUnion(user.uid)
+      });
+    })
+  }
+  registerUserOnEvent(id: string) {
+    this.userData$.subscribe(user => {
+      const eventRef = this.db.collection('events').doc(id);
+      console.log('aqui', id);
+      eventRef.update({
+        //funcion de firestore: agg datos a un arreglo
+        idUsers: firebase.firestore.FieldValue.arrayUnion(user.uid)
+      });
+    })
   }
 }

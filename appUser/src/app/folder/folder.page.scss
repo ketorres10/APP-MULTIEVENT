@@ -1,8 +1,25 @@
 .boton-entrar{
-  margin-top: 25px;
-  width: 50%;
-  margin-left: 25%;
+  font-family: "Candara";
 }
-.imagen{
-  color: red;
+.boton-login{
+  font-family: "Candara";
+}
+ion-slide{
+  display: block;
+
+}
+.slide-img-padding{
+  margin-top: 1em;
+}
+img{
+  margin-top: 2em;
+}
+h3{
+  margin-top: 3em;
+  font-family: "Candara";
+  font-weight: lighter;
+  margin-bottom: 2.5em;
+}
+ion-footer{
+  border: 0;
 }

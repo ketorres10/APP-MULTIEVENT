@@ -1,14 +1,27 @@
-<ion-header [translucent]="true" >
-  <ion-toolbar color="dark">
-    <ion-title class="encabezado">Inicio</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  <img class="imagen" src="assets/icon/icono.png" alt="">
-  <ion-button color="danger" class="boton-entrar" routerLink="/login" expand="block">Entrar</ion-button>
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let slide of slides">
+      <div class="slide-img-padding">
+        <img [src]="slide.img" class="img">
+      </div>
+      <div>
+        <h3 [innerHTML]="slide.titulo"></h3>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="12" size-lg="10" size-xs="12" offser="1">
+        <div padding>
+          <ion-button  routerLink="/login" color="primary" class="boton-entrar" expand="full" shape="round">Ingresar
+          </ion-button>
+          <ion-button routerLink="/info" expand="block" fill="clear" class="boton-login">
+            <ion-label color="dark">
+              <p>Acerca de</p>
+            </ion-label>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

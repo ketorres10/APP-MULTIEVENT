@@ -4,7 +4,6 @@ import { EventosService } from "src/app/shared/servicios/evento.service";
 import { Observable } from 'rxjs';
 import { EventI } from 'src/app/shared/models/events.interface';
 
-
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.page.html',
@@ -14,6 +13,7 @@ export class EventosPage implements OnInit {
  
   public eventos$ : Observable<EventI[]>;
   public listEvents : EventI[]= [];
+  public idSala: any;
 
   constructor(public authService: AuthService, public eventoService: EventosService) { }
 
