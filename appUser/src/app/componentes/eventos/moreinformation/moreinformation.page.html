@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Más información</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/eventos"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="container" *ngIf="event$ | async as event">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{event.siglas}}</ion-card-subtitle>
+      <ion-card-title>
+        <a [routerLink]="['/event', event.id]"> {{event.title}}</a>
+      </ion-card-title>
+      <ion-card-subtitle>
+        <h2>fecha inicio:</h2>
+        {{event.date | date:'dd/MM/yy' }}
+      </ion-card-subtitle>
+      <ion-card-subtitle>
+        <h2>fecha fin:</h2>
+        {{event.finishdate | date:'dd/MM/yy' }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{event.descrip}}
+    </ion-card-content>
+    <ion-item-divider></ion-item-divider>
+    <h4>&nbsp;Topicos de Interés</h4>
+    <ion-card-content selected *ngFor="let topic of event.topics" [ngClass]="topic">
+      {{topic}}
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="subEventos" *ngIf="subeventList.length >= 0; else noSubs">
+<!--<div class="subEventos" > -->
+  <ion-list>
+    <h2>Lista de SubEventos</h2>
+      <hr>
+    <ion-item *ngFor="let subevent of subeventList">
+      <div class="cardEventos">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{subevent.siglas}}</ion-card-subtitle>
+            <ion-card-title>
+              <a [routerLink]="['/subevent', subevent.id]"> {{subevent.title}}</a>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-item-divider></ion-item-divider>
+          <h4>&nbsp;Topicos de Interés</h4>
+          <ion-card-content selected *ngFor="let topic of subevent.topics" [ngClass]="topic">
+            {{topic}}
+          </ion-card-content>
+          <ion-button>Añadir</ion-button>
+        </ion-card>
+      </div>
+    </ion-item>
+  </ion-list>
+</div>
+<ng-template #noSubs>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>No hay subeventos</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ng-template>

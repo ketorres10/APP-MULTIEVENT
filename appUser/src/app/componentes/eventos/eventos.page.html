@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Eventos</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-list>
+  <ion-item *ngFor="let event of listEvents">
+    <div class="cardEventos">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{event.siglas}}</ion-card-subtitle>
+          <ion-card-title>
+            <a [routerLink]="['/event', event.id]"> {{event.title}}</a>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </ion-item>
+</ion-list>

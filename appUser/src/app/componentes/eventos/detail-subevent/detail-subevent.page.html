@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Subeventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="subevent$ | async as subevent;">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{subevent.siglas}}</ion-card-subtitle>
+        <ion-card-title>
+          {{subevent.title}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{subevent.descrip}}
+      </ion-card-content>
+      <ion-item-divider></ion-item-divider>
+      <h4>&nbsp;Topicos de Interés</h4>
+      <ion-card-content selected *ngFor="let topic of subevent.topics" [ngClass]="topic">
+        {{topic}}
+      </ion-card-content>
+      <ion-button (click)="onLogout()">Añadir</ion-button>
+    </ion-card>
+  </div>
+</ion-content>
