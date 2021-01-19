@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"dark\">\n    <ion-title>Login</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>{{ folder }}</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <img class=\"imagen\" src=\"assets/icon/icono.png\" alt=\"\">\n<ion-item>\n  <ion-label position=\"floating\">Correo Electrónico</ion-label >\n  <ion-input type=\"text\" [(ngModel)]=\"email\" name=\"Email\"></ion-input>\n</ion-item>\n<ion-item>\n  <ion-label position=\"floating\">Contraseña</ion-label >\n  <ion-input [(ngModel)]=\"password\" type=\"password\" name=\"Password\"></ion-input>\n</ion-item>\n<ion-button color=\"danger\" class=\"boton-entrar\" (click)=\"onSubmitLogin()\" expand=\"block\">Entrar</ion-button>\n<p class=\"crear\" style=\"text-align: center;\" routerLink=\"/registro\">Crear cuenta</p>\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"light\" >\n    <ion-title>Inicio de sesión</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>{{ folder }}</ion-title>\n  </ion-toolbar>\n</ion-header>\n  <ion-content padding >\n    <ion-card-content >\n      <ion-card-content class=\"card\">\n        <img class=\"logo\" src=\"assets/icon/logo.png\" alt=\"\">\n        <div class=\"field\" ion-icon=\"person-circle\">\n          <ion-item>\n            <ion-icon name=\"person-circle\" position= \"floating\"></ion-icon>\n            <ion-input type=\"text\" [(ngModel)]=\"email\" name=\"Email\" placeholder=\" Correo electrónico\"></ion-input>\n          </ion-item>\n        </div>\n        <br>\n        <div class=\"field\">\n          <ion-item>\n            <ion-icon name=\"lock-closed\"></ion-icon>\n            <ion-input [(ngModel)]=\"password\" [type]=\"showPassword ? 'text': 'password'\" name=\" Password\" placeholder=\" Contraseña\"></ion-input>\n            <ion-icon slot=\"end\" [name]=\"passwordToggleIcon\" (click)=\"togglePassword()\"></ion-icon>\n          </ion-item>\n        </div>\n      </ion-card-content>\n      <ion-button class=\"boton-entrar\" (click)=\"onSubmitLogin()\" style=\"background-color: #DC7633;\" color=\"#DC7633\" expand=\"full\">Entrar</ion-button>\n      <ion-button style=\"text-align: center;\" routerLink=\"/registro\" style=\"background-color: #2D6082;\" color=\"#DC7633\" expand=\"full\"><ion-icon name=\"person-add\" style=\"color: white;\"></ion-icon>&nbsp;&nbsp;Crear cuenta</ion-button>\n    </ion-card-content>\n  </ion-content>\n";
     /***/
   },
 
@@ -174,7 +174,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".imagen {\n  margin-top: 25px;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 65%;\n  height: 30%;\n}\n\n.boton-entrar {\n  margin-top: 25px;\n  width: 50%;\n  margin-left: 25%;\n}\n\n.crear {\n  font-size: small;\n  -webkit-text-decoration: underline red;\n          text-decoration: underline red;\n}\n\n.i {\n  background-color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvbG9naW4vQzpcXFVzZXJzXFxrYXJlZVxcRGVza3RvcFxcUFJPSkVDVE8gSU9OSUMgVFRcXGdlc3Rpb25FdmVudG9zL3NyY1xcYXBwXFxjb21wb25lbnRlc1xcbG9naW5cXGxvZ2luLnBhZ2Uuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50ZXMvbG9naW4vbG9naW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQUE7RUFDQSxjQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQ0VKOztBREFBO0VBQ0UsZ0JBQUE7RUFDQSxzQ0FBQTtVQUFBLDhCQUFBO0FDR0Y7O0FEREE7RUFDRSxxQkFBQTtBQ0lGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50ZXMvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmltYWdlbntcclxuICAgIG1hcmdpbi10b3A6IDI1cHg7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG4gICAgd2lkdGg6IDY1JTtcclxuICAgIGhlaWdodDogMzAlO1xyXG4gIH1cclxuLmJvdG9uLWVudHJhcntcclxuICAgIG1hcmdpbi10b3A6IDI1cHg7XHJcbiAgICB3aWR0aDogNTAlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDI1JTtcclxufVxyXG4uY3JlYXJ7XHJcbiAgZm9udC1zaXplOiBzbWFsbDtcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZSByZWQ7XHJcbn1cclxuLml7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG59IiwiLmltYWdlbiB7XG4gIG1hcmdpbi10b3A6IDI1cHg7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW4tbGVmdDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICB3aWR0aDogNjUlO1xuICBoZWlnaHQ6IDMwJTtcbn1cblxuLmJvdG9uLWVudHJhciB7XG4gIG1hcmdpbi10b3A6IDI1cHg7XG4gIHdpZHRoOiA1MCU7XG4gIG1hcmdpbi1sZWZ0OiAyNSU7XG59XG5cbi5jcmVhciB7XG4gIGZvbnQtc2l6ZTogc21hbGw7XG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lIHJlZDtcbn1cblxuLmkge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XG59Il19 */";
+    __webpack_exports__["default"] = ".logo {\n  margin-top: 5em;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  margin-bottom: 5em;\n}\n\n.card {\n  background-color: r;\n}\n\n.boton-entrar {\n  justify-content: center;\n  text-align: center;\n  margin-top: 1.5em;\n  display: flex;\n  color: white;\n}\n\nion-icon {\n  color: #2D6082;\n}\n\np {\n  font-size: small;\n}\n\n.field {\n  width: 100%;\n}\n\n.field .fie {\n  margin-top: 20px;\n}\n\nion-item {\n  font-size: 13px;\n  border-radius: 2em;\n  border: 2px solid #edbb99;\n  box-shadow: 10px 10px 17px -15px #000b00;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvbG9naW4vQzpcXFVzZXJzXFxrYXJlZVxcRGVza3RvcFxcQVBQLU1VTFRJRVZFTlRcXGFwcFVzZXIvc3JjXFxhcHBcXGNvbXBvbmVudGVzXFxsb2dpblxcbG9naW4ucGFnZS5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRlcy9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxlQUFBO0VBQ0EsY0FBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtBQ0FGOztBREVBO0VBQ0UsbUJBQUE7QUNDRjs7QURDQTtFQUNFLHVCQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0FDRUY7O0FEQUE7RUFDRSxjQUFBO0FDR0Y7O0FEREE7RUFDQSxnQkFBQTtBQ0lBOztBREZBO0VBQ0UsV0FBQTtBQ0tGOztBREpFO0VBQ0ksZ0JBQUE7QUNNTjs7QURIQTtFQUNFLGVBQUE7RUFDQSxrQkFBQTtFQUNBLHlCQUFBO0VBQ0Esd0NBQUE7QUNNRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudGVzL2xvZ2luL2xvZ2luLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4ubG9nb3tcclxuICBtYXJnaW4tdG9wOiA1ZW07XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IDVlbTtcclxufVxyXG4uY2FyZHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByO1xyXG59XHJcbi5ib3Rvbi1lbnRyYXJ7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIG1hcmdpbi10b3A6IDEuNWVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcbmlvbi1pY29ue1xyXG4gIGNvbG9yOiAjMkQ2MDgyO1xyXG59XHJcbnB7XHJcbmZvbnQtc2l6ZTogc21hbGw7XHJcbn1cclxuLmZpZWxke1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIC5maWV7XHJcbiAgICAgIG1hcmdpbi10b3A6IDIwcHg7XHJcbiAgfVxyXG59XHJcbmlvbi1pdGVte1xyXG4gIGZvbnQtc2l6ZTogMTNweDtcclxuICBib3JkZXItcmFkaXVzOiAyZW07XHJcbiAgYm9yZGVyOiAycHggc29saWQgcmdiKDIzNywgMTg3LCAxNTMpO1xyXG4gIGJveC1zaGFkb3c6IDEwcHggMTBweCAxN3B4IC0xNXB4IHJnYigwIDExIDApO1xyXG59XHJcbiIsIi5sb2dvIHtcbiAgbWFyZ2luLXRvcDogNWVtO1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNWVtO1xufVxuXG4uY2FyZCB7XG4gIGJhY2tncm91bmQtY29sb3I6IHI7XG59XG5cbi5ib3Rvbi1lbnRyYXIge1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAxLjVlbTtcbiAgZGlzcGxheTogZmxleDtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG5pb24taWNvbiB7XG4gIGNvbG9yOiAjMkQ2MDgyO1xufVxuXG5wIHtcbiAgZm9udC1zaXplOiBzbWFsbDtcbn1cblxuLmZpZWxkIHtcbiAgd2lkdGg6IDEwMCU7XG59XG4uZmllbGQgLmZpZSB7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG59XG5cbmlvbi1pdGVtIHtcbiAgZm9udC1zaXplOiAxM3B4O1xuICBib3JkZXItcmFkaXVzOiAyZW07XG4gIGJvcmRlcjogMnB4IHNvbGlkICNlZGJiOTk7XG4gIGJveC1zaGFkb3c6IDEwcHggMTBweCAxN3B4IC0xNXB4ICMwMDBiMDA7XG59Il19 */";
     /***/
   },
 
@@ -218,20 +218,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var LoginPage = /*#__PURE__*/function () {
       //en ves de authservice
-      function LoginPage(authService, router) {
+      function LoginPage(authService, router, alertCtrl, navController) {
         _classCallCheck(this, LoginPage);
 
         this.authService = authService;
         this.router = router;
+        this.alertCtrl = alertCtrl;
+        this.navController = navController;
+        this.showPassword = false;
+        this.passwordToggleIcon = "eye";
       }
 
       _createClass(LoginPage, [{
+        key: "togglePassword",
+        value: function togglePassword() {
+          this.showPassword = !this.showPassword;
+
+          if (this.passwordToggleIcon == 'eye') {
+            this.passwordToggleIcon = 'eye-off';
+          } else {
+            this.passwordToggleIcon = 'eye';
+          }
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {// this.folder = this.activatedRoute.snapshot.paramMap.get('id');
         }
@@ -244,7 +265,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.authService.login(this.email, this.password).then(function (res) {
             _this.router.navigate(['../eventos/']);
           })["catch"](function (err) {
-            return alert('los datos son incorrectos o no existe el usuario');
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this2 = this;
+
+              var alert, result;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.alertCtrl.create({
+                        header: 'Datos incorrectos o usuario inexistente',
+                        buttons: [{
+                          text: 'Aceptar',
+                          handler: function handler() {
+                            _this2.navController.navigateForward(['login']);
+                          }
+                        }]
+                      });
+
+                    case 2:
+                      alert = _context.sent;
+                      _context.next = 5;
+                      return alert.present();
+
+                    case 5:
+                      _context.next = 7;
+                      return alert.onDidDismiss();
+
+                    case 7:
+                      result = _context.sent;
+                      console.log(result);
+
+                    case 9:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
           });
         }
       }]);
@@ -256,7 +315,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: src_app_shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]
       }];
     };
 

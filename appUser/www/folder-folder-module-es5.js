@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header [translucent]=\"true\" >\n  <ion-toolbar color=\"dark\">\n    <ion-title class=\"encabezado\">Inicio</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>{{ folder }}</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <img class=\"imagen\" src=\"assets/icon/icono.png\" alt=\"\">\n  <ion-button color=\"danger\" class=\"boton-entrar\" routerLink=\"/login\" expand=\"block\">Entrar</ion-button>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-content>\n\n  <ion-slides pager=\"true\">\n    <ion-slide *ngFor=\"let slide of slides\">\n      <div class=\"slide-img-padding\">\n        <div>\n          <img [src]=\"slide.img\" class=\"img\">\n          <h3 [innerHTML]=\"slide.titulo\"></h3>\n        </div>\n      </div>\n    </ion-slide>\n  </ion-slides>\n  <ion-card>\n    <ion-grid>\n      <ion-row justify-content-center>\n        <ion-col align-self-center size-md=\"12\" size-lg=\"10\" size-xs=\"12\" offser=\"1\">\n          <div padding>\n            <ion-button routerLink=\"/login\" color=\"primary\" class=\"boton-entrar\" expand=\"full\" shape=\"round\">Ingresar\n            </ion-button>\n            <ion-button routerLink=\"/info\" color=\"primary\" expand=\"full\" class=\"boton-login\" shape=\"round\">\n              Acerca de\n            </ion-button>\n          </div>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n</ion-content>";
     /***/
   },
 
@@ -174,7 +174,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".boton-entrar {\n  margin-top: 25px;\n  width: 50%;\n  margin-left: 25%;\n}\n\n.imagen {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL0M6XFxVc2Vyc1xca2FyZWVcXERlc2t0b3BcXFBST0pFQ1RPIElPTklDIFRUXFxnZXN0aW9uRXZlbnRvcy9zcmNcXGFwcFxcZm9sZGVyXFxmb2xkZXIucGFnZS5zY3NzIiwic3JjL2FwcC9mb2xkZXIvZm9sZGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxVQUFBO0FDRUYiLCJmaWxlIjoic3JjL2FwcC9mb2xkZXIvZm9sZGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ib3Rvbi1lbnRyYXJ7XG4gIG1hcmdpbi10b3A6IDI1cHg7XG4gIHdpZHRoOiA1MCU7XG4gIG1hcmdpbi1sZWZ0OiAyNSU7XG59XG4uaW1hZ2Vue1xuICBjb2xvcjogcmVkO1xufSIsIi5ib3Rvbi1lbnRyYXIge1xuICBtYXJnaW4tdG9wOiAyNXB4O1xuICB3aWR0aDogNTAlO1xuICBtYXJnaW4tbGVmdDogMjUlO1xufVxuXG4uaW1hZ2VuIHtcbiAgY29sb3I6IHJlZDtcbn0iXX0= */";
+    __webpack_exports__["default"] = ".boton-entrar {\n  font-family: \"Candara\";\n}\n\n.boton-login {\n  font-family: \"Candara\";\n}\n\n.slide-img-padding {\n  margin-top: 5em;\n}\n\nion-slide {\n  display: block;\n  color: white;\n}\n\nh3 {\n  font-family: \"Candara\";\n  font-weight: lighter;\n  margin-bottom: 2.5em;\n}\n\nion-footer {\n  border: 0;\n}\n\nion-label {\n  color: #2D6082;\n}\n\nion-content {\n  --ion-background-color: #2D6082;\n  color: #2D6082;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9sZGVyL0M6XFxVc2Vyc1xca2FyZWVcXERlc2t0b3BcXEFQUC1NVUxUSUVWRU5UXFxhcHBVc2VyL3NyY1xcYXBwXFxmb2xkZXJcXGZvbGRlci5wYWdlLnNjc3MiLCJzcmMvYXBwL2ZvbGRlci9mb2xkZXIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7QUNDRjs7QURDQTtFQUNFLHNCQUFBO0FDRUY7O0FEQUE7RUFDRSxlQUFBO0FDR0Y7O0FEREE7RUFDRSxjQUFBO0VBQ0EsWUFBQTtBQ0lGOztBRERBO0VBRUUsc0JBQUE7RUFDQSxvQkFBQTtFQUNBLG9CQUFBO0FDR0Y7O0FEREE7RUFDRSxTQUFBO0FDSUY7O0FERkE7RUFDRSxjQUFBO0FDS0Y7O0FESEE7RUFDRSwrQkFBQTtFQUNBLGNBQUE7QUNNRiIsImZpbGUiOiJzcmMvYXBwL2ZvbGRlci9mb2xkZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJvdG9uLWVudHJhcntcbiAgZm9udC1mYW1pbHk6IFwiQ2FuZGFyYVwiO1xufVxuLmJvdG9uLWxvZ2lue1xuICBmb250LWZhbWlseTogXCJDYW5kYXJhXCI7XG59XG4uc2xpZGUtaW1nLXBhZGRpbmd7XG4gIG1hcmdpbi10b3A6IDVlbTtcbn1cbmlvbi1zbGlkZXtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGNvbG9yOiB3aGl0ZTtcblxufVxuaDN7XG5cbiAgZm9udC1mYW1pbHk6IFwiQ2FuZGFyYVwiO1xuICBmb250LXdlaWdodDogbGlnaHRlcjtcbiAgbWFyZ2luLWJvdHRvbTogMi41ZW07XG59XG5pb24tZm9vdGVye1xuICBib3JkZXI6IDA7XG59XG5pb24tbGFiZWx7XG4gIGNvbG9yOiAjMkQ2MDgyO1xufVxuaW9uLWNvbnRlbnR7XG4gIC0taW9uLWJhY2tncm91bmQtY29sb3I6ICMyRDYwODI7XG4gIGNvbG9yOiAjMkQ2MDgyO1xufSIsIi5ib3Rvbi1lbnRyYXIge1xuICBmb250LWZhbWlseTogXCJDYW5kYXJhXCI7XG59XG5cbi5ib3Rvbi1sb2dpbiB7XG4gIGZvbnQtZmFtaWx5OiBcIkNhbmRhcmFcIjtcbn1cblxuLnNsaWRlLWltZy1wYWRkaW5nIHtcbiAgbWFyZ2luLXRvcDogNWVtO1xufVxuXG5pb24tc2xpZGUge1xuICBkaXNwbGF5OiBibG9jaztcbiAgY29sb3I6IHdoaXRlO1xufVxuXG5oMyB7XG4gIGZvbnQtZmFtaWx5OiBcIkNhbmRhcmFcIjtcbiAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gIG1hcmdpbi1ib3R0b206IDIuNWVtO1xufVxuXG5pb24tZm9vdGVyIHtcbiAgYm9yZGVyOiAwO1xufVxuXG5pb24tbGFiZWwge1xuICBjb2xvcjogIzJENjA4Mjtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiAjMkQ2MDgyO1xuICBjb2xvcjogIzJENjA4Mjtcbn0iXX0= */";
     /***/
   },
 
@@ -232,6 +232,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.authService = authService;
         this.router = router;
+        this.slides = [{
+          img: 'assets/icon/slide1.png',
+          titulo: 'Obtener información del evento<br>en tiempo real'
+        }, {
+          img: 'assets/icon/slide2.png',
+          titulo: 'Facilidad de inscrcibirte<br>en el evento'
+        }, {
+          img: 'assets/icon/slide3.png',
+          titulo: 'Actualización de la<br>agenda de eventos'
+        }];
       }
 
       _createClass(FolderPage, [{

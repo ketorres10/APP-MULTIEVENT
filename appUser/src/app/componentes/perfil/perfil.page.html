@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>Perfil de usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="row">
+    <ion-card class="card">
+      <ion-card-content class="card-body table-responsive">
+        <Form [formGroup]="profileForm" (ngSubmit)="onSaveUser(profileForm.value)">
+          <div class="profile-pic">
+            <img [src]="currentImage" alt="foto de perfil" class="avatar">
+<!--             <ion-input type="file" #inputImageProfile (change)="handleImage(($event?.target?.files)[0])"></ion-input> -->
+          </div>
+          <div class="field">
+            <h3 class="fie">Nombres</h3>
+            <ion-item>
+              <ion-input formControlName="displayName"></ion-input>
+            </ion-item>
+          </div>
+          <div class="field">
+            <h3 class="fie">Email</h3>
+            <ion-item>
+              <ion-input formControlName="email"></ion-input>
+            </ion-item>
+          </div>
+          <div class="field">
+            <h3 class="fie">Teléfono</h3>
+            <ion-item>
+              <ion-input formControlName="phoneNumber"></ion-input>
+            </ion-item>
+          </div>
+          <div class="field">
+            <h3 class="fie">Descripción</h3>
+            <ion-item appearance="fill">
+              <ion-textarea  formControlName="description"></ion-textarea>
+            </ion-item>
+          </div>
+          <div class="field">
+            <h3 class="fie">Foto de perfil</h3><br>
+            <input type="file" #inputImageProfile formControlName="photoURL"
+              (change)="handleImage(($event?.target?.files)[0])" />
+          </div><br><br>
+          <div class="mat-dialog-actions">
+            <div class="button">
+              <ion-button type="submit"><ion-icon name="save-outline"></ion-icon>  Guardar</ion-button>
+            </div>
+          </div>
+        </Form>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

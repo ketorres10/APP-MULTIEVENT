@@ -1,18 +1,36 @@
-.imagen{
-  margin-top: 25px;
+
+.logo{
+  margin-top: 5em;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
+  margin-bottom: 5em;
+}
+.card{
+  background-color: r;
 }
 .boton-entrar{
-margin-top: 25px;
-width: 50%;
-margin-left: 25%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1.5em;
+  display: flex;
+  color: white;
 }
-.i{
-background-color: red;
+ion-icon{
+  color: #2D6082;
 }
 p{
 font-size: small;
+}
+.field{
+  width: 100%;
+  .fie{
+      margin-top: 20px;
+  }
+}
+ion-item{
+  font-size: 13px;
+  border-radius: 2em;
+  border: 2px solid rgb(237, 187, 153);
+  box-shadow: 10px 10px 17px -15px rgb(0 11 0);
 }

@@ -20,6 +20,10 @@ const routes: Routes = [
   { path: 'login',loadChildren: () => import('./componentes/login/login.module').then( m => m.LoginPageModule),canActivate: [NologinGuard]
   },
   {
+    path: 'perfil',
+    loadChildren: () => import('./componentes/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./componentes/registro/registro.module').then( m => m.RegistroPageModule), canActivate: [NologinGuard]
   },

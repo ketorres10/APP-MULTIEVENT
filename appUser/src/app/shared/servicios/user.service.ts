@@ -14,6 +14,10 @@ import { map } from 'rxjs/operators';
     constructor( private db: AngularFirestore) { 
       this.userCollection=db.collection<UserI>('users');
     }
+    public getUser(id: string): Observable<UserI> {
+      // Create a query against the collection.
+      return this.db.doc<UserI>(`users/${id}`).valueChanges();
+    }
     
   
 }

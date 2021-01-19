@@ -1,23 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Inicio sesión</ion-title>
+  <ion-toolbar color="light" >
+    <ion-title>Inicio de sesión</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ folder }}</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-  <img class="imagen" src="assets/icon/logo.png" alt="">
-<ion-item>
-  <ion-label position="floating">Correo Electrónico</ion-label >
-  <ion-input type="text" [(ngModel)]="email" name="Email"></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label position="floating">Contraseña</ion-label >
-  <ion-input [(ngModel)]="password" type="password" name="Password"></ion-input>
-</ion-item>
-<ion-button  class="boton-entrar" (click)="onSubmitLogin()" shape="round">Entrar</ion-button>
-<p style="text-align: center;" routerLink="/registro">Crear cuenta</p>
-</ion-content>
+  <ion-content padding >
+    <ion-card-content >
+      <ion-card-content class="card">
+        <img class="logo" src="assets/icon/logo.png" alt="">
+        <div class="field" ion-icon="person-circle">
+          <ion-item>
+            <ion-icon name="person-circle" position= "floating"></ion-icon>
+            <ion-input type="text" [(ngModel)]="email" name="Email" placeholder=" Correo electrónico"></ion-input>
+          </ion-item>
+        </div>
+        <br>
+        <div class="field">
+          <ion-item>
+            <ion-icon name="lock-closed"></ion-icon>
+            <ion-input [(ngModel)]="password" [type]="showPassword ? 'text': 'password'" name=" Password" placeholder=" Contraseña"></ion-input>
+            <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+          </ion-item>
+        </div>
+      </ion-card-content>
+      <ion-button class="boton-entrar" (click)="onSubmitLogin()" style="background-color: #DC7633;" color="#DC7633" expand="full">Entrar</ion-button>
+      <ion-button style="text-align: center;" routerLink="/registro" style="background-color: #2D6082;" color="#DC7633" expand="full"><ion-icon name="person-add" style="color: white;"></ion-icon>&nbsp;&nbsp;Crear cuenta</ion-button>
+    </ion-card-content>
+  </ion-content>

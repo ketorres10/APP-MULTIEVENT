@@ -5,4 +5,7 @@ export interface UserI {
     email: string;
     password: string;
     urlImage: string;
+    displayName?: string;
+    phoneNumber?: string;
+    description?: string;
 }

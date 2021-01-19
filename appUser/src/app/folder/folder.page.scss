@@ -4,22 +4,27 @@
 .boton-login{
   font-family: "Candara";
 }
+.slide-img-padding{
+  margin-top: 5em;
+}
 ion-slide{
   display: block;
+  color: white;
 
 }
-.slide-img-padding{
-  margin-top: 1em;
-}
-img{
-  margin-top: 2em;
-}
 h3{
-  margin-top: 3em;
+
   font-family: "Candara";
   font-weight: lighter;
   margin-bottom: 2.5em;
 }
 ion-footer{
   border: 0;
+}
+ion-label{
+  color: #2D6082;
+}
+ion-content{
+  --ion-background-color: #2D6082;
+  color: #2D6082;
 }

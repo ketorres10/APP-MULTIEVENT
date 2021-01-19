@@ -20,12 +20,12 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Login',
-      url: '/perfil',
+      url: '/login',
       icon: 'people'
     },
     {
-      title: 'Login',
-      url: '/login',
+      title: 'Perfil de usuario',
+      url: '/perfil',
       icon: 'people'
     },
     {
@@ -78,13 +78,13 @@ export class AppComponent implements OnInit {
     this.menu.close();
     this.navController.navigateForward(['folder/Inicio']);
   }
-  perfil(){
-    this.menu.close();
-    this.navController.navigateForward(['perfil']);
-  }
   login(){
     this.menu.close();
     this.navController.navigateForward(['login']);
+  }
+  perfil(){
+    this.menu.close();
+    this.navController.navigateForward(['perfil']);
   }
   irEventos() {
     this.menu.close();
