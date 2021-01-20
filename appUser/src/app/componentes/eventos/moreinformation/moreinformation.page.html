@@ -38,35 +38,32 @@
           </ion-card-content>
         </ion-card>
       </ion-card>
-      <ion-button>
-        <ion-card style="background-color: #34495E;">
-          <div class="subEventos" *ngIf="subeventList.length >= 0; else noSubs">
-            <!--<div class="subEventos" > -->
-            <h3>Sub-eventos<ion-icon name="caret-down-outline" style="margin-left: 6em;"></ion-icon>
-            </h3>
-            <ion-list>
-              <ion-item *ngFor="let subevent of subeventList">
-                <div class="cardEventos">
-                  <ion-card class="card-subeventos">
-                    <ion-card-header>
-                      <ion-card-subtitle class="subtitle-subevento" style="color:#E67E22">
-                        <strong>{{event.siglas}}</strong>
-                      </ion-card-subtitle>
-                      <ion-card-title class="title-subevento">
-                        <strong><a [routerLink]="['/subevent', subevent.id]" style="color:#85929E">
-                            {{subevent.title}}</a></strong>
-                      </ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </div>
-              </ion-item>
-            </ion-list>
-          </div>
-        </ion-card>
-      </ion-button>
+
+      <ion-card style="background-color: #34495E;" expand="full">
+        <div class="subEventos" *ngIf="subeventList.length >= 0; else noSubs">
+          <!--<div class="subEventos" > -->
+          <h3>Sub-eventos<ion-icon name="caret-down-outline" style="margin-left: 6em;"></ion-icon>
+          </h3>
+          <ion-list>
+            <ion-item *ngFor="let subevent of subeventList">
+              <div class="cardEventos">
+                <ion-card class="card-subeventos">
+                  <ion-card-header>
+                    <ion-card-subtitle class="subtitle-subevento" style="color:#E67E22">
+                      <strong>{{event.siglas}}</strong>
+                    </ion-card-subtitle>
+                    <ion-card-title class="title-subevento">
+                      <strong><a [routerLink]="['/subevent', subevent.id]" style="color:#85929E">
+                          {{subevent.title}}</a></strong>
+                    </ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-card>
     </ion-card>
-
-
   </div>
 </ion-content>
 <ng-template #noSubs>

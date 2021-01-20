@@ -16,7 +16,7 @@ import { AngularFireModule }  from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { CommonModule } from '@angular/common';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-//import { Camera } from '@ionic-native/camera/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
   providers:[
     StatusBar,
     SplashScreen,
-    //Camera,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

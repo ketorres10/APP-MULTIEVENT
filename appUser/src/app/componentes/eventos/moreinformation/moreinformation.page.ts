@@ -91,7 +91,7 @@ export class MoreinformationPage implements OnInit {
   }
   async registerEvent() {
     const alert = await this.alertCtrl.create({
-      header: '¿Está seguro de añadir el evento a tu agenda?',
+      header: '¿Está seguro de agregar el evento a su agenda?',
       buttons: [
         {
           text: 'Cancelar',

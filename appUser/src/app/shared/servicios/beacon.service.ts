@@ -23,7 +23,7 @@ export class BeaconService {
           map(actions =>
             actions.map(a => {
               const data = a.payload.doc.data() as BeaconI;
-              const id = a.payload.doc.id;
+              const id = a.payload.doc['id'];
               return { id, ...data };
             })
           )

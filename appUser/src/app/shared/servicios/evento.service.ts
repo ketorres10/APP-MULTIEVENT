@@ -9,6 +9,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { resolve } from 'dns';
 import * as firebase from 'firebase/app';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +25,8 @@ export class EventosService {
     this.subeventsCollection = db.collection<EventI>('subevents');
     this.beaconCollection = db.collection<BeaconI>('beacons');
     this.userData$ = auth.authState;
-  }
 
+  }
   public getAllEvents(): Observable<EventI[]> {
     return this.eventsCollection
       .snapshotChanges()
@@ -33,7 +34,7 @@ export class EventosService {
         map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data() as EventI;
-            const id = a.payload.doc.id;
+            const id = a.payload.doc['id'];
             return { id, ...data };
           })
         )

@@ -1,7 +1,7 @@
 <ion-app >
   <ion-menu side="start"  type="overlay" contentId="main" swipe-gesture="false" color="primary">
     <ion-header>
-      <ion-toolbar style="background-color: #D1F2EB;">
+      <ion-toolbar>
         <ion-title>Menu de opciones</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -9,13 +9,16 @@
       <div class="container-imagen">
       </div>
       <div class="container-actividades">
-        <ion-note (click)="inicio()"> <ion-icon name="home"></ion-icon>&nbsp;&nbsp;Inicio</ion-note><br>
-        <ion-note (click)="login()"> <ion-icon name="people"></ion-icon>&nbsp;&nbsp;Iniciar sesión</ion-note><br>
-        <ion-note (click)="perfil()"> <ion-icon name="people"></ion-icon>&nbsp;&nbsp;Perfil de usuario</ion-note><br>
-        <ion-note (click)="irEventos()"><ion-icon name="reader"></ion-icon>&nbsp;&nbsp;Eventos</ion-note><br>
-        <ion-note (click)="agenda()"> <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;Agenda</ion-note><br>
-        <ion-note (click)="deteccion()"> <ion-icon name="radio"></ion-icon>&nbsp;&nbsp;Detección</ion-note><br>
-        <ion-note (click)="cerrarSesion()"> <ion-icon name="log-out"></ion-icon>&nbsp;&nbsp;Cerrar sesión</ion-note>
+        <div class="hover">
+          <ion-note (click)="inicio()" class="actividad" expand="full"> <ion-icon name="home"></ion-icon>&nbsp;&nbsp;Inicio</ion-note><br>
+        </div>
+        
+        <ion-note (click)="login()" class="actividad"> <ion-icon name="people"></ion-icon>&nbsp;&nbsp;Iniciar sesión</ion-note><br>
+        <ion-note (click)="perfil()" class="actividad"> <ion-icon name="people"></ion-icon>&nbsp;&nbsp;Perfil de usuario</ion-note><br>
+        <ion-note (click)="irEventos()" class="actividad"><ion-icon name="reader"></ion-icon>&nbsp;&nbsp;Eventos</ion-note><br>
+        <ion-note (click)="agenda()" class="actividad"> <ion-icon name="calendar"></ion-icon>&nbsp;&nbsp;Agenda</ion-note><br>
+        <ion-note (click)="deteccion()" class="actividad"> <ion-icon name="radio"></ion-icon>&nbsp;&nbsp;Detección</ion-note><br>
+        <ion-note (click)="cerrarSesion()" class="actividad"> <ion-icon name="log-out"></ion-icon>&nbsp;&nbsp;Cerrar sesión</ion-note>
       </div>
     </ion-content>
   </ion-menu>

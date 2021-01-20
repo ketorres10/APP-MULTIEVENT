@@ -9,15 +9,19 @@
 <ion-content padding>
   <ion-card-content>
     <ion-card-content>
+      
       <div class="containerImagen">
         <img src="{{image}}" alt="" height="200" width="200">
         <br>
+        
         <ion-button ion-button block (click)="onUploadGaleria()" style="background-color: #2D6082;" color="white" >
           <ion-icon name="image"></ion-icon>Galeria
         </ion-button>
         <ion-button ion-button block (click)="onUploadCamera()" style="background-color: #2D6082;" color="white">
           <ion-icon name="camera"></ion-icon> Cámara</ion-button>
+          
       </div>
+      
       <Form [formGroup]="newUserForm" (ngSubmit)="onSubmitRegister(newUserForm.value)">
 
         <!-- argregar archivo

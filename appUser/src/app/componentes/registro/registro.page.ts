@@ -15,7 +15,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
-  providers: [Camera],
 
 })
 export class RegistroPage implements OnInit {
@@ -32,6 +31,7 @@ export class RegistroPage implements OnInit {
   })
   ngOnInit() {
   }
+  
   onUploadCamera(){
     this.camara.getPicture({
       destinationType: this.camara.DestinationType.FILE_URI, 

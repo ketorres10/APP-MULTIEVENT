@@ -49,6 +49,7 @@ export class AgendaPage implements OnInit {
                   if (ids == this.iduser) {
                     this.listSubEvents.push(sub as EventI);
                     console.log('se agregó: ', sub.title);
+                    (<HTMLInputElement> document.getElementById("butonA")).disabled = true;
                   }
                 });
               } else {

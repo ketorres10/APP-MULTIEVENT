@@ -162,6 +162,7 @@ let AgendaPage = class AgendaPage {
                                         if (ids == this.iduser) {
                                             this.listSubEvents.push(sub);
                                             console.log('se agregó: ', sub.title);
+                                            document.getElementById("butonA").disabled = true;
                                         }
                                     });
                                 }
