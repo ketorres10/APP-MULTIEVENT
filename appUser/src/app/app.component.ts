@@ -4,6 +4,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { firebase } from '@firebase/app';
 import { AuthService } from './shared/servicios/auth.service';
+import { UserI } from 'src/app/shared/models/user.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,46 +13,13 @@ import { AuthService } from './shared/servicios/auth.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  public image: string;
+  public idUser: string;
+  public email: string;
+  public name: string;
+  public currentImage: string = 'https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg';
   public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'Inicio',
-      url: '/home/Inicio',
-      icon: 'home'
-    },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'people'
-    },
-    {
-      title: 'Perfil de usuario',
-      url: '/perfil',
-      icon: 'people'
-    },
-    {
-      title: 'Eventos',
-      url: '/eventos',
-      icon: 'reader'
-    },
-    {
-      title: 'Mi Agenda',
-      url: '/agenda',
-      icon: 'calendar'
-    },
-
-    {
-      title: 'Detectar',
-      url: '/detection-beacon',
-      icon: 'radio',
-    },
-    {
-      title: 'Cerrar sesión',
-      url: '/cerrar',
-      icon: 'close-circle',
-    },
-  ];
-
+  public user$: Observable<UserI>;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -58,9 +27,29 @@ export class AppComponent implements OnInit {
     private menu: MenuController,
     private navController: NavController,
     private alertCtrl: AlertController,
-    private authservice: AuthService,
+    private authSvc: AuthService,
   ) {
     this.initializeApp();
+  }
+  ngOnInit() {
+    this.authSvc.userData$.subscribe(user => {
+      this.user$ = this.authSvc.getUser(user.uid);
+      this.user$.subscribe(us => {
+        this.initValuesForm(us);
+      })
+      this.email = user.email;
+      this.name= user.displayName;
+    });
+  }
+  onSaveUser(user: UserI): void {
+    this.authSvc.preSaveProfile(user, this.image, this.idUser);
+
+  }
+  private initValuesForm(user: UserI) {
+    console.log(user);
+    if (user.urlImage) {
+      this.currentImage = user.urlImage;
+    }
   }
   initializeApp() {
     this.platform.ready().then(() => {
@@ -68,21 +57,11 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
-  ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
-  }
-  inicio(){
-    this.menu.close();
-    this.navController.navigateForward(['folder/Inicio']);
-  }
-  login(){
+  login() {
     this.menu.close();
     this.navController.navigateForward(['login']);
   }
-  perfil(){
+  perfil() {
     this.menu.close();
     this.navController.navigateForward(['perfil']);
   }
@@ -90,11 +69,11 @@ export class AppComponent implements OnInit {
     this.menu.close();
     this.navController.navigateForward(['eventos']);
   }
-  agenda(){
+  agenda() {
     this.menu.close();
     this.navController.navigateForward(['agenda']);
   }
-  deteccion(){
+  deteccion() {
     this.menu.close();
     this.navController.navigateForward(['deteccion']);
   }
@@ -113,7 +92,7 @@ export class AppComponent implements OnInit {
           handler: () => {
             console.log('Okey');
             this.navController.navigateForward(['folder/Inicio']);
-            this.authservice.logout();
+            this.authSvc.logout();
           }
         }
 
@@ -125,3 +104,4 @@ export class AppComponent implements OnInit {
 
   }
 }
+

@@ -6,6 +6,9 @@ ion-content{
   margin-bottom: 1em;
 }
 .imagen{
+  border-radius: 50%;
+  border: 3px darkcyan;
+  border-style: groove;
   margin-top: 25px;
   display: block;
   margin-left: auto;
@@ -13,11 +16,7 @@ ion-content{
   width: 95%;
   height: 30%;
 }
-.boton-registro{
-  margin-top: 25px;
-  width: 50%;
-  margin-left: 25%;
-}
+
 .field{
   margin-bottom: 1em;
   .fie{
@@ -29,6 +28,10 @@ ion-item{
   font-size: 13px;
   box-shadow: 10px 10px 30px -15px rgb(33, 97, 140);
 }
-
-
+.perfil{
+  background-image: url("/src/assets/icon/profile.png");
+}
+.boton-registro{
+  margin-top: 5%;
+}
 

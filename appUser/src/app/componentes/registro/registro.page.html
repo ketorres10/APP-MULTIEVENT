@@ -1,49 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="light">
     <ion-title>Registro</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
   <ion-card-content>
     <ion-card-content>
-      
       <div class="containerImagen">
-        <img src="{{image}}" alt="" height="200" width="200">
-        <br>
-        
-        <ion-button ion-button block (click)="onUploadGaleria()" style="background-color: #2D6082;" color="white" >
-          <ion-icon name="image"></ion-icon>Galeria
+        <img [src]="base64Image" height="200" width="200" class="foto" />
+        <ion-button block (click)="onUploadGaleria()" style="background-color: #2D6082;" color="white">
+          <ion-icon name="image"></ion-icon> Galeria
         </ion-button>
-        <ion-button ion-button block (click)="onUploadCamera()" style="background-color: #2D6082;" color="white">
-          <ion-icon name="camera"></ion-icon> Cámara</ion-button>
-          
+        <ion-button block (click)="onUploadCamera()" style="background-color: #2D6082;" color="white">
+          <ion-icon name="image"></ion-icon> Cámara
+        </ion-button>
       </div>
-      
-      <Form [formGroup]="newUserForm" (ngSubmit)="onSubmitRegister(newUserForm.value)">
-
-        <!-- argregar archivo
-          <br>
-            <ion-avatar>
-              <img #imageUser [src]="urlImage | async" >
-           </ion-avatar>
-            <ion-input type="file" style="display: none;" accept=".png, .jpg" style="color: transparent;" (change)="onUpload($event)" class="btnImagen"></ion-input>
-          <ion-item-divider></ion-item-divider>
-          <ion-button ion-button block (click)="onUploadGaleria()">Tomar Galeria</ion-button>
-          <ion-button ion-button block (click)="onUploadCamera()">Tomar Camara</ion-button>
-          <img [src]="image" *ngIf="image" />
-        -->
-        <!--Nombre-->
-        
+      <!-- (ngSubmit)="onSubmitRegister(newUserForm.value) -->
+      <Form [formGroup]="newUserForm">
         <ion-card-content style="background-color: white;">
           <div class="field">
             <ion-item>
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="pencil"></ion-icon>Nombres
               </ion-label>
-              <ion-input type="text" name="name"></ion-input>
+              <ion-input type="text" formControlName="displayName"></ion-input>
             </ion-item>
           </div>
           <!--Correo-->
@@ -52,7 +32,7 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="at"></ion-icon>Correo electrónico
               </ion-label>
-              <ion-input type="email" formControlEmail="email"></ion-input>
+              <ion-input type="email" formControlName="email"></ion-input>
             </ion-item>
           </div>
           <!--Password-->
@@ -61,7 +41,7 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="lock-open"> </ion-icon>Contraseña
               </ion-label>
-              <ion-input type="password" formControlPassword="password"></ion-input>
+              <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
           </div>
           <div class="field">
@@ -69,7 +49,7 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="call"> </ion-icon>Telefóno
               </ion-label>
-              <ion-input type="text" name="name"></ion-input>
+              <ion-input type="number" formControlName="phoneNumber" minlenght="7" maxlength="10"></ion-input>
             </ion-item>
           </div>
           <div class="field">
@@ -77,23 +57,20 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="person"> </ion-icon>Descripción
               </ion-label>
-              <ion-input type="text" name="name"></ion-input>
+              <ion-input type="text" formControlName="description"></ion-input>
             </ion-item>
-            </div>
+          </div>
         </ion-card-content>
         <p style="text-align: center;" routerLink="/registro/registroAvatar.page.html"></p>
 
-        <!--<ion-button class="boton-registro" expand="block" (click)="onSubmitRegister(user)">Registrarme</ion-button> 
-        <div>
-          <ion-button *ngIf="urlImage | async; else btnDisabled" type="submit" class="boton-registro" shape="round">Registrarme</ion-button>
-          <ng-template #btnDisabled>
-            <ion-button type="submit" disabled=true class="boton-registro" shape="round" color="dark">Registrarme</ion-button>
-          </ng-template>
-        </div>
-        -->
+        <ion-button class="boton-registro" expand="full" (click)="onSubmitRegister(newUserForm.value)" color="secondary"
+          shape="round">Registrarme
+        </ion-button>
+        <ion-button style="text-align: center;" routerLink="/login" expand="full" shape="round">Ya tengo cuenta
+        </ion-button>
       </Form>
       <br>
-      <ion-button style="text-align: center;" routerLink="/login" style="background-color: #DC7633;" color="#DC7633" expand="full">Ya tengo cuenta</ion-button>
+
     </ion-card-content>
   </ion-card-content>
 

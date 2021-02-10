@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { MoreinformationPage } from './moreinformation.page';
 
 describe('MoreinformationPage', () => {

@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"light\">\n    <ion-title>Registro</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content padding>\n  <ion-card-content>\n    <ion-card-content>\n      \n      <div class=\"containerImagen\">\n        <img src=\"{{image}}\" alt=\"\" height=\"200\" width=\"200\">\n        <br>\n        \n        <ion-button ion-button block (click)=\"onUploadGaleria()\" style=\"background-color: #2D6082;\" color=\"white\" >\n          <ion-icon name=\"image\"></ion-icon>Galeria\n        </ion-button>\n        <ion-button ion-button block (click)=\"onUploadCamera()\" style=\"background-color: #2D6082;\" color=\"white\">\n          <ion-icon name=\"camera\"></ion-icon> Cámara</ion-button>\n          \n      </div>\n      \n      <Form [formGroup]=\"newUserForm\" (ngSubmit)=\"onSubmitRegister(newUserForm.value)\">\n\n        <!-- argregar archivo\n          <br>\n            <ion-avatar>\n              <img #imageUser [src]=\"urlImage | async\" >\n           </ion-avatar>\n            <ion-input type=\"file\" style=\"display: none;\" accept=\".png, .jpg\" style=\"color: transparent;\" (change)=\"onUpload($event)\" class=\"btnImagen\"></ion-input>\n          <ion-item-divider></ion-item-divider>\n          <ion-button ion-button block (click)=\"onUploadGaleria()\">Tomar Galeria</ion-button>\n          <ion-button ion-button block (click)=\"onUploadCamera()\">Tomar Camara</ion-button>\n          <img [src]=\"image\" *ngIf=\"image\" />\n        -->\n        <!--Nombre-->\n        \n        <ion-card-content style=\"background-color: white;\">\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"pencil\"></ion-icon>Nombres\n              </ion-label>\n              <ion-input type=\"text\" name=\"name\"></ion-input>\n            </ion-item>\n          </div>\n          <!--Correo-->\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"at\"></ion-icon>Correo electrónico\n              </ion-label>\n              <ion-input type=\"email\" formControlEmail=\"email\"></ion-input>\n            </ion-item>\n          </div>\n          <!--Password-->\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"lock-open\"> </ion-icon>Contraseña\n              </ion-label>\n              <ion-input type=\"password\" formControlPassword=\"password\"></ion-input>\n            </ion-item>\n          </div>\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"call\"> </ion-icon>Telefóno\n              </ion-label>\n              <ion-input type=\"text\" name=\"name\"></ion-input>\n            </ion-item>\n          </div>\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"person\"> </ion-icon>Descripción\n              </ion-label>\n              <ion-input type=\"text\" name=\"name\"></ion-input>\n            </ion-item>\n            </div>\n        </ion-card-content>\n        <p style=\"text-align: center;\" routerLink=\"/registro/registroAvatar.page.html\"></p>\n\n        <!--<ion-button class=\"boton-registro\" expand=\"block\" (click)=\"onSubmitRegister(user)\">Registrarme</ion-button> \n        <div>\n          <ion-button *ngIf=\"urlImage | async; else btnDisabled\" type=\"submit\" class=\"boton-registro\" shape=\"round\">Registrarme</ion-button>\n          <ng-template #btnDisabled>\n            <ion-button type=\"submit\" disabled=true class=\"boton-registro\" shape=\"round\" color=\"dark\">Registrarme</ion-button>\n          </ng-template>\n        </div>\n        -->\n      </Form>\n      <br>\n      <ion-button style=\"text-align: center;\" routerLink=\"/login\" style=\"background-color: #DC7633;\" color=\"#DC7633\" expand=\"full\">Ya tengo cuenta</ion-button>\n    </ion-card-content>\n  </ion-card-content>\n\n</ion-content>";
+    __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar color=\"light\">\n    <ion-title>Registro</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content padding>\n  <ion-card-content>\n    <ion-card-content>\n      <div class=\"containerImagen\">\n        <img [src]=\"base64Image\" height=\"200\" width=\"200\" />\n        <ion-button block (click)=\"onUploadGaleria()\" style=\"background-color: #2D6082;\" color=\"white\">\n          <ion-icon name=\"image\"></ion-icon> Galeria\n        </ion-button>\n        <ion-button block (click)=\"onUploadCamera()\" style=\"background-color: #2D6082;\" color=\"white\">\n          <ion-icon name=\"image\"></ion-icon> Cámara\n        </ion-button>\n      </div>\n      <!-- (ngSubmit)=\"onSubmitRegister(newUserForm.value) -->\n      <Form [formGroup]=\"newUserForm\">\n        <ion-card-content style=\"background-color: white;\">\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"pencil\"></ion-icon>Nombres\n              </ion-label>\n              <ion-input type=\"text\" formControlName=\"displayName\"></ion-input>\n            </ion-item>\n          </div>\n          <!--Correo-->\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"at\"></ion-icon>Correo electrónico\n              </ion-label>\n              <ion-input type=\"email\" formControlName=\"email\"></ion-input>\n            </ion-item>\n          </div>\n          <!--Password-->\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"lock-open\"> </ion-icon>Contraseña\n              </ion-label>\n              <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n            </ion-item>\n          </div>\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"call\"> </ion-icon>Telefóno\n              </ion-label>\n              <ion-input type=\"text\" formControlName=\"phoneNumber\"></ion-input>\n            </ion-item>\n          </div>\n          <div class=\"field\">\n            <ion-item>\n              <ion-label class=\"fie\" position=\"floating\" style=\"font-size: 1.2em;\">\n                <ion-icon name=\"person\"> </ion-icon>Descripción\n              </ion-label>\n              <ion-input type=\"text\" formControlName=\"description\"></ion-input>\n            </ion-item>\n          </div>\n        </ion-card-content>\n        <p style=\"text-align: center;\" routerLink=\"/registro/registroAvatar.page.html\"></p>\n\n        <ion-button class=\"boton-registro\" expand=\"block\" (click)=\"onSubmitRegister(newUserForm.value)\">Registrarme\n        </ion-button>\n      </Form>\n      <br>\n      <ion-button style=\"text-align: center;\" routerLink=\"/login\" style=\"background-color: #DC7633;\" color=\"#DC7633\"\n        expand=\"full\">Ya tengo cuenta</ion-button>\n    </ion-card-content>\n  </ion-card-content>\n\n</ion-content>";
     /***/
   },
 
@@ -245,9 +245,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! @angular/fire/auth */
     "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
     var RegistroPage = /*#__PURE__*/function () {
-      function RegistroPage(auth, AFauth, router, storage, camara) {
+      function RegistroPage(auth, AFauth, router, storage, camara, alertCtrl, navController, authservice) {
         _classCallCheck(this, RegistroPage);
 
         this.auth = auth;
@@ -255,11 +261,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.router = router;
         this.storage = storage;
         this.camara = camara;
+        this.alertCtrl = alertCtrl;
+        this.navController = navController;
+        this.authservice = authservice;
         this.newUserForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
-          name: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
-          lastname: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
+          displayName: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
           email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
-          password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required)
+          password: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
+          description: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required),
+          phoneNumber: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required)
         });
       }
 
@@ -267,13 +277,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
-        key: "onUploadCamera",
-        value: function onUploadCamera() {
+        key: "onUploadGaleria",
+        value: function onUploadGaleria() {
           var _this = this;
 
+          console.log("sdsd");
           this.camara.getPicture({
-            destinationType: this.camara.DestinationType.FILE_URI,
-            sourceType: this.camara.PictureSourceType.CAMERA,
+            sourceType: this.camara.PictureSourceType.PHOTOLIBRARY,
+            destinationType: this.camara.DestinationType.DATA_URL,
             mediaType: this.camara.MediaType.PICTURE,
             allowEdit: false,
             encodingType: this.camara.EncodingType.JPEG,
@@ -282,21 +293,52 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             correctOrientation: true,
             saveToPhotoAlbum: true
           }).then(function (res) {
-            _this.image = res;
+            _this.base64Image = 'data:image/png;base64,' + res;
+            _this.clickedImage = res; //this.handleImage(this.clickedImage);
           })["catch"](function (error) {
             console.log(error);
           });
         }
       }, {
-        key: "onUploadGaleria",
-        value: function onUploadGaleria() {
+        key: "getBase64",
+        value: function getBase64(event) {
           var _this2 = this;
 
+          console.log("llego base64");
+          var me = this;
+          var val;
+          var file = event.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+
+          reader.onload = function (e) {
+            //me.modelvalue = reader.result;
+            //console.log(reader.result);
+            //val = reader.result;
+            _this2.image = reader.result; //console.log('image1', this.image);
+          };
+
+          reader.onerror = function (error) {
+            console.log('Error: ', error);
+          };
+        }
+      }, {
+        key: "onUploadCamera",
+        value: function onUploadCamera() {
+          var _this3 = this;
+
           this.camara.getPicture({
-            sourceType: this.camara.PictureSourceType.PHOTOLIBRARY,
-            destinationType: this.camara.DestinationType.DATA_URL
+            destinationType: this.camara.DestinationType.DATA_URL,
+            encodingType: this.camara.EncodingType.JPEG,
+            mediaType: this.camara.MediaType.PICTURE,
+            allowEdit: false,
+            targetHeight: 1024,
+            targetWidth: 1024,
+            correctOrientation: true,
+            saveToPhotoAlbum: true
           }).then(function (res) {
-            _this2.image = 'data:image/jpeg;base64,' + res;
+            _this3.base64Image = 'data:image/png;base64,' + res;
+            _this3.clickedImage = res; //this.handleImage(this.clickedImage);
           })["catch"](function (error) {
             console.log(error);
           });
@@ -305,16 +347,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onSubmitRegister",
         value: function onSubmitRegister(user) {
-          var _this3 = this;
-
-          console.log("entro aqui", user);
-          this.auth.register(user).then(function (auth) {
-            console.log(auth);
-
-            _this3.router.navigate(['../eventos/']);
-          })["catch"](function (err) {
-            return console.log(err);
-          });
+          console.log('image', this.clickedImage);
+          this.auth.preSaveProfile(user, this.base64Image);
+          this.router.navigate(['../eventos/']);
+          /*     console.log("entro aqui", user);
+              this.auth.register(user).then(auth => {
+                console.log(user);
+                this.router.navigate(['../eventos/']);
+              }).catch(err => console.log(err)) */
         }
       }]);
 
@@ -332,6 +372,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_5__["AngularFireStorage"]
       }, {
         type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_6__["Camera"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["NavController"]
+      }, {
+        type: _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
       }];
     };
 

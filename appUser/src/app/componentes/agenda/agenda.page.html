@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-title>Mi agenda</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -11,11 +11,14 @@
     <ion-item *ngFor="let event of listEvents">
       <div class="cardEventos">
         <ion-card class="card-principal">
+          <ion-icon name="close-circle" class="delete" (click)="delete(event)"></ion-icon>
           <ion-card class="card-secundaria">
             <ion-card-header>
+              
               <p>
                 <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>
               </p>
+
               <ion-card-title>
                 <a [routerLink]="['/event', event.id]" class="title"> {{event.title}}</a>
               </ion-card-title>
@@ -27,13 +30,14 @@
     <ion-item *ngFor="let subevent of listSubEvents">
       <div class="cardEventos">
         <ion-card class="card-principal">
+          <ion-icon name="close-circle" class="delete" (click)="deletesub(subevent)"></ion-icon>
           <ion-card class="card-secundaria">
             <ion-card-header>
               <p>
                 <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>
               </p>
               <ion-card-title>
-                <a [routerLink]="['/event', subevent.id]" class="title"> {{subevent.title}}</a>
+                <a [routerLink]="['/subevent', subevent.id]" class="title"> {{subevent.title}}</a>
               </ion-card-title>
             </ion-card-header>
           </ion-card>

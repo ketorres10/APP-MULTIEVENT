@@ -1,7 +1,33 @@
-h3{
+h2{
     font-family: "Candara";
+    color: black;
   }
-  ion-button{
-      width: 40%;
-  }
-  
+.card-escaner{
+    background-color: #2D6082;
+}
+.button{
+  width: 75px;
+  height: 50px; 
+}
+.cardEventos{
+  width: 100%;
+}
+.card-principal{
+  background-color: #73C6B6;
+  border-radius: 1%;
+  box-shadow: 
+     inset 0 -3em 3em rgba(
+      31, 97, 141), 
+           0 0  0 2px rgb(255,255,255),
+           0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.card-secundaria{
+  border: #F2F3F4 2px solid;
+  background-color: #E5E8E8;
+}
+ion-icon{
+  font-size: large;
+}
+p{
+  color: #E67E22;
+}

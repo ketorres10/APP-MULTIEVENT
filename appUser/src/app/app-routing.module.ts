@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./componentes/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./componentes/perfil/perfil.module').then( m => m.PerfilPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'registro',
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'eventos',
-    loadChildren: () => import('./componentes/eventos/eventos.module').then( m => m.EventosPageModule)
+    loadChildren: () => import('./componentes/eventos/eventos.module').then( m => m.EventosPageModule), canActivate: [AuthGuard]
   },
   {
     path: 'event/:id', component:MoreinformationPage
@@ -43,7 +43,11 @@ const routes: Routes = [
   },
   {
     path: 'deteccion',
-    loadChildren: () => import('./componentes/deteccion/deteccion.module').then( m => m.DeteccionPageModule)
+    loadChildren: () => import('./componentes/deteccion/deteccion.module').then( m => m.DeteccionPageModule),canActivate: [AuthGuard]
+  },
+  {
+    path: 'informacion',
+    loadChildren: () => import('./componentes/informacion/informacion.module').then( m => m.InformacionPageModule)
   },
  
 ];

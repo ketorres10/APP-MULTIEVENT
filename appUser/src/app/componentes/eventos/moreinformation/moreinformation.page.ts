@@ -20,6 +20,7 @@ export class MoreinformationPage implements OnInit {
 
 
   public event$: Observable<EventI>;
+  mostrar = false;
   //public subids: Array<string>;
   public subevent$: Observable<EventI>;
   public subevents$: Observable<EventI[]>;
@@ -36,14 +37,14 @@ export class MoreinformationPage implements OnInit {
     //obtener los datos del usuario autenticados
     this.userdata$ = auth.authState;
   }
-
   Onlogout() {
     this.authService.logout();
   }
-  ngOnInit() {
+  async ngOnInit() {
     this.idEvent = this.route.snapshot.params.id;
     this.event$ = this.eventoService.getOneEvent(this.idEvent);
     this.event$.subscribe(event => {
+      console.log('hola', event);
       if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
         console.log('no hay subeventos');
       } else {
@@ -81,12 +82,11 @@ export class MoreinformationPage implements OnInit {
                 }
               });
             })
-
+            subscripSub.unsubscribe();
           })
         });
 
       }
-
     })
   }
   async registerEvent() {

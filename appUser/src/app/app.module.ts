@@ -16,7 +16,7 @@ import { AngularFireModule }  from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { CommonModule } from '@angular/common';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { Camera } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 @NgModule({

@@ -24,9 +24,8 @@ export class AuthGuard implements CanActivate {
         //si el estado de autenticacion
         if (isNullOrUndefined(auth)){
           //crear una notificacion 
-
           //redireccion al router
-          this.router.navigate(['\folder']);
+          this.router.navigate(['/login']);
           //si no esta autenticado retorna false
           return false;
         }else{

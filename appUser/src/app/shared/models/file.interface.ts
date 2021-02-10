@@ -3,4 +3,5 @@ export interface FileI {
 	imageFile: File;
 	size: string;
 	type: string;
+	base64cod?: string;
   }

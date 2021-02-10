@@ -2,6 +2,9 @@
   <ion-toolbar color="light">
     <ion-title>Más información</ion-title>
     <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
       <ion-back-button defaultHref="/eventos"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
@@ -36,9 +39,14 @@
             <h2><strong>Topicos de Interés</strong></h2>
             <ion-card-content class="topicos" selected *ngFor="let topic of subevent.topics" [ngClass]="topic">- {{topic}}
               </ion-card-content>
-            <div style="text-align: center;">
+            <div *ngIf="this.band; else registrado" style="text-align: center;">
               <ion-button (click)="registerEvent()" class="btn-registrarme" color="primary">Registrarme</ion-button>
             </div>
+            <ng-template #registrado>
+              <div>
+                <ion-card style="text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;">Registrado!</ion-card>
+              </div>
+            </ng-template>
           </ion-card-content>
         </ion-card>
       </ion-card>

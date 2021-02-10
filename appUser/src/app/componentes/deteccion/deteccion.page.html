@@ -10,23 +10,31 @@
 <ion-content [fullscreen]="true">
   <div style="text-align: center;">
     <ion-card>
-      <ion-card-content>
-        <h3>Escanear beacons</h3>
-        <ion-button (click)="startScanning()" color="dark">Start</ion-button>
-        <ion-button (click)="stopScan()"  color="dark">Stop</ion-button>
+      <ion-card-content class="card-escaner">
+        <h2>ESCANEAR</h2>
+        <ion-button (click)="startScanning()" style="background-color: #DC7633;" color="whith" class="button">
+          <ion-icon name="play"></ion-icon>
+        </ion-button>
+        <ion-button (click)="stopScan()" style="background-color: #DC7633;" color="whith" class="button">
+          <ion-icon name="pause"></ion-icon>
+        </ion-button>
       </ion-card-content>
     </ion-card>
   </div>
   <ion-list>
     <ion-item *ngFor="let event of listEvents">
       <div class="cardEventos">
-        <ion-card color="primary">
-          <ion-card-header>
-            <ion-card-subtitle style="color: white;">{{event.siglas}}</ion-card-subtitle>
-            <ion-card-title>
-              <a [routerLink]="['/event', event.id]"> {{event.title}}</a>
-            </ion-card-title>
-          </ion-card-header>
+        <ion-card class="card-principal">
+          <ion-card class="card-secundaria">
+            <ion-card-header>
+              <p>
+                <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>
+              </p>
+              <ion-card-title>
+                <a [routerLink]="['/event', event.id]" class="title"> {{event.title}}</a>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
         </ion-card>
       </div>
     </ion-item>
@@ -47,5 +55,5 @@
     </ion-item>
   </ion-list>
   -->
-  
+
 </ion-content>

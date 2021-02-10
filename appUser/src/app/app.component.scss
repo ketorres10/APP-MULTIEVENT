@@ -1,5 +1,5 @@
 ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color,white));
+  --background: var(--ion-item-background, var(--ion-background-image,white ));
 }
 
 ion-menu.md ion-content {
@@ -56,11 +56,11 @@ ion-menu.md ion-item.selected {
 
 //icono
 ion-menu.md ion-item.selected ion-icon {
-  color:  #ff2121;
+  color:#1F618D;
 }
 
 ion-menu.md ion-item ion-icon {
-  color:  rgb(3, 3, 3);
+  color: #1F618D;
 }
 
 ion-menu.md ion-item ion-label {
@@ -93,7 +93,6 @@ ion-menu.ios ion-item.selected ion-icon {
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: black;
 }
 
 ion-menu.ios ion-list#labels-list ion-list-header {
@@ -113,20 +112,18 @@ ion-menu.ios ion-note {
 ion-note {
   display: inline-block;
   font-size: 16px;
-
   color:  rgb(0, 0, 0);
 }
 
 ion-item.selected {
-  color:  black;
+  color:  red;
 }
 ion-toolbar{
-  --ion-background-color: #2D6082;
+  --ion-background-color: #1F618D ;
   color: white;
 }
 .container-imagen{
   background-color: #34495E;
-  height: 15em;
   margin-bottom: 2em;
   box-shadow: 
        inset 0 -2em 6em rgba(174, 214, 241), 
@@ -134,12 +131,56 @@ ion-toolbar{
              0.3em 0.3em 1em rgba(214, 234, 248);
 }
 ion-icon{
-  color:#DC7633;
+  color: #34495E;
+  width: 1.5em;
+  height: 1.5em;
+}
+.profile-pic{
+  box-shadow: 0px 6px 10px -6px rgb(0 0 0 / 75%);
+  background-image: url("../assets/icon/fondoP2.jpg");
+}
+
+.ion-menu.md .ion-item.activate{
+  background-color: #D4AC0D;
+}
+.avatar{
+  border-radius: 50%;
+  margin-left: 22.5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 55%;
+  height: 170px;
+}
+.detailUser{
+  background-color: #212F3D;
+  opacity: 0.9;
+  color: white;
+  font-family: 'Franklin Gothic Medium';
+}
+.iconHeader{
+  margin-left: 5em;
+  height: 1.2em;
+  width: 1.5em;
+  color: #1F618D;
 }
 .container-actividades{
   color: #DC7633;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+ion-item{
+  padding-bottom: 0.5%;
+  --ion-background-color:  #E8F6F3;
+  margin-top: 3%;
+  color: #2D6082;
+  box-shadow: 11px 11px 10px -10px rgba(28,94,138,1);
+}
+
+h6{
+  font-size: small;
+  color: #616A6B ;
   font-family: 'Courier New', Courier, monospace;
 }
-.hover:hover{
-  background-color: #ff2121;
+
+ion-item-divider{
+  color: #2D6082;
 }

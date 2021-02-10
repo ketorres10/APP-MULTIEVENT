@@ -3,9 +3,12 @@ h1, h2{
     background-color: #D5DBDB; 
     color: #17A589;
 }
+.subeventos{
+    background-color: #34495E;
+}
 h3{
-    text-align: center;
     color: white;
+    font-size: medium;
 }
 .container-general{
     background-color: #D5DBDB;
@@ -33,4 +36,21 @@ p, .topicos{
 }
 ion-icon{
     color: #17A589;
+}
+.iconOcultar{
+    width: 2em;
+    height: 2em;
+    float: right;
+    border-radius: 50%;
+}
+.btn-registrarme{
+    width: 94%;
+    margin: auto;
+}
+.boton_atras{
+    float: right;
+    font-size: 250%;
+}
+ion-chip{
+    width: 100%;
 }

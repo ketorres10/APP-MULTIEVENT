@@ -46,7 +46,7 @@ export class AuthService {
   //metodo para el registro, recibe los datos y guarda en la base
 
   register(user: UserI) {
-
+    console.log('hola');
     return new Promise((resolve, reject) => {
       //recibe un email y un password
       //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
@@ -61,6 +61,7 @@ export class AuthService {
           password: user.password,
           phoneNumber: user.phoneNumber,
           description: user.description,
+          urlImage: user.urlImage,
           uid: uid,
         })
         resolve(res)
@@ -69,30 +70,42 @@ export class AuthService {
 
   }
 
-  preSaveProfile(user: UserI, image: FileI, idUser: string): void {
-    if (image) {
-      this.uploadImage(user, image, idUser);
+  preSaveProfile(user: UserI, image: string, idUser?: string): void {
+    console.log(image);
+    if (idUser) {
+      if(image){
+        this.uploadImage(user, image, idUser);
+      }else{
+        console.log("llego aqui");
+        this.updateUserProfile(user, idUser);
+      }
     } else {
-      this.saveUserProfile(user, idUser);
+      if(image){
+        this.uploadImage(user, image);
+      }else{
+        this.register(user);
+      }
+      
     }
-
   }
-  private uploadImage(user: UserI, image: FileI, idUser: string): void {
-    this.filePath = `images/${image.name}`;
+  private uploadImage(user: UserI, image: string, idUser?: string): void {
+    this.filePath = `images/${user.email}`;
     const fileRef = this.storage.ref(this.filePath);
-    const task = this.storage.upload(this.filePath, image);
-    task.snapshotChanges()
-      .pipe(
-        finalize(() => {
-          fileRef.getDownloadURL().subscribe(urlImage => {
-            user.urlImage = urlImage;
-            this.saveUserProfile(user, idUser);
-          });
-        })
-      ).subscribe();
+    //const task = this.storage.upload(this.filePath);
+    var task = fileRef.putString(image, 'data_url', { contentType: 'image/jpg' }).then(() => {
+      console.log('Image uploaded');
+      fileRef.getDownloadURL().subscribe(urlImage => {
+        user.urlImage = urlImage;
+        if(idUser){
+          this.updateUserProfile(user, idUser);
+        }else{
+          this.register(user);
+        }
+      })
+    });
   }
 
-  private saveUserProfile(user: UserI, idUser: string) {
+  private saveUserProfile(user: UserI, idUser?: string) {
     console.log("hola", idUser);
     this.updateUserProfile(user, idUser);
     console.log("llego a saveuser");
@@ -102,8 +115,8 @@ export class AuthService {
         displayName: user.displayName,
         photoURL: user.urlImage
       })
-      .then(()=>console.log('updated'))
-      .catch(err => console.log('Error', err));
+        .then(() => console.log('updated'))
+        .catch(err => console.log('Error', err));
     })
   }
 

@@ -275,7 +275,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             _this.listSubEvents.push(sub);
 
                             console.log('se agregó: ', sub.title);
-                            document.getElementById("butonA").disabled = true;
                           }
                         });
                       } else {

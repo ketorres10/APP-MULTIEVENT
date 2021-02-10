@@ -24,12 +24,11 @@ export class NologinGuard implements CanActivate {
       return this.AFauth.authState.pipe(map( auth => {
         //si el estado de autenticacion
         if (isNullOrUndefined(auth)){
-          //si no esta autenticado retorna tru
-          
+          //si no esta autenticado retorna true
           return true;
         }else{
           //redireccion al router
-          this.router.navigate(['\eventos']);
+          this.router.navigate(['/eventos']);
           //si esta autenticado
           return false;
         }

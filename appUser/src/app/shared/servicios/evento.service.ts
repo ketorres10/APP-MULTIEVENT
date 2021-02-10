@@ -28,6 +28,7 @@ export class EventosService {
 
   }
   public getAllEvents(): Observable<EventI[]> {
+    console.log('getallevents');
     return this.eventsCollection
       .snapshotChanges()
       .pipe(
@@ -69,5 +70,21 @@ export class EventosService {
         idUsers: firebase.firestore.FieldValue.arrayUnion(user.uid)
       });
     })
+  }
+  deleteOnEvent(id: string, idevt: string) {
+    console.log("id de evento:", idevt);
+    const eventRef = this.db.collection('events').doc(idevt);
+    var val = eventRef.update({
+      idUsers: firebase.firestore.FieldValue.arrayRemove(id)
+    });
+    return val;
+  }
+
+  deleteOnSubEvent(id: string, idsub: string) {
+    const eventRef = this.db.collection('subevents').doc(idsub);
+    console.log(eventRef);
+    eventRef.update({
+      idUsers: firebase.firestore.FieldValue.arrayRemove(id)
+    });
   }
 }

@@ -10,24 +10,24 @@ import { EventI } from 'src/app/shared/models/events.interface';
   styleUrls: ['./eventos.page.scss'],
 })
 export class EventosPage implements OnInit {
- 
-  public eventos$ : Observable<EventI[]>;
-  public listEvents : EventI[]= [];
-  public idSala: any;
 
+  public eventos$: Observable<EventI[]>;
+  public listEvents: EventI[] = [];
+  public idSala: any;
   constructor(public authService: AuthService, public eventoService: EventosService) { }
 
-  Onlogout(){
+  Onlogout() {
     this.authService.logout();
   }
-  
-  ngOnInit(){
-    this.eventos$=this.eventoService.getAllEvents();
-    this.eventos$.subscribe(eventos=>{
-      eventos.forEach(element=>{
-        console.log(element);
-        this.listEvents.push(element as EventI);
-      })
+
+  ngOnInit() {
+    this.eventos$ = this.eventoService.getAllEvents();
+    const subs_events = this.eventos$.subscribe(eventos => {
+        eventos.forEach(element => {
+          console.log(element);
+          this.listEvents.push(element as EventI);
+        })
+      subs_events.unsubscribe();
     })
   }
 
