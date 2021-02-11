@@ -53,25 +53,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
     /* harmony import */
 
 
-    var _eventos_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _eventos_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./eventos.page */
     "./src/app/componentes/eventos/eventos.page.ts");
 
     var routes = [{
       path: '',
-      component: _eventos_page__WEBPACK_IMPORTED_MODULE_3__["EventosPage"]
+      component: _eventos_page__WEBPACK_IMPORTED_MODULE_4__["EventosPage"]
     }, {
       path: 'moreinformation',
       loadChildren: function loadChildren() {
@@ -100,9 +106,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _classCallCheck(this, EventosPageRoutingModule);
     };
 
-    EventosPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-      exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    EventosPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+      imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(routes), _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]],
+      exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
     })], EventosPageRoutingModule);
     /***/
   },
@@ -196,7 +202,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "a {\n  color: white;\n  text-decoration: none;\n  font-family: \"Agency FB\";\n}\n\n.cardEventos {\n  width: 100%;\n}\n\n.button-container {\n  display: inline-block;\n  position: relative;\n}\n\nion-card-subtitle {\n  font-style: italic;\n}\n\n.card-principal {\n  background-color: #73C6B6;\n  border-radius: 1%;\n  box-shadow: inset 0 -3em 3em #1f618d, 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);\n}\n\n.card-secundaria {\n  border: #F2F3F4 2px solid;\n  background-color: #E5E8E8;\n}\n\nion-card-subtitle {\n  color: #E67E22;\n}\n\n.title {\n  color: #34495E;\n}\n\nion-icon {\n  font-size: large;\n}\n\np {\n  color: #E67E22;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvZXZlbnRvcy9DOlxcVXNlcnNcXGthcmVlXFxEZXNrdG9wXFxBUFAtTVVMVElFVkVOVFxcYXBwVXNlci9zcmNcXGFwcFxcY29tcG9uZW50ZXNcXGV2ZW50b3NcXGV2ZW50b3MucGFnZS5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRlcy9ldmVudG9zL2V2ZW50b3MucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtFQUNBLHFCQUFBO0VBQ0Esd0JBQUE7QUNDSjs7QURFQTtFQUNJLFdBQUE7QUNDSjs7QURDQTtFQUNBLHFCQUFBO0VBQ0Esa0JBQUE7QUNFQTs7QURDQTtFQUNJLGtCQUFBO0FDRUo7O0FEQUE7RUFDSSx5QkFBQTtFQUNBLGlCQUFBO0VBQ0EseUZBQ0c7QUNFUDs7QURHQTtFQUNJLHlCQUFBO0VBQ0EseUJBQUE7QUNBSjs7QURFQTtFQUNJLGNBQUE7QUNDSjs7QURDQTtFQUNJLGNBQUE7QUNFSjs7QURBQTtFQUNJLGdCQUFBO0FDR0o7O0FEREE7RUFDSSxjQUFBO0FDSUoiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRlcy9ldmVudG9zL2V2ZW50b3MucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYXtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkFnZW5jeSBGQlwiO1xyXG59XHJcblxyXG4uY2FyZEV2ZW50b3N7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG4uYnV0dG9uLWNvbnRhaW5lcntcclxuZGlzcGxheTppbmxpbmUtYmxvY2s7XHJcbnBvc2l0aW9uOnJlbGF0aXZlO1xyXG59XHJcblxyXG5pb24tY2FyZC1zdWJ0aXRsZXtcclxuICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxufVxyXG4uY2FyZC1wcmluY2lwYWx7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNzNDNkI2O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMSU7XHJcbiAgICBib3gtc2hhZG93OiBcclxuICAgICAgIGluc2V0IDAgLTNlbSAzZW0gcmdiYShcclxuICAgICAgICAzMSwgOTcsIDE0MSksIFxyXG4gICAgICAgICAgICAgMCAwICAwIDJweCByZ2IoMjU1LDI1NSwyNTUpLFxyXG4gICAgICAgICAgICAgMC4zZW0gMC4zZW0gMWVtIHJnYmEoMCwwLDAsMC4zKTtcclxufVxyXG4uY2FyZC1zZWN1bmRhcmlhe1xyXG4gICAgYm9yZGVyOiAjRjJGM0Y0IDJweCBzb2xpZDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNFNUU4RTg7XHJcbn1cclxuaW9uLWNhcmQtc3VidGl0bGV7XHJcbiAgICBjb2xvcjogI0U2N0UyMjtcclxufVxyXG4udGl0bGV7XHJcbiAgICBjb2xvcjogIzM0NDk1RTtcclxufVxyXG5pb24taWNvbntcclxuICAgIGZvbnQtc2l6ZTogbGFyZ2U7XHJcbn1cclxucHtcclxuICAgIGNvbG9yOiAjRTY3RTIyO1xyXG59IiwiYSB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LWZhbWlseTogXCJBZ2VuY3kgRkJcIjtcbn1cblxuLmNhcmRFdmVudG9zIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5idXR0b24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgZm9udC1zdHlsZTogaXRhbGljO1xufVxuXG4uY2FyZC1wcmluY2lwYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNzNDNkI2O1xuICBib3JkZXItcmFkaXVzOiAxJTtcbiAgYm94LXNoYWRvdzogaW5zZXQgMCAtM2VtIDNlbSAjMWY2MThkLCAwIDAgMCAycHggd2hpdGUsIDAuM2VtIDAuM2VtIDFlbSByZ2JhKDAsIDAsIDAsIDAuMyk7XG59XG5cbi5jYXJkLXNlY3VuZGFyaWEge1xuICBib3JkZXI6ICNGMkYzRjQgMnB4IHNvbGlkO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRTVFOEU4O1xufVxuXG5pb24tY2FyZC1zdWJ0aXRsZSB7XG4gIGNvbG9yOiAjRTY3RTIyO1xufVxuXG4udGl0bGUge1xuICBjb2xvcjogIzM0NDk1RTtcbn1cblxuaW9uLWljb24ge1xuICBmb250LXNpemU6IGxhcmdlO1xufVxuXG5wIHtcbiAgY29sb3I6ICNFNjdFMjI7XG59Il19 */";
+    __webpack_exports__["default"] = "a {\n  color: white;\n  text-decoration: none;\n  font-family: \"Agency FB\";\n}\n\n.cardEventos {\n  width: 100%;\n}\n\n.button-container {\n  display: inline-block;\n  position: relative;\n}\n\nion-card-subtitle {\n  font-style: italic;\n}\n\n.card-principal {\n  background-color: #73C6B6;\n  border-radius: 1%;\n  box-shadow: inset 0 -3em 3em #1f618d, 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);\n}\n\n.card-secundaria {\n  border: #F2F3F4 2px solid;\n  background-color: #E5E8E8;\n}\n\nion-card-subtitle {\n  color: #E67E22;\n}\n\n.title {\n  color: #34495E;\n}\n\nion-icon {\n  font-size: large;\n}\n\np {\n  color: #E67E22;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvZXZlbnRvcy9DOlxcVXNlcnNcXGthcmVlXFxEZXNrdG9wXFxBUFAtTVVMVElFVkVOVFxcYXBwVXNlci9zcmNcXGFwcFxcY29tcG9uZW50ZXNcXGV2ZW50b3NcXGV2ZW50b3MucGFnZS5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRlcy9ldmVudG9zL2V2ZW50b3MucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtFQUNBLHFCQUFBO0VBQ0Esd0JBQUE7QUNDSjs7QURFQTtFQUNJLFdBQUE7QUNDSjs7QURDQTtFQUNJLHFCQUFBO0VBQ0Esa0JBQUE7QUNFSjs7QURDQTtFQUNJLGtCQUFBO0FDRUo7O0FEQUE7RUFDSSx5QkFBQTtFQUNBLGlCQUFBO0VBQ0EseUZBQ0c7QUNFUDs7QURHQTtFQUNJLHlCQUFBO0VBQ0EseUJBQUE7QUNBSjs7QURFQTtFQUNJLGNBQUE7QUNDSjs7QURDQTtFQUNJLGNBQUE7QUNFSjs7QURBQTtFQUNJLGdCQUFBO0FDR0o7O0FEREE7RUFDSSxjQUFBO0FDSUoiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRlcy9ldmVudG9zL2V2ZW50b3MucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYXtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkFnZW5jeSBGQlwiO1xyXG59XHJcblxyXG4uY2FyZEV2ZW50b3N7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG4uYnV0dG9uLWNvbnRhaW5lcntcclxuICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xyXG4gICAgcG9zaXRpb246cmVsYXRpdmU7XHJcbn1cclxuXHJcbmlvbi1jYXJkLXN1YnRpdGxle1xyXG4gICAgZm9udC1zdHlsZTogaXRhbGljO1xyXG59XHJcbi5jYXJkLXByaW5jaXBhbHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICM3M0M2QjY7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxJTtcclxuICAgIGJveC1zaGFkb3c6IFxyXG4gICAgICAgaW5zZXQgMCAtM2VtIDNlbSByZ2JhKFxyXG4gICAgICAgIDMxLCA5NywgMTQxKSwgXHJcbiAgICAgICAgICAgICAwIDAgIDAgMnB4IHJnYigyNTUsMjU1LDI1NSksXHJcbiAgICAgICAgICAgICAwLjNlbSAwLjNlbSAxZW0gcmdiYSgwLDAsMCwwLjMpO1xyXG59XHJcbi5jYXJkLXNlY3VuZGFyaWF7XHJcbiAgICBib3JkZXI6ICNGMkYzRjQgMnB4IHNvbGlkO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0U1RThFODtcclxufVxyXG5pb24tY2FyZC1zdWJ0aXRsZXtcclxuICAgIGNvbG9yOiAjRTY3RTIyO1xyXG59XHJcbi50aXRsZXtcclxuICAgIGNvbG9yOiAjMzQ0OTVFO1xyXG59XHJcbmlvbi1pY29ue1xyXG4gICAgZm9udC1zaXplOiBsYXJnZTtcclxufVxyXG5we1xyXG4gICAgY29sb3I6ICNFNjdFMjI7XHJcbn0iLCJhIHtcbiAgY29sb3I6IHdoaXRlO1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGZvbnQtZmFtaWx5OiBcIkFnZW5jeSBGQlwiO1xufVxuXG4uY2FyZEV2ZW50b3Mge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmJ1dHRvbi1jb250YWluZXIge1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuaW9uLWNhcmQtc3VidGl0bGUge1xuICBmb250LXN0eWxlOiBpdGFsaWM7XG59XG5cbi5jYXJkLXByaW5jaXBhbCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM3M0M2QjY7XG4gIGJvcmRlci1yYWRpdXM6IDElO1xuICBib3gtc2hhZG93OiBpbnNldCAwIC0zZW0gM2VtICMxZjYxOGQsIDAgMCAwIDJweCB3aGl0ZSwgMC4zZW0gMC4zZW0gMWVtIHJnYmEoMCwgMCwgMCwgMC4zKTtcbn1cblxuLmNhcmQtc2VjdW5kYXJpYSB7XG4gIGJvcmRlcjogI0YyRjNGNCAycHggc29saWQ7XG4gIGJhY2tncm91bmQtY29sb3I6ICNFNUU4RTg7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgY29sb3I6ICNFNjdFMjI7XG59XG5cbi50aXRsZSB7XG4gIGNvbG9yOiAjMzQ0OTVFO1xufVxuXG5pb24taWNvbiB7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG59XG5cbnAge1xuICBjb2xvcjogI0U2N0UyMjtcbn0iXX0= */";
     /***/
   },
 

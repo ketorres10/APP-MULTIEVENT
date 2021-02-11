@@ -17,17 +17,20 @@ ion-card-subtitle{
 }
 .card-principal{
     
-    background-color: #D6EAF8;
+    background-color: #A9CCE3;
 }
 .card-secundaria{
-    border: #F2F3F4 1px solid;
-    background-color: #34495E;
+    background-color: #F2F3F4;
+    border: 2px solid #212F3D;
+    box-shadow:4px 4px 1px 0px #89ade6;
+    -moz-box-shadow:4px 4px 1px 0px #89ade6;
+    -webkit-box-shadow:4px 4px 1px 0px #89ade6;
 }
 ion-card-subtitle{
     color: #E67E22;
 }
 .title{
-    color: white;
+    color: #212F3D;
 }
 p{
     color: #E67E22;

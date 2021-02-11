@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Mi agenda</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-item *ngFor=\"let event of listEvents\">\n      <div class=\"cardEventos\">\n        <ion-card class=\"card-principal\">\n          <ion-card class=\"card-secundaria\">\n            <ion-card-header>\n              <p>\n                <ion-icon name=\"information-circle\"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>\n              </p>\n              <ion-card-title>\n                <a [routerLink]=\"['/event', event.id]\" class=\"title\"> {{event.title}}</a>\n              </ion-card-title>\n            </ion-card-header>\n          </ion-card>\n        </ion-card>\n      </div>\n    </ion-item>\n    <ion-item *ngFor=\"let subevent of listSubEvents\">\n      <div class=\"cardEventos\">\n        <ion-card class=\"card-principal\">\n          <ion-card class=\"card-secundaria\">\n            <ion-card-header>\n              <p>\n                <ion-icon name=\"information-circle\"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>\n              </p>\n              <ion-card-title>\n                <a [routerLink]=\"['/event', subevent.id]\" class=\"title\"> {{subevent.title}}</a>\n              </ion-card-title>\n            </ion-card-header>\n          </ion-card>\n        </ion-card>\n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Mi agenda</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n    <ion-item *ngFor=\"let event of listEvents\">\n      <div class=\"cardEventos\">\n        <ion-card class=\"card-principal\">\n          <ion-icon name=\"close-circle\" class=\"delete\" (click)=\"delete(event)\"></ion-icon>\n          <ion-card class=\"card-secundaria\">\n            <ion-card-header>\n              <ion-card-title>\n                <ion-icon name=\"information-circle\" style=\"display: flex; margin-top: 2%;\"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>\n              </ion-card-title>\n              <ion-card-title>\n                <a [routerLink]=\"['/event', event.id]\" class=\"title\"> {{event.title}}</a>\n              </ion-card-title>\n            </ion-card-header>\n          </ion-card>\n        </ion-card>\n      </div>\n    </ion-item>\n    <ion-item *ngFor=\"let subevent of listSubEvents\">\n      <div class=\"cardEventos\">\n         \n          <ion-card class=\"card-secundaria\">\n            <ion-button style=\"width: 91%; background-color: #212F3D;\" color=\"#212F3D\" (click)=\"deletesub(subevent)\"><ion-icon name=\"close-circle\" style=\"color: red; margin-left: 91%; width: 4em;height: 4em;\"></ion-icon></ion-button>\n            <ion-card-header>\n              <ion-card-subtitle>\n                <ion-icon name=\"information-circle\"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>\n              </ion-card-subtitle>\n              <ion-card-title>\n                <a [routerLink]=\"['/subevent', subevent.id]\" class=\"title\"> {{subevent.title}}</a>\n              </ion-card-title>\n            </ion-card-header>\n          </ion-card>\n      \n      </div>\n    </ion-item>\n  </ion-list>\n</ion-content>";
     /***/
   },
 
@@ -174,7 +174,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "a {\n  color: white;\n  text-decoration: none;\n  font-family: \"Agency FB\";\n}\n\n.cardEventos {\n  width: 100%;\n}\n\n.button-container {\n  display: inline-block;\n  position: relative;\n}\n\nion-card-subtitle {\n  font-style: italic;\n}\n\na:hover {\n  color: lightslategrey;\n}\n\n.card-principal {\n  background-color: #73C6B6;\n  border-radius: 1%;\n  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);\n}\n\n.card-secundaria {\n  border: #F2F3F4 2px solid;\n  background-color: #E5E8E8;\n}\n\nion-card-subtitle {\n  color: #E67E22;\n}\n\n.title {\n  color: #34495E;\n}\n\nion-icon {\n  font-size: large;\n}\n\np {\n  color: #E67E22;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvYWdlbmRhL0M6XFxVc2Vyc1xca2FyZWVcXERlc2t0b3BcXEFQUC1NVUxUSUVWRU5UXFxhcHBVc2VyL3NyY1xcYXBwXFxjb21wb25lbnRlc1xcYWdlbmRhXFxhZ2VuZGEucGFnZS5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRlcy9hZ2VuZGEvYWdlbmRhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxxQkFBQTtFQUNBLHdCQUFBO0FDQ0o7O0FEQ0E7RUFDSSxXQUFBO0FDRUo7O0FEQUE7RUFDSSxxQkFBQTtFQUNBLGtCQUFBO0FDR0o7O0FEQUk7RUFDSSxrQkFBQTtBQ0dSOztBRERJO0VBQ0kscUJBQUE7QUNJUjs7QURGSTtFQUNJLHlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxvR0FDRztBQ0lYOztBREFJO0VBQ0kseUJBQUE7RUFDQSx5QkFBQTtBQ0dSOztBRERJO0VBQ0ksY0FBQTtBQ0lSOztBREZJO0VBQ0ksY0FBQTtBQ0tSOztBREhJO0VBQ0ksZ0JBQUE7QUNNUjs7QURKSTtFQUNJLGNBQUE7QUNPUiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudGVzL2FnZW5kYS9hZ2VuZGEucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYXtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkFnZW5jeSBGQlwiO1xyXG59XHJcbi5jYXJkRXZlbnRvc3tcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5idXR0b24tY29udGFpbmVye1xyXG4gICAgZGlzcGxheTppbmxpbmUtYmxvY2s7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxuICAgIH1cclxuICAgIFxyXG4gICAgaW9uLWNhcmQtc3VidGl0bGV7XHJcbiAgICAgICAgZm9udC1zdHlsZTogaXRhbGljO1xyXG4gICAgfVxyXG4gICAgYTpob3ZlcntcclxuICAgICAgICBjb2xvcjogbGlnaHRzbGF0ZWdyZXk7XHJcbiAgICB9XHJcbiAgICAuY2FyZC1wcmluY2lwYWx7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzczQzZCNjtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiAxJTtcclxuICAgICAgICBib3gtc2hhZG93OiBcclxuICAgICAgICAgICBpbnNldCAwIC0zZW0gM2VtIHJnYmEoMCwwLDAsMC4xKSwgXHJcbiAgICAgICAgICAgICAgICAgMCAwICAwIDJweCByZ2IoMjU1LDI1NSwyNTUpLFxyXG4gICAgICAgICAgICAgICAgIDAuM2VtIDAuM2VtIDFlbSByZ2JhKDAsMCwwLDAuMyk7XHJcbiAgICB9XHJcbiAgICAuY2FyZC1zZWN1bmRhcmlhe1xyXG4gICAgICAgIGJvcmRlcjogI0YyRjNGNCAycHggc29saWQ7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI0U1RThFODtcclxuICAgIH1cclxuICAgIGlvbi1jYXJkLXN1YnRpdGxle1xyXG4gICAgICAgIGNvbG9yOiAjRTY3RTIyO1xyXG4gICAgfVxyXG4gICAgLnRpdGxle1xyXG4gICAgICAgIGNvbG9yOiAjMzQ0OTVFO1xyXG4gICAgfVxyXG4gICAgaW9uLWljb257XHJcbiAgICAgICAgZm9udC1zaXplOiBsYXJnZTtcclxuICAgIH1cclxuICAgIHB7XHJcbiAgICAgICAgY29sb3I6ICNFNjdFMjI7XHJcbiAgICB9IiwiYSB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LWZhbWlseTogXCJBZ2VuY3kgRkJcIjtcbn1cblxuLmNhcmRFdmVudG9zIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5idXR0b24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgZm9udC1zdHlsZTogaXRhbGljO1xufVxuXG5hOmhvdmVyIHtcbiAgY29sb3I6IGxpZ2h0c2xhdGVncmV5O1xufVxuXG4uY2FyZC1wcmluY2lwYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNzNDNkI2O1xuICBib3JkZXItcmFkaXVzOiAxJTtcbiAgYm94LXNoYWRvdzogaW5zZXQgMCAtM2VtIDNlbSByZ2JhKDAsIDAsIDAsIDAuMSksIDAgMCAwIDJweCB3aGl0ZSwgMC4zZW0gMC4zZW0gMWVtIHJnYmEoMCwgMCwgMCwgMC4zKTtcbn1cblxuLmNhcmQtc2VjdW5kYXJpYSB7XG4gIGJvcmRlcjogI0YyRjNGNCAycHggc29saWQ7XG4gIGJhY2tncm91bmQtY29sb3I6ICNFNUU4RTg7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgY29sb3I6ICNFNjdFMjI7XG59XG5cbi50aXRsZSB7XG4gIGNvbG9yOiAjMzQ0OTVFO1xufVxuXG5pb24taWNvbiB7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG59XG5cbnAge1xuICBjb2xvcjogI0U2N0UyMjtcbn0iXX0= */";
+    __webpack_exports__["default"] = "a {\n  color: white;\n  text-decoration: none;\n  font-family: \"Agency FB\";\n}\n\n.cardEventos {\n  width: 100%;\n}\n\n.button-container {\n  display: inline-block;\n  position: relative;\n}\n\nion-card-subtitle {\n  font-style: italic;\n}\n\n.card-principal {\n  background-color: #A9CCE3;\n}\n\n.card-secundaria {\n  background-color: #F2F3F4;\n  border: 2px solid #212F3D;\n  box-shadow: 4px 4px 1px 0px #89ade6;\n  -moz-box-shadow: 4px 4px 1px 0px #89ade6;\n  -webkit-box-shadow: 4px 4px 1px 0px #89ade6;\n}\n\nion-card-subtitle {\n  color: #E67E22;\n}\n\n.title {\n  color: #212F3D;\n}\n\np {\n  color: #E67E22;\n}\n\n.delete {\n  color: #34495E;\n  margin-left: 85%;\n  width: 5em;\n  height: 2em;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvYWdlbmRhL0M6XFxVc2Vyc1xca2FyZWVcXERlc2t0b3BcXEFQUC1NVUxUSUVWRU5UXFxhcHBVc2VyL3NyY1xcYXBwXFxjb21wb25lbnRlc1xcYWdlbmRhXFxhZ2VuZGEucGFnZS5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRlcy9hZ2VuZGEvYWdlbmRhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxxQkFBQTtFQUNBLHdCQUFBO0FDQ0o7O0FERUE7RUFDSSxXQUFBO0FDQ0o7O0FEQ0E7RUFDSSxxQkFBQTtFQUNBLGtCQUFBO0FDRUo7O0FEQ0E7RUFDSSxrQkFBQTtBQ0VKOztBREFBO0VBRUkseUJBQUE7QUNFSjs7QURBQTtFQUNJLHlCQUFBO0VBQ0EseUJBQUE7RUFDQSxtQ0FBQTtFQUNBLHdDQUFBO0VBQ0EsMkNBQUE7QUNHSjs7QUREQTtFQUNJLGNBQUE7QUNJSjs7QURGQTtFQUNJLGNBQUE7QUNLSjs7QURIQTtFQUNJLGNBQUE7QUNNSjs7QURKQTtFQUNJLGNBQUE7RUFDQSxnQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0FDT0oiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRlcy9hZ2VuZGEvYWdlbmRhLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImF7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBmb250LWZhbWlseTogXCJBZ2VuY3kgRkJcIjtcclxufVxyXG5cclxuLmNhcmRFdmVudG9ze1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLmJ1dHRvbi1jb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcclxuICAgIHBvc2l0aW9uOnJlbGF0aXZlO1xyXG59XHJcblxyXG5pb24tY2FyZC1zdWJ0aXRsZXtcclxuICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxufVxyXG4uY2FyZC1wcmluY2lwYWx7XHJcbiAgICBcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNBOUNDRTM7XHJcbn1cclxuLmNhcmQtc2VjdW5kYXJpYXtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGMkYzRjQ7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjMjEyRjNEO1xyXG4gICAgYm94LXNoYWRvdzo0cHggNHB4IDFweCAwcHggIzg5YWRlNjtcclxuICAgIC1tb3otYm94LXNoYWRvdzo0cHggNHB4IDFweCAwcHggIzg5YWRlNjtcclxuICAgIC13ZWJraXQtYm94LXNoYWRvdzo0cHggNHB4IDFweCAwcHggIzg5YWRlNjtcclxufVxyXG5pb24tY2FyZC1zdWJ0aXRsZXtcclxuICAgIGNvbG9yOiAjRTY3RTIyO1xyXG59XHJcbi50aXRsZXtcclxuICAgIGNvbG9yOiAjMjEyRjNEO1xyXG59XHJcbnB7XHJcbiAgICBjb2xvcjogI0U2N0UyMjtcclxufVxyXG4uZGVsZXRle1xyXG4gICAgY29sb3I6ICMzNDQ5NUU7XHJcbiAgICBtYXJnaW4tbGVmdDogODUlO1xyXG4gICAgd2lkdGg6IDVlbTtcclxuICAgIGhlaWdodDogMmVtO1xyXG59IiwiYSB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LWZhbWlseTogXCJBZ2VuY3kgRkJcIjtcbn1cblxuLmNhcmRFdmVudG9zIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5idXR0b24tY29udGFpbmVyIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgZm9udC1zdHlsZTogaXRhbGljO1xufVxuXG4uY2FyZC1wcmluY2lwYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQTlDQ0UzO1xufVxuXG4uY2FyZC1zZWN1bmRhcmlhIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI0YyRjNGNDtcbiAgYm9yZGVyOiAycHggc29saWQgIzIxMkYzRDtcbiAgYm94LXNoYWRvdzogNHB4IDRweCAxcHggMHB4ICM4OWFkZTY7XG4gIC1tb3otYm94LXNoYWRvdzogNHB4IDRweCAxcHggMHB4ICM4OWFkZTY7XG4gIC13ZWJraXQtYm94LXNoYWRvdzogNHB4IDRweCAxcHggMHB4ICM4OWFkZTY7XG59XG5cbmlvbi1jYXJkLXN1YnRpdGxlIHtcbiAgY29sb3I6ICNFNjdFMjI7XG59XG5cbi50aXRsZSB7XG4gIGNvbG9yOiAjMjEyRjNEO1xufVxuXG5wIHtcbiAgY29sb3I6ICNFNjdFMjI7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogIzM0NDk1RTtcbiAgbWFyZ2luLWxlZnQ6IDg1JTtcbiAgd2lkdGg6IDVlbTtcbiAgaGVpZ2h0OiAyZW07XG59Il19 */";
     /***/
   },
 
@@ -227,14 +227,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/fire/auth */
     "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
     var AgendaPage = /*#__PURE__*/function () {
-      function AgendaPage(eventoService, authService, auth) {
+      function AgendaPage(eventoService, authService, auth, alertCtrl) {
         _classCallCheck(this, AgendaPage);
 
         this.eventoService = eventoService;
         this.authService = authService;
         this.auth = auth;
+        this.alertCtrl = alertCtrl;
         this.listEvents = [];
         this.listSubEvents = [];
         this.Userdata$ = auth.authState;
@@ -249,7 +256,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.iduser = user.uid;
           });
           this.eventos$ = this.eventoService.getAllEvents();
-          this.eventos$.subscribe(function (eventos) {
+          var sub1 = this.eventos$.subscribe(function (eventos) {
             eventos.forEach(function (evento) {
               //console.log(evento);
               if (evento.idUsers) {
@@ -262,13 +269,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 });
 
                 if (typeof evento.idSubevents === 'undefined' || evento.idSubevents == 0) {
-                  console.log('no hay subeventos');
-                  console.log('llego aqui');
+                  console.log('no hay eventos');
                 } else {
                   evento.idSubevents.forEach(function (idsub) {
                     _this.subevento$ = _this.eventoService.getOneSubEvent(idsub);
 
-                    _this.subevento$.subscribe(function (sub) {
+                    var subs = _this.subevento$.subscribe(function (sub) {
                       if (sub.idUsers) {
                         sub.idUsers.forEach(function (ids) {
                           if (ids == _this.iduser) {
@@ -280,6 +286,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       } else {
                         console.log('No hay usuarios registrados en: ', sub);
                       }
+
+                      subs.unsubscribe();
                     });
                   });
                 }
@@ -310,10 +318,112 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             });
+            sub1.unsubscribe();
           });
           this.listEvents.forEach(function (element) {
             console.log(element);
           });
+        }
+      }, {
+        key: "delete",
+        value: function _delete(evt) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            var _this2 = this;
+
+            var alert, result;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    console.log("delete");
+                    _context.next = 3;
+                    return this.alertCtrl.create({
+                      header: '¿Está seguro de eliminar el evento de tu agenda?',
+                      buttons: [{
+                        text: 'Cancelar',
+                        handler: function handler(blah) {
+                          console.log('Confirma Cancelar');
+                        }
+                      }, {
+                        text: 'Aceptar',
+                        handler: function handler() {
+                          console.log('Eliminado');
+
+                          _this2.eventoService.deleteOnEvent(_this2.iduser, evt.id);
+                        }
+                      }]
+                    });
+
+                  case 3:
+                    alert = _context.sent;
+                    _context.next = 6;
+                    return alert.present();
+
+                  case 6:
+                    _context.next = 8;
+                    return alert.onDidDismiss();
+
+                  case 8:
+                    result = _context.sent;
+                    console.log(result);
+
+                  case 10:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
+          }));
+        }
+      }, {
+        key: "deletesub",
+        value: function deletesub(subevt) {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            var _this3 = this;
+
+            var alert, result;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.next = 2;
+                    return this.alertCtrl.create({
+                      header: '¿Está seguro de eliminar este evento de tu agenda?',
+                      buttons: [{
+                        text: 'Cancelar',
+                        handler: function handler(blah) {
+                          console.log('Confirma Cancelar');
+                        }
+                      }, {
+                        text: 'Aceptar',
+                        handler: function handler() {
+                          console.log('Eliminado');
+
+                          _this3.eventoService.deleteOnSubEvent(_this3.iduser, subevt.id);
+                        }
+                      }]
+                    });
+
+                  case 2:
+                    alert = _context2.sent;
+                    _context2.next = 5;
+                    return alert.present();
+
+                  case 5:
+                    _context2.next = 7;
+                    return alert.onDidDismiss();
+
+                  case 7:
+                    result = _context2.sent;
+                    console.log(result);
+
+                  case 9:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
         }
       }]);
 
@@ -327,6 +437,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
       }, {
         type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
       }];
     };
 

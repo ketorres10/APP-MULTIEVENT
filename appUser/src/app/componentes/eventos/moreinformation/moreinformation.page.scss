@@ -6,7 +6,7 @@ h1, h2{
 .subeventos{
     background-color: #34495E;
 }
-h3{
+h4{
     color: white;
     font-size: medium;
 }
@@ -43,13 +43,22 @@ ion-icon{
     float: right;
     border-radius: 50%;
 }
+.iconMostar{
+    width: 3em;
+    height: 3em;
+    float: right;
+    border-radius: 50%;
+    color: white;
+}
 .btn-registrarme{
     width: 94%;
     margin: auto;
 }
 .boton_atras{
+    width: 2em;
+    height: 2em;
     float: right;
-    font-size: 250%;
+    border-radius: 50%;
 }
 ion-chip{
     width: 100%;

@@ -12,7 +12,6 @@
       <ion-card>
         <ion-card class="card-header" style="background-color:  #34495E;">
           <ion-card-header>
-            <ion-icon name="arrow-back-circle" class="boton_atras" [routerLink]="['/eventos']"></ion-icon>
             <ion-card-subtitle style="color: #2ADEAB;"><strong>{{event.siglas}}</strong></ion-card-subtitle>
             <ion-card-title style="color: white;">
               {{event.title}}
@@ -30,11 +29,12 @@
               <ion-icon name="business"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}
             </p>
             <br>
-            <h2><strong>Descripción del evento</strong></h2><br>
+            <h2><strong>Descripción del evento</strong></h2>
             <p style="text-align: justify;">{{event.descrip}}</p><br>
             <h2><strong>Topicos de Interés</strong></h2>
             <!-- <ion-card-content class="topicos" selected *ngFor="let topic of event.topics" [ngClass]="topic">
             </ion-card-content> -->
+        
             <div class="topicos" selected *ngFor="let topic of event.topics" [ngClass]="topic">
               <ion-chip color="success" outline="true" expand="full">
                 <ion-label color="secondary">{{topic}}</ion-label>
@@ -44,33 +44,34 @@
         </ion-card>
       </ion-card>
       <div style="text-align: center;">
-        <ion-button (click)="registerEvent()" class="btn-registrarme" id="registrar" expand="full" shape="round">Registrarme
+        <ion-button (click)="registerEvent()" class="btn-registrarme" id="registrar" expand="full" shape="round">
+          Registrarme
         </ion-button>
       </div>
       <ion-card expand="full" style="background-color: #34495E;">
         <div class="subEventos" *ngIf="subeventList.length >= 0; else noSubs">
           <!--<div class="subEventos" > -->
-          <h3>&nbsp;&nbsp;&nbsp;&nbsp;SUB-EVENTOS<ion-icon name="caret-down-outline" style="float: right;"
-              (click)="mostrar=true">
-            </ion-icon>
-          </h3>
+          <h4 style="text-align: center;">SUB-EVENTOS
+          </h4>
+          <ion-icon name="chevron-down"
+              (click)="mostrar=true" style=" margin-left: 48%; font-size: large;"></ion-icon>
           <div *ngIf="mostrar">
-              <ion-list type="mostrar=true">
-                <ion-item *ngFor="let subevent of subeventList">
-                  <ion-card class="card-subeventos" >
-                    <ion-card-header>
-                      <ion-card-subtitle class="subtitle-subevento" style="color:#E67E22">
-                        <strong>{{event.siglas}}</strong>
-                      </ion-card-subtitle>
-                      <ion-card-title class="title-subevento">
-                        <strong><a [routerLink]="['/subevent', subevent.id]" style="color:#85929E">
-                            {{subevent.title}}</a></strong>
-                      </ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-item>
-              </ion-list>
-            <ion-icon name="caret-up" class="iconOcultar" (click)="mostrar=false"></ion-icon>
+            <ion-list type="mostrar=true">
+              <ion-item *ngFor="let subevent of subeventList">
+                <ion-card class="card-subeventos">
+                  <ion-card-header>
+                    <ion-card-subtitle class="subtitle-subevento" style="color:#E67E22">
+                      <strong>{{event.siglas}}</strong>
+                    </ion-card-subtitle>
+                    <ion-card-title class="title-subevento">
+                      <strong><a [routerLink]="['/subevent', subevent.id]" style="color:#85929E">
+                          {{subevent.title}}</a></strong>
+                    </ion-card-title>
+                  </ion-card-header>
+                </ion-card>
+              </ion-item>
+            </ion-list>
+            <ion-icon name="chevron-up" style=" margin-left: 48%; font-size: large;" (click)="mostrar=false"></ion-icon>
           </div>
         </div>
       </ion-card>

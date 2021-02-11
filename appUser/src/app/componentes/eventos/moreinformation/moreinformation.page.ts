@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { EventI } from 'src/app/shared/models/events.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BeaconI } from 'src/app/shared/models/beacon.interface';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { BeaconService } from 'src/app/shared/servicios/beacon.service';
 import { element } from 'protractor';
@@ -33,7 +33,7 @@ export class MoreinformationPage implements OnInit {
   router: any;
   public userdata$: Observable<firebase.User>;
 
-  constructor(public authService: AuthService, public eventoService: EventosService, private route: ActivatedRoute, private auth: AngularFireAuth, public alertCtrl: AlertController, public beaconService: BeaconService) {
+  constructor(public authService: AuthService, public eventoService: EventosService, private route: ActivatedRoute, private auth: AngularFireAuth, public alertCtrl: AlertController, public beaconService: BeaconService, private navController: NavController,) {
     //obtener los datos del usuario autenticados
     this.userdata$ = auth.authState;
   }

@@ -26,7 +26,7 @@ export class DetailSubeventPage implements OnInit {
   public subevent$: Observable<EventI>;
   public beacons$: Observable<BeaconI[]>;
   public userData$: Observable<firebase.User>;
-  constructor(public route: ActivatedRoute, public eventoService: EventosService, public alertCtrl: AlertController, public authservice: AuthService, public beaconService: BeaconService, private auth: AngularFireAuth) {
+  constructor(public route: ActivatedRoute, public eventoService: EventosService, public alertCtrl: AlertController, public authservice: AuthService, public beaconService: BeaconService, private auth: AngularFireAuth, private navController: NavController) {
     this.userData$ = auth.authState;
    }
 
@@ -89,5 +89,6 @@ export class DetailSubeventPage implements OnInit {
     console.log(result);
 
   }
+
 
 }
