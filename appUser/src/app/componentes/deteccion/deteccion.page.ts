@@ -24,9 +24,9 @@ export class DeteccionPage implements OnInit {
   public idBeacon: any;
   public listEvents: EventI[] = [];
   public listSubEvents: EventI[] = [];
-  public idSala:any;
+  public idSala: any;
   public Userdata$: Observable<firebase.User>;
-  constructor(public platform: Platform,private route: ActivatedRoute, public authService: AuthService, public eventoService: EventosService, public auth: AngularFireAuth, public beaconService: BeaconService) { 
+  constructor(public platform: Platform, private route: ActivatedRoute, public authService: AuthService, public eventoService: EventosService, public auth: AngularFireAuth, public beaconService: BeaconService) {
     this.Userdata$ = auth.authState
   }
   startScanning() {
@@ -36,7 +36,7 @@ export class DeteccionPage implements OnInit {
         // console.log('BeaconData',Object.keys(BeaconData));
         console.log('BeaconData2', JSON.stringify(BeaconData));
         var convertData = String.fromCharCode.apply(null, BeaconData.nid);
-        var valor="";
+        var valor = "";
         for (var i = 0; i < convertData.length; i++) {
           var resultNumber = convertData.charCodeAt(i);   //Decimal
           var str = (+resultNumber).toString(16)
@@ -45,13 +45,13 @@ export class DeteccionPage implements OnInit {
             resultString = ("0" + (+resultNumber).toString(16)).toUpperCase().substring(-2); //String
             this.beacons$ = this.beaconService.getAllBeacons();
             this.beacons$.subscribe(salas => {
-             //this.idBeacon = beacon.id;
-             salas.forEach(sala => {
-              if(sala.beaconUID == valor){
-                this.idSala = sala.id;
-                console.log(this.idSala);
-              }
-             });
+              //this.idBeacon = beacon.id;
+              salas.forEach(sala => {
+                if (sala.beaconUID == resultString) {
+                  this.idSala = sala.id;
+                  console.log(this.idSala);
+                }
+              });
             })
             this.eventos$ = this.eventoService.getAllEvents();
             this.eventos$.subscribe(eventos => {

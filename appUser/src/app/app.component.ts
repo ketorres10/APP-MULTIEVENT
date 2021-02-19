@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public image: string;
+  public image: any;
   public idUser: string;
   public email: string;
   public name: string;
@@ -37,19 +37,19 @@ export class AppComponent implements OnInit {
       this.user$.subscribe(us => {
         this.initValuesForm(us);
       })
+      this.idUser = user.uid;
       this.email = user.email;
       this.name= user.displayName;
     });
-  }
-  onSaveUser(user: UserI): void {
-    this.authSvc.preSaveProfile(user, this.image, this.idUser);
-
   }
   private initValuesForm(user: UserI) {
     console.log(user);
     if (user.urlImage) {
       this.currentImage = user.urlImage;
     }
+  }
+  handleImage(image: string): void {
+    this.image = image;
   }
   initializeApp() {
     this.platform.ready().then(() => {
