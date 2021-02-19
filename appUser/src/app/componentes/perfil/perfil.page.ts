@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,  Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Camera } from '@ionic-native/camera/ngx';
 import { Observable } from 'rxjs';
-import { FileI } from 'src/app/shared/models/file.interface';
 import { UserI } from 'src/app/shared/models/user.interface';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
-import { UserService } from 'src/app/shared/servicios/user.service';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-perfil',
@@ -20,16 +18,17 @@ export class PerfilPage implements OnInit {
   public idUser: string;
   clickedImage: string;
   public base64Image: any;
+  public profileForm: FormGroup;
   //public image2: any;
 
-  constructor(private authSvc: AuthService, public camara: Camera) { }
-  profileForm = new FormGroup({
-    displayName: new FormControl('', Validators.required),
-    email: new FormControl({ value: '', disable: true }, Validators.required),
-    photoURL: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required)
-  })
+  constructor(private authSvc: AuthService, public camara: Camera) {
+    this.profileForm = new FormGroup({
+      displayName: new FormControl('', { validators: Validators.required }),
+      email: new FormControl('', { validators: Validators.required }),
+      phoneNumber: new FormControl('', { validators: [Validators.required, Validators.pattern(/^[0-9]\d*$/)] }),
+      description: new FormControl('', { validators: Validators.required })
+    })
+  }
   ngOnInit() {
     this.authSvc.userData$.subscribe(user => {
       this.user$ = this.authSvc.getUser(user.uid);
@@ -93,6 +92,4 @@ export class PerfilPage implements OnInit {
       console.log(error);
     })
   }
-
 }
-

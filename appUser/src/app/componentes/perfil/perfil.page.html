@@ -36,8 +36,9 @@
           <div class="field">
             <h3 class="fie">Teléfono</h3>
             <ion-item>
-              <ion-input formControlName="phoneNumber"></ion-input>
+              <ion-input maxlength="10" formControlName="phoneNumber"></ion-input>
             </ion-item>
+            <span *ngIf="profileForm.get('phoneNumber').invalid" style="color: red;">El numero es incorrecto</span>
           </div>
           <div class="field">
             <h3 class="fie">Descripción</h3>
@@ -48,7 +49,7 @@
           <div class="mat-dialog-actions">
             <div class="button">
               <br>
-              <ion-button type="submit" expand="full" shape="round">
+              <ion-button type="submit" expand="full" shape="round" [disabled]="profileForm.invalid">
                 <ion-icon name="save-outline"></ion-icon> Guardar
               </ion-button>
             </div>

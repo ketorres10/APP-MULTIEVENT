@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
       this.idUser = user.uid;
       this.email = user.email;
       this.name= user.displayName;
+      this.currentImage = user.photoURL;
     });
   }
   private initValuesForm(user: UserI) {
@@ -47,9 +48,6 @@ export class AppComponent implements OnInit {
     if (user.urlImage) {
       this.currentImage = user.urlImage;
     }
-  }
-  handleImage(image: string): void {
-    this.image = image;
   }
   initializeApp() {
     this.platform.ready().then(() => {
