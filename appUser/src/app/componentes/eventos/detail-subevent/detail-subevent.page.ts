@@ -57,7 +57,7 @@ export class DetailSubeventPage implements OnInit {
   
   async registerEvent() {
     const alert = await this.alertCtrl.create({
-      header: '¿Está seguro de añadir el evento a tu agenda?',
+      header: '¿Está seguro de añadir el subevento a tu agenda?',
       buttons: [
         {
           text: 'Cancelar',

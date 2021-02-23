@@ -249,13 +249,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_shared_servicios_evento_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! src/app/shared/servicios/evento.service */
     "./src/app/shared/servicios/evento.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var EventosPage = /*#__PURE__*/function () {
-      function EventosPage(authService, eventoService) {
+      function EventosPage(authService, eventoService, router) {
         _classCallCheck(this, EventosPage);
 
         this.authService = authService;
         this.eventoService = eventoService;
+        this.router = router;
         this.listEvents = [];
       }
 
@@ -269,6 +276,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
+          this.router.navigate(['../eventos/']);
           this.eventos$ = this.eventoService.getAllEvents();
           var subs_events = this.eventos$.subscribe(function (eventos) {
             eventos.forEach(function (element) {
@@ -289,6 +297,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: src_app_shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
       }, {
         type: src_app_shared_servicios_evento_service__WEBPACK_IMPORTED_MODULE_3__["EventosService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
       }];
     };
 

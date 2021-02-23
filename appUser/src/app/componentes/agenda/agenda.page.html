@@ -12,14 +12,14 @@
       <div class="cardEventos">
         <ion-card class="card-secundaria">
           <ion-button style="width: 91%; background-color: #212F3D;" color="#212F3D" (click)="deleteevent(event)">EVENTO
-            <ion-icon name="close-circle" style="color: red; margin-left: 60%; width: 4em;height: 4em;"></ion-icon>
+            <ion-icon name="close-circle" style="color: red; margin-left: 70%;"></ion-icon>
           </ion-button>
           <ion-card-header>
             <ion-card-subtitle>
               <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>
             </ion-card-subtitle>
             <ion-card-title>
-              <a [routerLink]="['/subevent', event.id]" class="title"> {{event.title}}</a>
+              <a [routerLink]="['/event', event.id]" class="title"> {{event.title}}</a>
             </ion-card-title>
           </ion-card-header>
         </ion-card>
@@ -29,7 +29,7 @@
       <div class="cardEventos">
         <ion-card class="card-secundaria">
           <ion-button style="width: 91%; background-color: #212F3D;" color="#212F3D" (click)="deletesub(subevent)">SUBEVENTO
-            <ion-icon name="close-circle" style="color: red; margin-left: 60%; width: 4em;height: 4em;"></ion-icon>
+            <ion-icon name="close-circle" style="color: red; margin-left: 60%;"></ion-icon>
           </ion-button>
           <ion-card-header>
             <ion-card-subtitle>

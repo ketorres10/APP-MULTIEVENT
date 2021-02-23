@@ -18,7 +18,7 @@
       <div class="field">
         <ion-item>
           <ion-icon name="lock-closed"></ion-icon>
-          <ion-input [(ngModel)]="password" [type]="showPassword ? 'text': 'password'" name=" Password"
+          <ion-input maxlength="8" [(ngModel)]="password" [type]="showPassword ? 'text': 'password'" name=" Password"
             placeholder=" Contraseña"></ion-input>
           <ion-icon slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
         </ion-item>

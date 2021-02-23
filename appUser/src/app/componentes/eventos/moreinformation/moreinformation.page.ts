@@ -28,10 +28,11 @@ export class MoreinformationPage implements OnInit {
   public subeventList: EventI[] = [];
   public beacon$: Observable<BeaconI>;
   public beacons$: Observable<BeaconI[]>;
-  public subscriptionSub; 
+  public subscriptionSub;
   public band: boolean = true;
   public idEvent: any;
   public idSala: any;
+  public subscribeEvent: Subscription;
   router: any;
   public userdata$: Observable<firebase.User>;
 
@@ -39,20 +40,31 @@ export class MoreinformationPage implements OnInit {
     //obtener los datos del usuario autenticados
     this.userdata$ = auth.authState;
   }
+  Onlogout() {
+    this.authService.logout();
+  }
   ngOnInit() {
     this.userdata$.subscribe(user => this.iduser = user.uid);
     this.idEvent = this.route.snapshot.params.id;
     this.event$ = this.eventoService.getOneEvent(this.idEvent);
     this.beacons$ = this.beaconService.getAllBeacons();
     this.event$.subscribe(event => {
-      if(event.idUsers){
-        console.log("user",this.iduser);
+      if (event.idUsers) {
+        //console.log("user", this.iduser);
         event.idUsers.forEach(element => {
-          if(element== this.iduser){
+          if (element == this.iduser) {
             this.band = false;
           }
         });
       }
+      this.beacons$.subscribe(salas => {
+        //this.idBeacon = beacon.id;
+        salas.forEach(sala => {
+          if (event.sala == sala.id) {
+            this.idSala = sala.sala;
+          }
+        });
+      })
       //console.log('hola', event);
       if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
         console.log('no hay subeventos');
@@ -63,7 +75,6 @@ export class MoreinformationPage implements OnInit {
           this.subevent$ = this.eventoService.getOneSubEvent(element);
           const subscripSub = this.subevent$.subscribe(subevent => {
             //console.log('sala id antes de beacon: ', subevent.sala)
-            
             this.beacon$ = this.eventoService.getBeacon(element.sala);
             const subscription = this.beacon$.subscribe(res => {
               // console.log('subevento: ', subevent);
@@ -79,24 +90,16 @@ export class MoreinformationPage implements OnInit {
                 sala: subevent.sala
               };
               this.subeventList.push(subeventObj as EventI);
-              //subscription.unsubscribe();
-            })
-            this.beacons$.subscribe(salas => {
-              salas.forEach(sala => {
-                if (event.sala == sala.id) {
-                  this.idSala = sala.sala;
-                }
-              });
-              //subscripSub.unsubscribe();
-            })
+              //
 
+            })
+            
           })
         });
       }
       //this.subscribeEvent.unsubscribe();
     })
   }
-
   async registerEvent() {
     const alert = await this.alertCtrl.create({
       header: '¿Está seguro de agregar el evento a su agenda?',
@@ -104,7 +107,7 @@ export class MoreinformationPage implements OnInit {
         {
           text: 'Cancelar',
           handler: (blah) => {
-            console.log('Confirm Cncek: blah');
+            console.log('Confirma Cancelar');
           }
         }, {
           text: 'Aceptar',

@@ -130,20 +130,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/servicios/auth.service */ "./src/app/shared/servicios/auth.service.ts");
 /* harmony import */ var src_app_shared_servicios_evento_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/servicios/evento.service */ "./src/app/shared/servicios/evento.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
 
 let EventosPage = class EventosPage {
-    constructor(authService, eventoService) {
+    constructor(authService, eventoService, router) {
         this.authService = authService;
         this.eventoService = eventoService;
+        this.router = router;
         this.listEvents = [];
     }
     Onlogout() {
         this.authService.logout();
     }
     ngOnInit() {
+        this.router.navigate(['../eventos/']);
         this.eventos$ = this.eventoService.getAllEvents();
         const subs_events = this.eventos$.subscribe(eventos => {
             eventos.forEach(element => {
@@ -156,7 +160,8 @@ let EventosPage = class EventosPage {
 };
 EventosPage.ctorParameters = () => [
     { type: src_app_shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
-    { type: src_app_shared_servicios_evento_service__WEBPACK_IMPORTED_MODULE_3__["EventosService"] }
+    { type: src_app_shared_servicios_evento_service__WEBPACK_IMPORTED_MODULE_3__["EventosService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 EventosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

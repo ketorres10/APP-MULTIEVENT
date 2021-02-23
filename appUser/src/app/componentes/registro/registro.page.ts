@@ -81,7 +81,12 @@ onUploadCamera() {
 //metodo retorna una promesa
 onSubmitRegister(user: UserI) {
   console.log('image', this.clickedImage);
-  this.auth.preSaveProfile(user, this.base64Image);
+  if(this.base64Image){
+    this.auth.preSaveProfile(user, this.base64Image);
+  }else{
+    this.auth.preSaveProfile(user);
+  }
+  
   /*     console.log("entro aqui", user);
       this.auth.register(user).then(auth => {
         console.log(user);

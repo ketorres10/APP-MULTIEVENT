@@ -2,7 +2,7 @@
   <ion-menu side="start" type="overlay" contentId="main" swipe-gesture="false" color="primary">
     <ion-header>
       <div class="profile-pic" *ngIf="userData$ | async as user;">
-        <img [src]="currentImage" alt="foto de perfil" class="avatar">
+        <img [src]="this.currentImage" alt="foto de perfil" class="avatar">
         <ion-card-content class="detailUser">
           <h1>{{user.displayName}}</h1>
           <h2><i>{{user.email}}</i></h2>

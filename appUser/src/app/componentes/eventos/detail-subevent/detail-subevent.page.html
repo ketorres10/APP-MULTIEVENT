@@ -33,14 +33,20 @@
             <p style="text-align: justify;">{{subevent.descrip}}</p>
             <br>
             <h2><strong>Topicos de Interés</strong></h2>
-            <ion-card-content class="topicos" selected *ngFor="let topic of subevent.topics" [ngClass]="topic">- {{topic}}
-              </ion-card-content>
+            <!--<ion-card-content class="topicos" selected *ngFor="let topic of subevent.topics" [ngClass]="topic">- {{topic}}
+              </ion-card-content>-->
+            <div class="topicos" selected *ngFor="let topic of subevent.topics" [ngClass]="topic">
+              <ion-chip color="success" outline="true" expand="full">
+                <ion-label color="secondary">{{topic}}</ion-label>
+              </ion-chip>
+            </div>
             <div *ngIf="this.band; else registrado" style="text-align: center;">
               <ion-button (click)="registerEvent()" class="btn-registrarme" color="primary">Registrarme</ion-button>
             </div>
             <ng-template #registrado>
               <div>
-                <ion-card style="text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;">Registrado!</ion-card>
+                <ion-card style="text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;">
+                  <h2  style="background-color: blanchedalmond;margin: auto;">Registrado!</h2></ion-card>
               </div>
             </ng-template>
           </ion-card-content>

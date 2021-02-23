@@ -5,12 +5,24 @@ h2{
 .card-escaner{
     background-color: #2D6082;
 }
+a{
+  color: white;
+  text-decoration: none;
+  font-family: "Agency FB";
+}
+.button-container{
+  display:inline-block;
+  position:relative;
+}
 .button{
   width: 75px;
   height: 50px; 
 }
 .cardEventos{
   width: 100%;
+}
+ion-card-subtitle{
+  font-style: italic;
 }
 .card-principal{
   background-color: #73C6B6;
@@ -24,6 +36,12 @@ h2{
 .card-secundaria{
   border: #F2F3F4 2px solid;
   background-color: #E5E8E8;
+}
+ion-card-subtitle{
+  color: #E67E22;
+}
+.title{
+  color: #34495E;
 }
 ion-icon{
   font-size: large;

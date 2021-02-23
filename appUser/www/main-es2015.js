@@ -270,7 +270,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <h2><i>{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"this.currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <h2><i>{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>");
 
 /***/ }),
 
@@ -283,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"subevent$ | async as subevent;\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{subevent.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{subevent.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{subevent.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{subevent.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{subevent.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2><br>\n            <p style=\"text-align: justify;\">{{subevent.descrip}}</p>\n            <br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of subevent.topics\" [ngClass]=\"topic\">- {{topic}}\n              </ion-card-content>\n            <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n              <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" color=\"primary\">Registrarme</ion-button>\n            </div>\n            <ng-template #registrado>\n              <div>\n                <ion-card style=\"text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;\">Registrado!</ion-card>\n              </div>\n            </ng-template>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"subevent$ | async as subevent;\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{subevent.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{subevent.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{subevent.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{subevent.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{subevent.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2><br>\n            <p style=\"text-align: justify;\">{{subevent.descrip}}</p>\n            <br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!--<ion-card-content class=\"topicos\" selected *ngFor=\"let topic of subevent.topics\" [ngClass]=\"topic\">- {{topic}}\n              </ion-card-content>-->\n            <div class=\"topicos\" selected *ngFor=\"let topic of subevent.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n            <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n              <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" color=\"primary\">Registrarme</ion-button>\n            </div>\n            <ng-template #registrado>\n              <div>\n                <ion-card style=\"text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;\">\n                  <h2  style=\"background-color: blanchedalmond;margin: auto;\">Registrado!</h2></ion-card>\n              </div>\n            </ng-template>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>");
 
 /***/ }),
 
@@ -296,7 +296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ng-template #registrado>\n        <div>\n          <ion-card style=\"text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;\">Registrado!</ion-card>\n        </div>\n      </ng-template>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length > 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ng-template #registrado>\n        <div>\n          <ion-card style=\"text-align: center; width: 80%; background-color: blanchedalmond;margin: auto;\"><h2 style=\"background-color: blanchedalmond;margin: auto;\">Registrado!</h2></ion-card>\n        </div>\n      </ng-template>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length > 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>");
 
 /***/ }),
 
@@ -432,7 +432,6 @@ let AppComponent = class AppComponent {
         this.currentImage = 'https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg';
         this.selectedIndex = 0;
         this.userData$ = AFauth.authState;
-        this.initializeApp();
     }
     ngOnInit() {
         this.authSvc.userData$.subscribe(user => {
@@ -443,7 +442,6 @@ let AppComponent = class AppComponent {
             this.idUser = user.uid;
             this.email = user.email;
             this.name = user.displayName;
-            this.currentImage = user.photoURL;
         });
         this.authSvc.autoAuthUser();
     }
@@ -452,12 +450,6 @@ let AppComponent = class AppComponent {
         if (user.urlImage) {
             this.currentImage = user.urlImage;
         }
-    }
-    initializeApp() {
-        this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-        });
     }
     login() {
         this.menu.close();
@@ -602,7 +594,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".btn-registrarme {\n  width: 93%;\n  margin-top: 3px;\n}\n\nh1, h2 {\n  text-align: center;\n  background-color: #D5DBDB;\n  color: #17A589;\n}\n\n.container-general {\n  background-color: #D5DBDB;\n}\n\np, .topicos {\n  color: #34495E;\n}\n\n.card-header {\n  background-color: #34495E;\n}\n\n.subtitle-subevento {\n  color: #34495E;\n}\n\n.title-subevento {\n  font-family: \"Candara\";\n  font-size: 1.3em;\n}\n\nion-icon {\n  color: #17A589;\n}\n\n.boton_atras {\n  width: 2em;\n  height: 2em;\n  float: right;\n  border-radius: 50%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvZXZlbnRvcy9kZXRhaWwtc3ViZXZlbnQvQzpcXFVzZXJzXFxrYXJlZVxcRGVza3RvcFxcQVBQLU1VTFRJRVZFTlRcXGFwcFVzZXIvc3JjXFxhcHBcXGNvbXBvbmVudGVzXFxldmVudG9zXFxkZXRhaWwtc3ViZXZlbnRcXGRldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudGVzL2V2ZW50b3MvZGV0YWlsLXN1YmV2ZW50L2RldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0VBQ0EsZUFBQTtBQ0NKOztBRENFO0VBQ0Usa0JBQUE7RUFDQSx5QkFBQTtFQUNBLGNBQUE7QUNFSjs7QURBRTtFQUNFLHlCQUFBO0FDR0o7O0FEREU7RUFDRSxjQUFBO0FDSUo7O0FERkU7RUFDRSx5QkFBQTtBQ0tKOztBREhFO0VBQ0UsY0FBQTtBQ01KOztBREpFO0VBQ0Usc0JBQUE7RUFDQSxnQkFBQTtBQ09KOztBRExFO0VBQ0UsY0FBQTtBQ1FKOztBRE5FO0VBQ0UsVUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNTSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudGVzL2V2ZW50b3MvZGV0YWlsLXN1YmV2ZW50L2RldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRuLXJlZ2lzdHJhcm1le1xyXG4gICAgd2lkdGg6IDkzJTtcclxuICAgIG1hcmdpbi10b3A6IDNweDtcclxuICB9XHJcbiAgaDEsIGgye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Q1REJEQjsgXHJcbiAgICBjb2xvcjogIzE3QTU4OTtcclxuICB9XHJcbiAgLmNvbnRhaW5lci1nZW5lcmFse1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Q1REJEQjtcclxuICB9XHJcbiAgcCwgLnRvcGljb3N7XHJcbiAgICBjb2xvcjogIzM0NDk1RTtcclxuICB9XHJcbiAgLmNhcmQtaGVhZGVye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogICMzNDQ5NUU7XHJcbiAgfVxyXG4gIC5zdWJ0aXRsZS1zdWJldmVudG97XHJcbiAgICBjb2xvcjogIzM0NDk1RTtcclxuICB9XHJcbiAgLnRpdGxlLXN1YmV2ZW50b3tcclxuICAgIGZvbnQtZmFtaWx5OiAnQ2FuZGFyYSc7XHJcbiAgICBmb250LXNpemU6IDEuM2VtO1xyXG4gIH1cclxuICBpb24taWNvbntcclxuICAgIGNvbG9yOiAjMTdBNTg5O1xyXG4gIH1cclxuICAuYm90b25fYXRyYXN7XHJcbiAgICB3aWR0aDogMmVtO1xyXG4gICAgaGVpZ2h0OiAyZW07XHJcbiAgICBmbG9hdDogcmlnaHQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn0iLCIuYnRuLXJlZ2lzdHJhcm1lIHtcbiAgd2lkdGg6IDkzJTtcbiAgbWFyZ2luLXRvcDogM3B4O1xufVxuXG5oMSwgaDIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICNENURCREI7XG4gIGNvbG9yOiAjMTdBNTg5O1xufVxuXG4uY29udGFpbmVyLWdlbmVyYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRDVEQkRCO1xufVxuXG5wLCAudG9waWNvcyB7XG4gIGNvbG9yOiAjMzQ0OTVFO1xufVxuXG4uY2FyZC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzQ0OTVFO1xufVxuXG4uc3VidGl0bGUtc3ViZXZlbnRvIHtcbiAgY29sb3I6ICMzNDQ5NUU7XG59XG5cbi50aXRsZS1zdWJldmVudG8ge1xuICBmb250LWZhbWlseTogXCJDYW5kYXJhXCI7XG4gIGZvbnQtc2l6ZTogMS4zZW07XG59XG5cbmlvbi1pY29uIHtcbiAgY29sb3I6ICMxN0E1ODk7XG59XG5cbi5ib3Rvbl9hdHJhcyB7XG4gIHdpZHRoOiAyZW07XG4gIGhlaWdodDogMmVtO1xuICBmbG9hdDogcmlnaHQ7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".btn-registrarme {\n  width: 93%;\n  margin-top: 3px;\n}\n\nh1, h2 {\n  text-align: center;\n  background-color: #D5DBDB;\n  color: #17A589;\n}\n\n.container-general {\n  background-color: #D5DBDB;\n}\n\np, .topicos {\n  color: #34495E;\n}\n\n.card-header {\n  background-color: #34495E;\n}\n\n.subtitle-subevento {\n  color: #34495E;\n}\n\n.title-subevento {\n  font-family: \"Candara\";\n  font-size: 1.3em;\n}\n\nion-icon {\n  color: #17A589;\n}\n\n.boton_atras {\n  width: 2em;\n  height: 2em;\n  float: right;\n  border-radius: 50%;\n}\n\nion-chip {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50ZXMvZXZlbnRvcy9kZXRhaWwtc3ViZXZlbnQvQzpcXFVzZXJzXFxrYXJlZVxcRGVza3RvcFxcQVBQLU1VTFRJRVZFTlRcXGFwcFVzZXIvc3JjXFxhcHBcXGNvbXBvbmVudGVzXFxldmVudG9zXFxkZXRhaWwtc3ViZXZlbnRcXGRldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudGVzL2V2ZW50b3MvZGV0YWlsLXN1YmV2ZW50L2RldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0VBQ0EsZUFBQTtBQ0NKOztBRENFO0VBQ0Usa0JBQUE7RUFDQSx5QkFBQTtFQUNBLGNBQUE7QUNFSjs7QURBRTtFQUNFLHlCQUFBO0FDR0o7O0FEREU7RUFDRSxjQUFBO0FDSUo7O0FERkU7RUFDRSx5QkFBQTtBQ0tKOztBREhFO0VBQ0UsY0FBQTtBQ01KOztBREpFO0VBQ0Usc0JBQUE7RUFDQSxnQkFBQTtBQ09KOztBRExFO0VBQ0UsY0FBQTtBQ1FKOztBRE5FO0VBQ0UsVUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNTSjs7QURQQTtFQUNFLFdBQUE7QUNVRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudGVzL2V2ZW50b3MvZGV0YWlsLXN1YmV2ZW50L2RldGFpbC1zdWJldmVudC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYnRuLXJlZ2lzdHJhcm1le1xyXG4gICAgd2lkdGg6IDkzJTtcclxuICAgIG1hcmdpbi10b3A6IDNweDtcclxuICB9XHJcbiAgaDEsIGgye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Q1REJEQjsgXHJcbiAgICBjb2xvcjogIzE3QTU4OTtcclxuICB9XHJcbiAgLmNvbnRhaW5lci1nZW5lcmFse1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Q1REJEQjtcclxuICB9XHJcbiAgcCwgLnRvcGljb3N7XHJcbiAgICBjb2xvcjogIzM0NDk1RTtcclxuICB9XHJcbiAgLmNhcmQtaGVhZGVye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogICMzNDQ5NUU7XHJcbiAgfVxyXG4gIC5zdWJ0aXRsZS1zdWJldmVudG97XHJcbiAgICBjb2xvcjogIzM0NDk1RTtcclxuICB9XHJcbiAgLnRpdGxlLXN1YmV2ZW50b3tcclxuICAgIGZvbnQtZmFtaWx5OiAnQ2FuZGFyYSc7XHJcbiAgICBmb250LXNpemU6IDEuM2VtO1xyXG4gIH1cclxuICBpb24taWNvbntcclxuICAgIGNvbG9yOiAjMTdBNTg5O1xyXG4gIH1cclxuICAuYm90b25fYXRyYXN7XHJcbiAgICB3aWR0aDogMmVtO1xyXG4gICAgaGVpZ2h0OiAyZW07XHJcbiAgICBmbG9hdDogcmlnaHQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuaW9uLWNoaXB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn0iLCIuYnRuLXJlZ2lzdHJhcm1lIHtcbiAgd2lkdGg6IDkzJTtcbiAgbWFyZ2luLXRvcDogM3B4O1xufVxuXG5oMSwgaDIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6ICNENURCREI7XG4gIGNvbG9yOiAjMTdBNTg5O1xufVxuXG4uY29udGFpbmVyLWdlbmVyYWwge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjRDVEQkRCO1xufVxuXG5wLCAudG9waWNvcyB7XG4gIGNvbG9yOiAjMzQ0OTVFO1xufVxuXG4uY2FyZC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzQ0OTVFO1xufVxuXG4uc3VidGl0bGUtc3ViZXZlbnRvIHtcbiAgY29sb3I6ICMzNDQ5NUU7XG59XG5cbi50aXRsZS1zdWJldmVudG8ge1xuICBmb250LWZhbWlseTogXCJDYW5kYXJhXCI7XG4gIGZvbnQtc2l6ZTogMS4zZW07XG59XG5cbmlvbi1pY29uIHtcbiAgY29sb3I6ICMxN0E1ODk7XG59XG5cbi5ib3Rvbl9hdHJhcyB7XG4gIHdpZHRoOiAyZW07XG4gIGhlaWdodDogMmVtO1xuICBmbG9hdDogcmlnaHQ7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuaW9uLWNoaXAge1xuICB3aWR0aDogMTAwJTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -671,7 +663,7 @@ let DetailSubeventPage = class DetailSubeventPage {
     registerEvent() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const alert = yield this.alertCtrl.create({
-                header: '¿Está seguro de añadir el evento a tu agenda?',
+                header: '¿Está seguro de añadir el subevento a tu agenda?',
                 buttons: [
                     {
                         text: 'Cancelar',
@@ -776,16 +768,23 @@ let MoreinformationPage = class MoreinformationPage {
         this.idEvent = this.route.snapshot.params.id;
         this.event$ = this.eventoService.getOneEvent(this.idEvent);
         this.beacons$ = this.beaconService.getAllBeacons();
-        this.subscribeEvent = this.event$.subscribe(event => {
+        this.event$.subscribe(event => {
             if (event.idUsers) {
-                console.log("user", this.iduser);
+                //console.log("user", this.iduser);
                 event.idUsers.forEach(element => {
                     if (element == this.iduser) {
                         this.band = false;
-                        console.log("AQUI");
                     }
                 });
             }
+            this.beacons$.subscribe(salas => {
+                //this.idBeacon = beacon.id;
+                salas.forEach(sala => {
+                    if (event.sala == sala.id) {
+                        this.idSala = sala.sala;
+                    }
+                });
+            });
             //console.log('hola', event);
             if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
                 console.log('no hay subeventos');
@@ -812,25 +811,13 @@ let MoreinformationPage = class MoreinformationPage {
                                 sala: subevent.sala
                             };
                             this.subeventList.push(subeventObj);
-                            //subscription.unsubscribe();
-                        });
-                        this.beacons$.subscribe(salas => {
-                            salas.forEach(sala => {
-                                if (event.sala == sala.id) {
-                                    this.idSala = sala.sala;
-                                }
-                            });
-                            //subscripSub.unsubscribe();
+                            //
                         });
                     });
                 });
             }
             //this.subscribeEvent.unsubscribe();
         });
-    }
-    ngOnDestroy() {
-        console.log('entro ondestroy');
-        this.subscribeEvent.unsubscribe();
     }
     registerEvent() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -840,7 +827,7 @@ let MoreinformationPage = class MoreinformationPage {
                     {
                         text: 'Cancelar',
                         handler: (blah) => {
-                            console.log('Confirm Cncek: blah');
+                            console.log('Confirma Cancelar');
                         }
                     }, {
                         text: 'Aceptar',
@@ -1062,8 +1049,14 @@ let AuthService = class AuthService {
             //recibe un email y un password
             //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
             console.log("registro", user);
+            if (user.urlImage) {
+                console.log(user.urlImage);
+            }
+            else {
+                user.urlImage = "";
+            }
             this.AFauth.createUserWithEmailAndPassword(user.email, user.password).then(res => {
-                //console.log(res.user.uid);
+                console.log("llego al register");
                 const uid = res.user.uid;
                 //apuntar a la base de datos
                 this.db.collection('users').doc(uid).set({
@@ -1075,6 +1068,7 @@ let AuthService = class AuthService {
                     urlImage: user.urlImage,
                     uid: uid,
                 });
+                this.router.navigate(['../eventos/']);
                 resolve(res);
             }).catch(err => reject(err));
         });
@@ -1088,6 +1082,7 @@ let AuthService = class AuthService {
             else {
                 console.log("llego aqui");
                 this.updateUserProfile(user, idUser);
+                this.router.navigate(['../eventos/']);
             }
         }
         else {
@@ -1095,6 +1090,7 @@ let AuthService = class AuthService {
                 this.uploadImage(user, image);
             }
             else {
+                console.log('entro en este');
                 this.register(user);
             }
         }
@@ -1306,7 +1302,6 @@ let EventosService = class EventosService {
         });
     }
     deleteOnEvent(id, idevt) {
-        console.log("id de evento:", idevt);
         const eventRef = this.db.collection('events').doc(idevt);
         var val = eventRef.update({
             idUsers: firebase_app__WEBPACK_IMPORTED_MODULE_5__["firestore"].FieldValue.arrayRemove(id)

@@ -33,10 +33,10 @@ export class AppComponent implements OnInit {
     private alertCtrl: AlertController,
     private authSvc: AuthService,
   ) {
-    this.userData$ = AFauth.authState
-    this.initializeApp();
+    this.userData$ = AFauth.authState;
   }
   ngOnInit() {
+
     this.authSvc.userData$.subscribe(user => {
       this.user$ = this.authSvc.getUser(user.uid);
       this.user$.subscribe(us => {
@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
       this.idUser = user.uid;
       this.email = user.email;
       this.name= user.displayName;
-      this.currentImage = user.photoURL;
     });
     this.authSvc.autoAuthUser();
   }
@@ -54,12 +53,6 @@ export class AppComponent implements OnInit {
     if (user.urlImage) {
       this.currentImage = user.urlImage;
     }
-  }
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
   }
   login() {
     this.menu.close();
