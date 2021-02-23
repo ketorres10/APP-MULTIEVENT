@@ -1,11 +1,11 @@
 <ion-app>
   <ion-menu side="start" type="overlay" contentId="main" swipe-gesture="false" color="primary">
     <ion-header>
-      <div class="profile-pic">
+      <div class="profile-pic" *ngIf="userData$ | async as user;">
         <img [src]="currentImage" alt="foto de perfil" class="avatar">
         <ion-card-content class="detailUser">
-          <h1>{{name}}</h1>
-          <h2><i>{{email}}</i></h2>
+          <h1>{{user.displayName}}</h1>
+          <h2><i>{{user.email}}</i></h2>
         </ion-card-content>
       </div>
     </ion-header>
@@ -41,13 +41,14 @@
         <ion-item (click)="cerrarSesion()" routerLinkActive="['activate']">
           <ion-icon name="log-out-outline"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión
         </ion-item>
-        <br><ion-item-divider>Configuración</ion-item-divider>
+        <br>
+        <ion-item-divider>Configuración</ion-item-divider>
         <ion-item (click)="perfil()" routerLinkActive="['activate']">
           <ion-icon name="create-outline"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil
-        </ion-item> 
+        </ion-item>
 
       </div>
     </ion-content>
-  </ion-menu> 
+  </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

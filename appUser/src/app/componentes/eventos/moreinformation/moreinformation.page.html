@@ -43,13 +43,18 @@
           </ion-card-content>
         </ion-card>
       </ion-card>
-      <div style="text-align: center;">
+      <div *ngIf="this.band; else registrado" style="text-align: center;">
         <ion-button (click)="registerEvent()" class="btn-registrarme" id="registrar" expand="full" shape="round">
           Registrarme
         </ion-button>
       </div>
+      <ng-template #registrado>
+        <div>
+          <ion-card style="text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;">Registrado!</ion-card>
+        </div>
+      </ng-template>
       <ion-card expand="full" style="background-color: #34495E;">
-        <div class="subEventos" *ngIf="subeventList.length >= 0; else noSubs">
+        <div class="subEventos" *ngIf="subeventList.length > 0; else noSubs">
           <!--<div class="subEventos" > -->
           <h4 style="text-align: center;">SUB-EVENTOS
           </h4>
@@ -79,7 +84,6 @@
   </div>
 </ion-content>
 <ng-template #noSubs>
-  <ion-button (click)="registerEvent()">Registrarme</ion-button>
   <ion-card>
     <ion-card-header>
       <ion-card-title>No hay subeventos</ion-card-title>

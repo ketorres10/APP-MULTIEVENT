@@ -32,7 +32,6 @@ export class DetailSubeventPage implements OnInit {
 
   ngOnInit() {
     this.userData$.subscribe(user => this.iduser = user.uid);
-
     this.idSubevent= this.route.snapshot.params.id;
     this.subevent$ = this.eventoService.getOneSubEvent(this.idSubevent);  
     this.beacons$ = this.beaconService.getAllBeacons();
@@ -55,10 +54,7 @@ export class DetailSubeventPage implements OnInit {
       })
     })
   }
-  //metodo
-  onLogout(){
-    this.authservice.logout();
-  }
+  
   async registerEvent() {
     const alert = await this.alertCtrl.create({
       header: '¿Está seguro de añadir el evento a tu agenda?',
@@ -73,12 +69,6 @@ export class DetailSubeventPage implements OnInit {
           handler: () => {
             console.log('Registrado');
             this.eventoService.registerUserOnSubEvent(this.idSubevent);
-
-            if (this.eventoService.registerUserOnEvent == this.idSubevent) {
-              console.log("registrado");
-            } else {
-              console.log("error");
-            }
           }
         }
 

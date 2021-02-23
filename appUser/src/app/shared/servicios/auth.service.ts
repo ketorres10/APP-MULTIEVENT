@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { promise } from 'protractor';
-import { resolve } from 'dns';
-import { Router } from '@angular/router';
 import { AngularFirestore } from "@angular/fire/firestore";
-import { auth, User } from 'firebase';
-import { UserI } from '../models/user.interface';
-import { Observable } from 'rxjs';
-import { FileI } from '../models/file.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserI } from '../models/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  private tokenTimer: any;
   public userData$: Observable<firebase.User>;
   private filePath: string;
   public name: String;
@@ -32,21 +27,28 @@ export class AuthService {
     return new Promise((resolve, rejected) => {
       this.AFauth.signInWithEmailAndPassword(email, password).then(user => {
         resolve(user)
+        this.setAuthTimer(1800000);
+        const now = new Date();
+        const expirationDate = new Date(
+          now.getTime() + 1800000
+        );
+        localStorage.setItem("expiration", expirationDate.toISOString());
         //caso contrario error
       }).catch(err => rejected(err));
     });
-
   }
+
   logout() {
     this.AFauth.signOut().then(auth => {
       this.router.navigate(['/folder/Inicio']);
+      clearTimeout(this.tokenTimer);
+      localStorage.removeItem("expiration");
     })
   }
 
   //metodo para el registro, recibe los datos y guarda en la base
 
   register(user: UserI) {
-    console.log('hola');
     return new Promise((resolve, reject) => {
       //recibe un email y un password
       //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
@@ -118,6 +120,39 @@ export class AuthService {
         .then(() => console.log('updated'))
         .catch(err => console.log('Error', err));
     })
+  }
+
+  public autoAuthUser() {
+    const authInformation = this.getAuthData();
+
+    if (!authInformation) {
+      return;
+    }
+
+    const now = new Date();
+    const expiresIn = authInformation.expirationDate.getTime() - now.getTime();
+
+    if (expiresIn > 0) {
+      this.setAuthTimer(expiresIn);
+    }
+  }
+
+  private setAuthTimer(duration: number) {
+    this.tokenTimer = setTimeout(() => {
+      this.logout();
+    }, duration);
+  }
+
+  private getAuthData() {
+    const expirationDate = localStorage.getItem("expiration");
+
+    if (!expirationDate) {
+      return;
+    }
+
+    return {
+      expirationDate: new Date(expirationDate),
+    };
   }
 
   updateUserProfile(usr: UserI, id: string) {

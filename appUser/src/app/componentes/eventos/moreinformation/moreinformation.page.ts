@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EventosPage } from '../eventos.page';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import { EventosService } from 'src/app/shared/servicios/evento.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { EventI } from 'src/app/shared/models/events.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BeaconI } from 'src/app/shared/models/beacon.interface';
@@ -20,14 +20,16 @@ export class MoreinformationPage implements OnInit {
 
 
   public event$: Observable<EventI>;
-  mostrar = false;
+  mostrar = true;
+  public iduser: string;
   //public subids: Array<string>;
   public subevent$: Observable<EventI>;
   public subevents$: Observable<EventI[]>;
   public subeventList: EventI[] = [];
   public beacon$: Observable<BeaconI>;
   public beacons$: Observable<BeaconI[]>;
-  public subscriptionSub;
+  public subscriptionSub; 
+  public band: boolean = true;
   public idEvent: any;
   public idSala: any;
   router: any;
@@ -37,14 +39,21 @@ export class MoreinformationPage implements OnInit {
     //obtener los datos del usuario autenticados
     this.userdata$ = auth.authState;
   }
-  Onlogout() {
-    this.authService.logout();
-  }
-  async ngOnInit() {
+  ngOnInit() {
+    this.userdata$.subscribe(user => this.iduser = user.uid);
     this.idEvent = this.route.snapshot.params.id;
     this.event$ = this.eventoService.getOneEvent(this.idEvent);
+    this.beacons$ = this.beaconService.getAllBeacons();
     this.event$.subscribe(event => {
-      console.log('hola', event);
+      if(event.idUsers){
+        console.log("user",this.iduser);
+        event.idUsers.forEach(element => {
+          if(element== this.iduser){
+            this.band = false;
+          }
+        });
+      }
+      //console.log('hola', event);
       if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
         console.log('no hay subeventos');
       } else {
@@ -54,7 +63,7 @@ export class MoreinformationPage implements OnInit {
           this.subevent$ = this.eventoService.getOneSubEvent(element);
           const subscripSub = this.subevent$.subscribe(subevent => {
             //console.log('sala id antes de beacon: ', subevent.sala)
-            var salaid = subevent.sala;
+            
             this.beacon$ = this.eventoService.getBeacon(element.sala);
             const subscription = this.beacon$.subscribe(res => {
               // console.log('subevento: ', subevent);
@@ -70,25 +79,24 @@ export class MoreinformationPage implements OnInit {
                 sala: subevent.sala
               };
               this.subeventList.push(subeventObj as EventI);
-              //this.dataSource.data = this.subeventList;
-              subscription.unsubscribe();
+              //subscription.unsubscribe();
             })
-            this.beacons$ = this.beaconService.getAllBeacons();
             this.beacons$.subscribe(salas => {
-              //this.idBeacon = beacon.id;
               salas.forEach(sala => {
                 if (event.sala == sala.id) {
                   this.idSala = sala.sala;
                 }
               });
+              //subscripSub.unsubscribe();
             })
-            subscripSub.unsubscribe();
+
           })
         });
-
       }
+      //this.subscribeEvent.unsubscribe();
     })
   }
+
   async registerEvent() {
     const alert = await this.alertCtrl.create({
       header: '¿Está seguro de agregar el evento a su agenda?',

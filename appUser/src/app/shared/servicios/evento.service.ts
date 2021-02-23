@@ -64,7 +64,6 @@ export class EventosService {
   registerUserOnEvent(id: string) {
     this.userData$.subscribe(user => {
       const eventRef = this.db.collection('events').doc(id);
-      console.log('aqui', id);
       eventRef.update({
         //funcion de firestore: agg datos a un arreglo
         idUsers: firebase.firestore.FieldValue.arrayUnion(user.uid)
@@ -72,7 +71,6 @@ export class EventosService {
     })
   }
   deleteOnEvent(id: string, idevt: string) {
-    console.log("id de evento:", idevt);
     const eventRef = this.db.collection('events').doc(idevt);
     var val = eventRef.update({
       idUsers: firebase.firestore.FieldValue.arrayRemove(id)
@@ -83,8 +81,9 @@ export class EventosService {
   deleteOnSubEvent(id: string, idsub: string) {
     const eventRef = this.db.collection('subevents').doc(idsub);
     console.log(eventRef);
-    eventRef.update({
+    const val = eventRef.update({
       idUsers: firebase.firestore.FieldValue.arrayRemove(id)
     });
+    return val;
   }
 }

@@ -270,7 +270,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\">\n        <img [src]=\"currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{name}}</h1>\n          <h2><i>{{email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br><ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item> \n\n      </div>\n    </ion-content>\n  </ion-menu> \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <h2><i>{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>");
 
 /***/ }),
 
@@ -296,7 +296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length >= 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-button (click)=\"registerEvent()\">Registrarme</ion-button>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ng-template #registrado>\n        <div>\n          <ion-card style=\"text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;\">Registrado!</ion-card>\n        </div>\n      </ng-template>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length > 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>");
 
 /***/ }),
 
@@ -408,9 +408,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/servicios/auth.service */ "./src/app/shared/servicios/auth.service.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/servicios/auth.service */ "./src/app/shared/servicios/auth.service.ts");
+
 
 
 
@@ -418,16 +420,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, menu, navController, alertCtrl, authSvc) {
+    constructor(platform, splashScreen, statusBar, menu, AFauth, navController, alertCtrl, authSvc) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.menu = menu;
+        this.AFauth = AFauth;
         this.navController = navController;
         this.alertCtrl = alertCtrl;
         this.authSvc = authSvc;
         this.currentImage = 'https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg';
         this.selectedIndex = 0;
+        this.userData$ = AFauth.authState;
         this.initializeApp();
     }
     ngOnInit() {
@@ -439,16 +443,15 @@ let AppComponent = class AppComponent {
             this.idUser = user.uid;
             this.email = user.email;
             this.name = user.displayName;
+            this.currentImage = user.photoURL;
         });
+        this.authSvc.autoAuthUser();
     }
     initValuesForm(user) {
         console.log(user);
         if (user.urlImage) {
             this.currentImage = user.urlImage;
         }
-    }
-    handleImage(image) {
-        this.image = image;
     }
     initializeApp() {
         this.platform.ready().then(() => {
@@ -505,12 +508,13 @@ let AppComponent = class AppComponent {
 };
 AppComponent.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
-    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
-    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
+    { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"] },
+    { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
-    { type: _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"] }
+    { type: _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"] }
 ];
 AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -664,10 +668,6 @@ let DetailSubeventPage = class DetailSubeventPage {
             });
         });
     }
-    //metodo
-    onLogout() {
-        this.authservice.logout();
-    }
     registerEvent() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const alert = yield this.alertCtrl.create({
@@ -683,12 +683,6 @@ let DetailSubeventPage = class DetailSubeventPage {
                         handler: () => {
                             console.log('Registrado');
                             this.eventoService.registerUserOnSubEvent(this.idSubevent);
-                            if (this.eventoService.registerUserOnEvent == this.idSubevent) {
-                                console.log("registrado");
-                            }
-                            else {
-                                console.log("error");
-                            }
                         }
                     }
                 ]
@@ -768,8 +762,9 @@ let MoreinformationPage = class MoreinformationPage {
         this.alertCtrl = alertCtrl;
         this.beaconService = beaconService;
         this.navController = navController;
-        this.mostrar = false;
+        this.mostrar = true;
         this.subeventList = [];
+        this.band = true;
         //obtener los datos del usuario autenticados
         this.userdata$ = auth.authState;
     }
@@ -777,55 +772,65 @@ let MoreinformationPage = class MoreinformationPage {
         this.authService.logout();
     }
     ngOnInit() {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            this.idEvent = this.route.snapshot.params.id;
-            this.event$ = this.eventoService.getOneEvent(this.idEvent);
-            this.event$.subscribe(event => {
-                console.log('hola', event);
-                if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
-                    console.log('no hay subeventos');
-                }
-                else {
-                    event.id = this.idEvent;
-                    event.idSubevents.forEach(element => {
-                        //console.log(element, "elemento");
-                        this.subevent$ = this.eventoService.getOneSubEvent(element);
-                        const subscripSub = this.subevent$.subscribe(subevent => {
-                            //console.log('sala id antes de beacon: ', subevent.sala)
-                            var salaid = subevent.sala;
-                            this.beacon$ = this.eventoService.getBeacon(element.sala);
-                            const subscription = this.beacon$.subscribe(res => {
-                                // console.log('subevento: ', subevent);
-                                const subeventObj = {
-                                    id: subevent.id,
-                                    title: subevent.title,
-                                    siglas: subevent.siglas,
-                                    descrip: subevent.descrip,
-                                    topics: subevent.topics,
-                                    date: subevent.date,
-                                    finishdate: subevent.finishdate,
-                                    time: subevent.time,
-                                    sala: subevent.sala
-                                };
-                                this.subeventList.push(subeventObj);
-                                //this.dataSource.data = this.subeventList;
-                                subscription.unsubscribe();
+        this.userdata$.subscribe(user => this.iduser = user.uid);
+        this.idEvent = this.route.snapshot.params.id;
+        this.event$ = this.eventoService.getOneEvent(this.idEvent);
+        this.beacons$ = this.beaconService.getAllBeacons();
+        this.subscribeEvent = this.event$.subscribe(event => {
+            if (event.idUsers) {
+                console.log("user", this.iduser);
+                event.idUsers.forEach(element => {
+                    if (element == this.iduser) {
+                        this.band = false;
+                        console.log("AQUI");
+                    }
+                });
+            }
+            //console.log('hola', event);
+            if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
+                console.log('no hay subeventos');
+            }
+            else {
+                event.id = this.idEvent;
+                event.idSubevents.forEach(element => {
+                    //console.log(element, "elemento");
+                    this.subevent$ = this.eventoService.getOneSubEvent(element);
+                    const subscripSub = this.subevent$.subscribe(subevent => {
+                        //console.log('sala id antes de beacon: ', subevent.sala)
+                        this.beacon$ = this.eventoService.getBeacon(element.sala);
+                        const subscription = this.beacon$.subscribe(res => {
+                            // console.log('subevento: ', subevent);
+                            const subeventObj = {
+                                id: subevent.id,
+                                title: subevent.title,
+                                siglas: subevent.siglas,
+                                descrip: subevent.descrip,
+                                topics: subevent.topics,
+                                date: subevent.date,
+                                finishdate: subevent.finishdate,
+                                time: subevent.time,
+                                sala: subevent.sala
+                            };
+                            this.subeventList.push(subeventObj);
+                            //subscription.unsubscribe();
+                        });
+                        this.beacons$.subscribe(salas => {
+                            salas.forEach(sala => {
+                                if (event.sala == sala.id) {
+                                    this.idSala = sala.sala;
+                                }
                             });
-                            this.beacons$ = this.beaconService.getAllBeacons();
-                            this.beacons$.subscribe(salas => {
-                                //this.idBeacon = beacon.id;
-                                salas.forEach(sala => {
-                                    if (event.sala == sala.id) {
-                                        this.idSala = sala.sala;
-                                    }
-                                });
-                            });
-                            subscripSub.unsubscribe();
+                            //subscripSub.unsubscribe();
                         });
                     });
-                }
-            });
+                });
+            }
+            //this.subscribeEvent.unsubscribe();
         });
+    }
+    ngOnDestroy() {
+        console.log('entro ondestroy');
+        this.subscribeEvent.unsubscribe();
     }
     registerEvent() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -1011,9 +1016,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
-/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
 
 
@@ -1036,6 +1041,10 @@ let AuthService = class AuthService {
         return new Promise((resolve, rejected) => {
             this.AFauth.signInWithEmailAndPassword(email, password).then(user => {
                 resolve(user);
+                this.setAuthTimer(1800000);
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + 1800000);
+                localStorage.setItem("expiration", expirationDate.toISOString());
                 //caso contrario error
             }).catch(err => rejected(err));
         });
@@ -1043,11 +1052,12 @@ let AuthService = class AuthService {
     logout() {
         this.AFauth.signOut().then(auth => {
             this.router.navigate(['/folder/Inicio']);
+            clearTimeout(this.tokenTimer);
+            localStorage.removeItem("expiration");
         });
     }
     //metodo para el registro, recibe los datos y guarda en la base
     register(user) {
-        console.log('hola');
         return new Promise((resolve, reject) => {
             //recibe un email y un password
             //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
@@ -1120,6 +1130,31 @@ let AuthService = class AuthService {
                 .catch(err => console.log('Error', err));
         });
     }
+    autoAuthUser() {
+        const authInformation = this.getAuthData();
+        if (!authInformation) {
+            return;
+        }
+        const now = new Date();
+        const expiresIn = authInformation.expirationDate.getTime() - now.getTime();
+        if (expiresIn > 0) {
+            this.setAuthTimer(expiresIn);
+        }
+    }
+    setAuthTimer(duration) {
+        this.tokenTimer = setTimeout(() => {
+            this.logout();
+        }, duration);
+    }
+    getAuthData() {
+        const expirationDate = localStorage.getItem("expiration");
+        if (!expirationDate) {
+            return;
+        }
+        return {
+            expirationDate: new Date(expirationDate),
+        };
+    }
     updateUserProfile(usr, id) {
         console.log('usuario actualizado', id);
         return this.db.collection('users').doc(id).update(usr);
@@ -1131,9 +1166,9 @@ let AuthService = class AuthService {
 };
 AuthService.ctorParameters = () => [
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"] },
-    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_5__["AngularFireStorage"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] },
+    { type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"] }
 ];
 AuthService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1264,7 +1299,6 @@ let EventosService = class EventosService {
     registerUserOnEvent(id) {
         this.userData$.subscribe(user => {
             const eventRef = this.db.collection('events').doc(id);
-            console.log('aqui', id);
             eventRef.update({
                 //funcion de firestore: agg datos a un arreglo
                 idUsers: firebase_app__WEBPACK_IMPORTED_MODULE_5__["firestore"].FieldValue.arrayUnion(user.uid)
@@ -1282,9 +1316,10 @@ let EventosService = class EventosService {
     deleteOnSubEvent(id, idsub) {
         const eventRef = this.db.collection('subevents').doc(idsub);
         console.log(eventRef);
-        eventRef.update({
+        const val = eventRef.update({
             idUsers: firebase_app__WEBPACK_IMPORTED_MODULE_5__["firestore"].FieldValue.arrayRemove(id)
         });
+        return val;
     }
 };
 EventosService.ctorParameters = () => [

@@ -22,9 +22,12 @@ export class DeteccionPage implements OnInit {
   public subevento$: Observable<EventI>;
   public beacons$: Observable<BeaconI[]>;
   public idBeacon: any;
+  public listids: any[] = [];
   public listEvents: EventI[] = [];
   public listSubEvents: EventI[] = [];
   public idSala: any;
+  public actualBeacon: String= "";
+  public estado: Number = 0;
   public Userdata$: Observable<firebase.User>;
   constructor(public platform: Platform, private route: ActivatedRoute, public authService: AuthService, public eventoService: EventosService, public auth: AngularFireAuth, public beaconService: BeaconService) {
     this.Userdata$ = auth.authState
@@ -47,29 +50,46 @@ export class DeteccionPage implements OnInit {
             this.beacons$.subscribe(salas => {
               //this.idBeacon = beacon.id;
               salas.forEach(sala => {
-                if (sala.beaconUID == resultString) {
+                if (sala.beaconUID == valor) {
                   this.idSala = sala.id;
-                  console.log(this.idSala);
+                  //this.estado = 1;
+                  //this.actualBeacon = valor;
+                  console.log("Sala:", this.idSala);
                 }
               });
             })
-            this.eventos$ = this.eventoService.getAllEvents();
-            this.eventos$.subscribe(eventos => {
-              eventos.forEach(evento => {
-                if (evento.sala == this.idSala) {
-                  console.log('Evento: ', evento);
-                }
-              })
-            })
-            this.listEvents.forEach(element => {
-              console.log(element);
-            });
+            if (this.estado == 0) {
+              this.estado = 1;
+              if (this.actualBeacon != valor) {
+                this.actualBeacon = valor;
+                this.eventos$ = this.eventoService.getAllEvents();
+                this.eventos$.subscribe(eventos => {
+                  eventos.forEach(evento => {
+                    if (evento.sala == this.idSala) {
+                      this.listEvents.push(evento as EventI);
+                    }
+                    if (evento.idSubevents) {
+                      evento.idSubevents.forEach(element => {
+                        const sub = this.eventoService.getOneSubEvent(element);
+                        sub.subscribe(sub => {
+                          if (sub.sala == this.idSala) {
+                            this.listSubEvents.push(sub as EventI);
+                          }
+                        });
+
+                      });
+                    }
+                  })
+                })
+              }else{
+                this.estado = 0;
+              }
+            }
           } else {
             resultString = ("" + (+resultNumber).toString(16)).toUpperCase().substring(-2); //String
           }
           valor = valor + resultString;
         }
-        console.log("uid: ", valor);
       }, error => console.error('error: ', error)
       );
     });

@@ -7,7 +7,7 @@
   <ion-card-content>
     <ion-card-content>
       <div class="containerImagen">
-        <img [src]="base64Image" height="200" width="200" class="foto" />
+        <img [src]="base64Image" height="200" width="200" class="foto" /> <br>
         <ion-button block (click)="onUploadGaleria()" style="background-color: #2D6082;" color="white">
           <ion-icon name="image"></ion-icon> Galeria
         </ion-button>
@@ -49,7 +49,7 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="call"> </ion-icon>Telefóno
               </ion-label>
-              <ion-input type="number" formControlName="phoneNumber" minlenght="7" maxlength="10"></ion-input>
+              <ion-input number formControlName="phoneNumber" maxlength="10"></ion-input>
             </ion-item>
           </div>
           <div class="field">

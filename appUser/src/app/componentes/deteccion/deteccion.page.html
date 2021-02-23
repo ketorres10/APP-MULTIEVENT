@@ -38,6 +38,22 @@
         </ion-card>
       </div>
     </ion-item>
+    <ion-item *ngFor="let subevent of listSubEvents">
+      <div class="cardEventos">
+        <ion-card class="card-principal">
+          <ion-card class="card-secundaria">
+            <ion-card-header>
+              <p>
+                <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>
+              </p>
+              <ion-card-title>
+                <a [routerLink]="['/subevent', subevent.id]" class="title"> {{subevent.title}}</a>
+              </ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-card>
+      </div>
+    </ion-item>
   </ion-list>
   <!--
   <ion-list>

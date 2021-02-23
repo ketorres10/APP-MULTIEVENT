@@ -132,7 +132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\">\n        <img [src]=\"currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{name}}</h1>\n          <h2><i>{{email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br><ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item> \n\n      </div>\n    </ion-content>\n  </ion-menu> \n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>";
+    __webpack_exports__["default"] = "<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <h2><i>{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>";
     /***/
   },
 
@@ -172,7 +172,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length >= 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-button (click)=\"registerEvent()\">Registrarme</ion-button>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"light\">\n    <ion-title>Más información</ion-title>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  <div *ngIf=\"event$ | async as event\" class=\"container\">\n    <ion-card class=\"container-general\">\n      <ion-card>\n        <ion-card class=\"card-header\" style=\"background-color:  #34495E;\">\n          <ion-card-header>\n            <ion-card-subtitle style=\"color: #2ADEAB;\"><strong>{{event.siglas}}</strong></ion-card-subtitle>\n            <ion-card-title style=\"color: white;\">\n              {{event.title}}\n            </ion-card-title>\n          </ion-card-header>\n        </ion-card>\n        <ion-card>\n          <ion-card-content>\n            <p><strong>Fecha inicio: </strong> {{event.date | date:'dd/MM/yy' }}</p>\n            <p><strong>Fecha fin: </strong> {{event.finishdate | date:'dd/MM/yy' }}</p>\n            <p>\n              <ion-icon name=\"time\"></ion-icon><strong>&nbsp;&nbsp;Hora: </strong> {{event.time}}\n            </p>\n            <p>\n              <ion-icon name=\"business\"></ion-icon><strong>&nbsp;&nbsp;Sala: </strong> {{idSala}}\n            </p>\n            <br>\n            <h2><strong>Descripción del evento</strong></h2>\n            <p style=\"text-align: justify;\">{{event.descrip}}</p><br>\n            <h2><strong>Topicos de Interés</strong></h2>\n            <!-- <ion-card-content class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n            </ion-card-content> -->\n        \n            <div class=\"topicos\" selected *ngFor=\"let topic of event.topics\" [ngClass]=\"topic\">\n              <ion-chip color=\"success\" outline=\"true\" expand=\"full\">\n                <ion-label color=\"secondary\">{{topic}}</ion-label>\n              </ion-chip>\n            </div>\n          </ion-card-content>\n        </ion-card>\n      </ion-card>\n      <div *ngIf=\"this.band; else registrado\" style=\"text-align: center;\">\n        <ion-button (click)=\"registerEvent()\" class=\"btn-registrarme\" id=\"registrar\" expand=\"full\" shape=\"round\">\n          Registrarme\n        </ion-button>\n      </div>\n      <ng-template #registrado>\n        <div>\n          <ion-card style=\"text-align: center; width: 100%; background-color: blanchedalmond;margin: auto;\">Registrado!</ion-card>\n        </div>\n      </ng-template>\n      <ion-card expand=\"full\" style=\"background-color: #34495E;\">\n        <div class=\"subEventos\" *ngIf=\"subeventList.length > 0; else noSubs\">\n          <!--<div class=\"subEventos\" > -->\n          <h4 style=\"text-align: center;\">SUB-EVENTOS\n          </h4>\n          <ion-icon name=\"chevron-down\"\n              (click)=\"mostrar=true\" style=\" margin-left: 48%; font-size: large;\"></ion-icon>\n          <div *ngIf=\"mostrar\">\n            <ion-list type=\"mostrar=true\">\n              <ion-item *ngFor=\"let subevent of subeventList\">\n                <ion-card class=\"card-subeventos\">\n                  <ion-card-header>\n                    <ion-card-subtitle class=\"subtitle-subevento\" style=\"color:#E67E22\">\n                      <strong>{{event.siglas}}</strong>\n                    </ion-card-subtitle>\n                    <ion-card-title class=\"title-subevento\">\n                      <strong><a [routerLink]=\"['/subevent', subevent.id]\" style=\"color:#85929E\">\n                          {{subevent.title}}</a></strong>\n                    </ion-card-title>\n                  </ion-card-header>\n                </ion-card>\n              </ion-item>\n            </ion-list>\n            <ion-icon name=\"chevron-up\" style=\" margin-left: 48%; font-size: large;\" (click)=\"mostrar=false\"></ion-icon>\n          </div>\n        </div>\n      </ion-card>\n    </ion-card>\n  </div>\n</ion-content>\n<ng-template #noSubs>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-title>No hay subeventos</ion-card-title>\n    </ion-card-header>\n  </ion-card>\n</ng-template>";
     /***/
   },
 
@@ -418,35 +418,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/fire/auth */
+    "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+    /* harmony import */
+
+
+    var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ionic-native/splash-screen/ngx */
     "./node_modules/@ionic-native/splash-screen/__ivy_ngcc__/ngx/index.js");
     /* harmony import */
 
 
-    var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @ionic-native/status-bar/ngx */
     "./node_modules/@ionic-native/status-bar/__ivy_ngcc__/ngx/index.js");
     /* harmony import */
 
 
-    var _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./shared/servicios/auth.service */
     "./src/app/shared/servicios/auth.service.ts");
 
     var AppComponent = /*#__PURE__*/function () {
-      function AppComponent(platform, splashScreen, statusBar, menu, navController, alertCtrl, authSvc) {
+      function AppComponent(platform, splashScreen, statusBar, menu, AFauth, navController, alertCtrl, authSvc) {
         _classCallCheck(this, AppComponent);
 
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.menu = menu;
+        this.AFauth = AFauth;
         this.navController = navController;
         this.alertCtrl = alertCtrl;
         this.authSvc = authSvc;
         this.currentImage = 'https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg';
         this.selectedIndex = 0;
+        this.userData$ = AFauth.authState;
         this.initializeApp();
       }
 
@@ -465,7 +473,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.idUser = user.uid;
             _this.email = user.email;
             _this.name = user.displayName;
+            _this.currentImage = user.photoURL;
           });
+          this.authSvc.autoAuthUser();
         }
       }, {
         key: "initValuesForm",
@@ -475,11 +485,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (user.urlImage) {
             this.currentImage = user.urlImage;
           }
-        }
-      }, {
-        key: "handleImage",
-        value: function handleImage(image) {
-          this.image = image;
         }
       }, {
         key: "initializeApp",
@@ -584,17 +589,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]
       }, {
-        type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"]
+        type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_4__["SplashScreen"]
       }, {
-        type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"]
+        type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__["StatusBar"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]
+      }, {
+        type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]
       }, {
-        type: _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_5__["AuthService"]
+        type: _shared_servicios_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"]
       }];
     };
 
@@ -870,12 +877,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
             });
           });
-        } //metodo
-
-      }, {
-        key: "onLogout",
-        value: function onLogout() {
-          this.authservice.logout();
         }
       }, {
         key: "registerEvent",
@@ -902,12 +903,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           console.log('Registrado');
 
                           _this5.eventoService.registerUserOnSubEvent(_this5.idSubevent);
-
-                          if (_this5.eventoService.registerUserOnEvent == _this5.idSubevent) {
-                            console.log("registrado");
-                          } else {
-                            console.log("error");
-                          }
                         }
                       }]
                     });
@@ -1067,8 +1062,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.alertCtrl = alertCtrl;
         this.beaconService = beaconService;
         this.navController = navController;
-        this.mostrar = false;
-        this.subeventList = []; //obtener los datos del usuario autenticados
+        this.mostrar = true;
+        this.subeventList = [];
+        this.band = true; //obtener los datos del usuario autenticados
 
         this.userdata$ = auth.authState;
       }
@@ -1081,88 +1077,87 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-            var _this6 = this;
+          var _this6 = this;
 
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
-              while (1) {
-                switch (_context3.prev = _context3.next) {
-                  case 0:
-                    this.idEvent = this.route.snapshot.params.id;
-                    this.event$ = this.eventoService.getOneEvent(this.idEvent);
-                    this.event$.subscribe(function (event) {
-                      console.log('hola', event);
-
-                      if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
-                        console.log('no hay subeventos');
-                      } else {
-                        event.id = _this6.idEvent;
-                        event.idSubevents.forEach(function (element) {
-                          //console.log(element, "elemento");
-                          _this6.subevent$ = _this6.eventoService.getOneSubEvent(element);
-
-                          var subscripSub = _this6.subevent$.subscribe(function (subevent) {
-                            //console.log('sala id antes de beacon: ', subevent.sala)
-                            var salaid = subevent.sala;
-                            _this6.beacon$ = _this6.eventoService.getBeacon(element.sala);
-
-                            var subscription = _this6.beacon$.subscribe(function (res) {
-                              // console.log('subevento: ', subevent);
-                              var subeventObj = {
-                                id: subevent.id,
-                                title: subevent.title,
-                                siglas: subevent.siglas,
-                                descrip: subevent.descrip,
-                                topics: subevent.topics,
-                                date: subevent.date,
-                                finishdate: subevent.finishdate,
-                                time: subevent.time,
-                                sala: subevent.sala
-                              };
-
-                              _this6.subeventList.push(subeventObj); //this.dataSource.data = this.subeventList;
-
-
-                              subscription.unsubscribe();
-                            });
-
-                            _this6.beacons$ = _this6.beaconService.getAllBeacons();
-
-                            _this6.beacons$.subscribe(function (salas) {
-                              //this.idBeacon = beacon.id;
-                              salas.forEach(function (sala) {
-                                if (event.sala == sala.id) {
-                                  _this6.idSala = sala.sala;
-                                }
-                              });
-                            });
-
-                            subscripSub.unsubscribe();
-                          });
-                        });
-                      }
-                    });
-
-                  case 3:
-                  case "end":
-                    return _context3.stop();
+          this.userdata$.subscribe(function (user) {
+            return _this6.iduser = user.uid;
+          });
+          this.idEvent = this.route.snapshot.params.id;
+          this.event$ = this.eventoService.getOneEvent(this.idEvent);
+          this.beacons$ = this.beaconService.getAllBeacons();
+          this.subscribeEvent = this.event$.subscribe(function (event) {
+            if (event.idUsers) {
+              console.log("user", _this6.iduser);
+              event.idUsers.forEach(function (element) {
+                if (element == _this6.iduser) {
+                  _this6.band = false;
+                  console.log("AQUI");
                 }
-              }
-            }, _callee3, this);
-          }));
+              });
+            } //console.log('hola', event);
+
+
+            if (typeof event.idSubevents === 'undefined' || event.idSubevents == 0) {
+              console.log('no hay subeventos');
+            } else {
+              event.id = _this6.idEvent;
+              event.idSubevents.forEach(function (element) {
+                //console.log(element, "elemento");
+                _this6.subevent$ = _this6.eventoService.getOneSubEvent(element);
+
+                var subscripSub = _this6.subevent$.subscribe(function (subevent) {
+                  //console.log('sala id antes de beacon: ', subevent.sala)
+                  _this6.beacon$ = _this6.eventoService.getBeacon(element.sala);
+
+                  var subscription = _this6.beacon$.subscribe(function (res) {
+                    // console.log('subevento: ', subevent);
+                    var subeventObj = {
+                      id: subevent.id,
+                      title: subevent.title,
+                      siglas: subevent.siglas,
+                      descrip: subevent.descrip,
+                      topics: subevent.topics,
+                      date: subevent.date,
+                      finishdate: subevent.finishdate,
+                      time: subevent.time,
+                      sala: subevent.sala
+                    };
+
+                    _this6.subeventList.push(subeventObj); //subscription.unsubscribe();
+
+                  });
+
+                  _this6.beacons$.subscribe(function (salas) {
+                    salas.forEach(function (sala) {
+                      if (event.sala == sala.id) {
+                        _this6.idSala = sala.sala;
+                      }
+                    }); //subscripSub.unsubscribe();
+                  });
+                });
+              });
+            } //this.subscribeEvent.unsubscribe();
+
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          console.log('entro ondestroy');
+          this.subscribeEvent.unsubscribe();
         }
       }, {
         key: "registerEvent",
         value: function registerEvent() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
             var _this7 = this;
 
             var alert, result;
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context3.prev = _context3.next) {
                   case 0:
-                    _context4.next = 2;
+                    _context3.next = 2;
                     return this.alertCtrl.create({
                       header: '¿Está seguro de agregar el evento a su agenda?',
                       buttons: [{
@@ -1181,24 +1176,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 2:
-                    alert = _context4.sent;
-                    _context4.next = 5;
+                    alert = _context3.sent;
+                    _context3.next = 5;
                     return alert.present();
 
                   case 5:
-                    _context4.next = 7;
+                    _context3.next = 7;
                     return alert.onDidDismiss();
 
                   case 7:
-                    result = _context4.sent;
+                    result = _context3.sent;
                     console.log(result);
 
                   case 9:
                   case "end":
-                    return _context4.stop();
+                    return _context3.stop();
                 }
               }
-            }, _callee4, this);
+            }, _callee3, this);
           }));
         }
       }]);
@@ -1497,21 +1492,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-    /* harmony import */
-
-
-    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/fire/firestore */
     "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
     /* harmony import */
 
 
-    var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/fire/storage */
     "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var AuthService = /*#__PURE__*/function () {
       function AuthService(AFauth, router, db, storage) {
@@ -1535,7 +1530,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //retornar
           return new Promise(function (resolve, rejected) {
             _this10.AFauth.signInWithEmailAndPassword(email, password).then(function (user) {
-              resolve(user); //caso contrario error
+              resolve(user);
+
+              _this10.setAuthTimer(1800000);
+
+              var now = new Date();
+              var expirationDate = new Date(now.getTime() + 1800000);
+              localStorage.setItem("expiration", expirationDate.toISOString()); //caso contrario error
             })["catch"](function (err) {
               return rejected(err);
             });
@@ -1548,6 +1549,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.AFauth.signOut().then(function (auth) {
             _this11.router.navigate(['/folder/Inicio']);
+
+            clearTimeout(_this11.tokenTimer);
+            localStorage.removeItem("expiration");
           });
         } //metodo para el registro, recibe los datos y guarda en la base
 
@@ -1556,7 +1560,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function register(user) {
           var _this12 = this;
 
-          console.log('hola');
           return new Promise(function (resolve, reject) {
             //recibe un email y un password
             //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
@@ -1644,6 +1647,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "autoAuthUser",
+        value: function autoAuthUser() {
+          var authInformation = this.getAuthData();
+
+          if (!authInformation) {
+            return;
+          }
+
+          var now = new Date();
+          var expiresIn = authInformation.expirationDate.getTime() - now.getTime();
+
+          if (expiresIn > 0) {
+            this.setAuthTimer(expiresIn);
+          }
+        }
+      }, {
+        key: "setAuthTimer",
+        value: function setAuthTimer(duration) {
+          var _this14 = this;
+
+          this.tokenTimer = setTimeout(function () {
+            _this14.logout();
+          }, duration);
+        }
+      }, {
+        key: "getAuthData",
+        value: function getAuthData() {
+          var expirationDate = localStorage.getItem("expiration");
+
+          if (!expirationDate) {
+            return;
+          }
+
+          return {
+            expirationDate: new Date(expirationDate)
+          };
+        }
+      }, {
         key: "updateUserProfile",
         value: function updateUserProfile(usr, id) {
           console.log('usuario actualizado', id);
@@ -1664,11 +1705,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return [{
         type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }, {
-        type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_4__["AngularFirestore"]
+        type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"]
       }, {
-        type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_5__["AngularFireStorage"]
+        type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_4__["AngularFireStorage"]
       }];
     };
 
@@ -1880,10 +1921,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "registerUserOnSubEvent",
         value: function registerUserOnSubEvent(id) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.userData$.subscribe(function (user) {
-            var eventRef = _this14.db.collection('subevents').doc(id);
+            var eventRef = _this15.db.collection('subevents').doc(id);
 
             console.log(eventRef);
             eventRef.update({
@@ -1895,12 +1936,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "registerUserOnEvent",
         value: function registerUserOnEvent(id) {
-          var _this15 = this;
+          var _this16 = this;
 
           this.userData$.subscribe(function (user) {
-            var eventRef = _this15.db.collection('events').doc(id);
+            var eventRef = _this16.db.collection('events').doc(id);
 
-            console.log('aqui', id);
             eventRef.update({
               //funcion de firestore: agg datos a un arreglo
               idUsers: firebase_app__WEBPACK_IMPORTED_MODULE_5__["firestore"].FieldValue.arrayUnion(user.uid)
@@ -1922,9 +1962,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function deleteOnSubEvent(id, idsub) {
           var eventRef = this.db.collection('subevents').doc(idsub);
           console.log(eventRef);
-          eventRef.update({
+          var val = eventRef.update({
             idUsers: firebase_app__WEBPACK_IMPORTED_MODULE_5__["firestore"].FieldValue.arrayRemove(id)
           });
+          return val;
         }
       }]);
 

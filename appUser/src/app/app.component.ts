@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, MenuController, NavController, Platform } from '@ionic/angular';
+import { AngularFireAuth } from "@angular/fire/auth";
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { firebase } from '@firebase/app';
@@ -20,15 +21,19 @@ export class AppComponent implements OnInit {
   public currentImage: string = 'https://www.tuplanweb.com/proyecto/Plantilla/img/user/edwin.jpg';
   public selectedIndex = 0;
   public user$: Observable<UserI>;
+  public userData$: Observable<firebase.User>;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,
+    private AFauth: AngularFireAuth,
     private navController: NavController,
     private alertCtrl: AlertController,
     private authSvc: AuthService,
   ) {
+    this.userData$ = AFauth.authState
     this.initializeApp();
   }
   ngOnInit() {
@@ -42,6 +47,7 @@ export class AppComponent implements OnInit {
       this.name= user.displayName;
       this.currentImage = user.photoURL;
     });
+    this.authSvc.autoAuthUser();
   }
   private initValuesForm(user: UserI) {
     console.log(user);

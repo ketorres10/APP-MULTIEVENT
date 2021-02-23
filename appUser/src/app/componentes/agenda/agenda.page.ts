@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import { EventosService } from "src/app/shared/servicios/evento.service";
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { EventI } from 'src/app/shared/models/events.interface';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SubjectSubscriber } from 'rxjs/internal/Subject';
@@ -24,16 +24,21 @@ export class AgendaPage implements OnInit {
     this.Userdata$ = auth.authState;
   }
   ngOnInit() {
+    console.log("dsdscsd");
+    this.listEvents = [];
+    this.listSubEvents =[];
     this.Userdata$.subscribe(user => {
       this.iduser = user.uid;
     })
+    console.log('entro al oninit');
     this.eventos$ = this.eventoService.getAllEvents();
     const sub1 = this.eventos$.subscribe(eventos => {
       eventos.forEach(evento => {
-        //console.log(evento);
+        console.log(evento);
         if (evento.idUsers) {
           evento.idUsers.forEach(element => {
             if (element == this.iduser) {
+              console.log('llego aqui');
               this.listEvents.push(evento as EventI);
               console.log('se agregó: ', evento.title);
             }
@@ -66,7 +71,7 @@ export class AgendaPage implements OnInit {
             console.log('llego aqui');
             evento.idSubevents.forEach(idsub => {
               this.subevento$ = this.eventoService.getOneSubEvent(idsub);
-              this.subevento$.subscribe(sub => {
+              const subSub2 = this.subevento$.subscribe(sub => {
                 if (sub.idUsers) {
                   sub.idUsers.forEach(ids => {
                     if (ids == this.iduser) {
@@ -77,6 +82,7 @@ export class AgendaPage implements OnInit {
                 } else {
                   console.log('No hay usuarios registrados en: ', sub);
                 }
+                subSub2.unsubscribe();
               })
             });
           }
@@ -84,12 +90,9 @@ export class AgendaPage implements OnInit {
       })
       sub1.unsubscribe();
     })
-    this.listEvents.forEach(element => {
-      console.log(element);
-    });
   }
-  async delete(evt: EventI) {
-    console.log("delete");
+
+  async deleteevent(evt: EventI) {
     const alert = await this.alertCtrl.create({
       header: '¿Está seguro de eliminar el evento de tu agenda?',
       buttons: [
@@ -102,7 +105,9 @@ export class AgendaPage implements OnInit {
           text: 'Aceptar',
           handler: () => {
             console.log('Eliminado');
-            this.eventoService.deleteOnEvent(this.iduser, evt.id);
+            this.eventoService.deleteOnEvent(this.iduser, evt.id).then(()=>{
+              this.ngOnInit();
+            })
           }
         }
 
@@ -115,7 +120,7 @@ export class AgendaPage implements OnInit {
 
   async deletesub(subevt: EventI){
     const alert = await this.alertCtrl.create({
-      header: '¿Está seguro de eliminar este evento de tu agenda?',
+      header: '¿Está seguro de eliminar este subevento de tu agenda?',
       buttons: [
         {
           text: 'Cancelar',
@@ -126,7 +131,9 @@ export class AgendaPage implements OnInit {
           text: 'Aceptar',
           handler: () => {
             console.log('Eliminado');
-            this.eventoService.deleteOnSubEvent(this.iduser, subevt.id);
+            this.eventoService.deleteOnSubEvent(this.iduser, subevt.id).then(()=>{
+              this.ngOnInit();
+            })
           }
         }
 

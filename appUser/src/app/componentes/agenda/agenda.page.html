@@ -10,36 +10,36 @@
   <ion-list>
     <ion-item *ngFor="let event of listEvents">
       <div class="cardEventos">
-        <ion-card class="card-principal">
-          <ion-icon name="close-circle" class="delete" (click)="delete(event)"></ion-icon>
-          <ion-card class="card-secundaria">
-            <ion-card-header>
-              <ion-card-title>
-                <ion-icon name="information-circle" style="display: flex; margin-top: 2%;"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>
-              </ion-card-title>
-              <ion-card-title>
-                <a [routerLink]="['/event', event.id]" class="title"> {{event.title}}</a>
-              </ion-card-title>
-            </ion-card-header>
-          </ion-card>
+        <ion-card class="card-secundaria">
+          <ion-button style="width: 91%; background-color: #212F3D;" color="#212F3D" (click)="deleteevent(event)">EVENTO
+            <ion-icon name="close-circle" style="color: red; margin-left: 60%; width: 4em;height: 4em;"></ion-icon>
+          </ion-button>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{event.siglas}}</strong>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <a [routerLink]="['/subevent', event.id]" class="title"> {{event.title}}</a>
+            </ion-card-title>
+          </ion-card-header>
         </ion-card>
       </div>
     </ion-item>
     <ion-item *ngFor="let subevent of listSubEvents">
       <div class="cardEventos">
-         
-          <ion-card class="card-secundaria">
-            <ion-button style="width: 91%; background-color: #212F3D;" color="#212F3D" (click)="deletesub(subevent)"><ion-icon name="close-circle" style="color: red; margin-left: 91%; width: 4em;height: 4em;"></ion-icon></ion-button>
-            <ion-card-header>
-              <ion-card-subtitle>
-                <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>
-              </ion-card-subtitle>
-              <ion-card-title>
-                <a [routerLink]="['/subevent', subevent.id]" class="title"> {{subevent.title}}</a>
-              </ion-card-title>
-            </ion-card-header>
-          </ion-card>
-      
+        <ion-card class="card-secundaria">
+          <ion-button style="width: 91%; background-color: #212F3D;" color="#212F3D" (click)="deletesub(subevent)">SUBEVENTO
+            <ion-icon name="close-circle" style="color: red; margin-left: 60%; width: 4em;height: 4em;"></ion-icon>
+          </ion-button>
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-icon name="information-circle"></ion-icon><strong>&nbsp;&nbsp;{{subevent.siglas}}</strong>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <a [routerLink]="['/subevent', subevent.id]" class="title"> {{subevent.title}}</a>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
       </div>
     </ion-item>
   </ion-list>

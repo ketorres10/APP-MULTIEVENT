@@ -252,16 +252,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
+          this.listEvents = [];
+          this.listSubEvents = [];
           this.Userdata$.subscribe(function (user) {
             _this.iduser = user.uid;
           });
+          console.log('entro al oninit');
           this.eventos$ = this.eventoService.getAllEvents();
           var sub1 = this.eventos$.subscribe(function (eventos) {
             eventos.forEach(function (evento) {
-              //console.log(evento);
+              console.log(evento);
+
               if (evento.idUsers) {
                 evento.idUsers.forEach(function (element) {
                   if (element == _this.iduser) {
+                    console.log('llego aqui');
+
                     _this.listEvents.push(evento);
 
                     console.log('se agregó: ', evento.title);
@@ -301,7 +307,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   evento.idSubevents.forEach(function (idsub) {
                     _this.subevento$ = _this.eventoService.getOneSubEvent(idsub);
 
-                    _this.subevento$.subscribe(function (sub) {
+                    var subSub2 = _this.subevento$.subscribe(function (sub) {
                       if (sub.idUsers) {
                         sub.idUsers.forEach(function (ids) {
                           if (ids == _this.iduser) {
@@ -313,15 +319,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       } else {
                         console.log('No hay usuarios registrados en: ', sub);
                       }
+
+                      subSub2.unsubscribe();
                     });
                   });
                 }
               }
             });
             sub1.unsubscribe();
-          });
-          this.listEvents.forEach(function (element) {
-            console.log(element);
           });
         }
       }, {
@@ -349,7 +354,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         handler: function handler() {
                           console.log('Eliminado');
 
-                          _this2.eventoService.deleteOnEvent(_this2.iduser, evt.id);
+                          _this2.eventoService.deleteOnEvent(_this2.iduser, evt.id).then(function () {
+                            _this2.ngOnInit();
+                          });
                         }
                       }]
                     });
@@ -399,7 +406,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         handler: function handler() {
                           console.log('Eliminado');
 
-                          _this3.eventoService.deleteOnSubEvent(_this3.iduser, subevt.id);
+                          _this3.eventoService.deleteOnSubEvent(_this3.iduser, subevt.id).then(function () {
+                            _this3.ngOnInit();
+                          });
                         }
                       }]
                     });

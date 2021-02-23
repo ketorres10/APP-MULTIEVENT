@@ -138,16 +138,20 @@ let AgendaPage = class AgendaPage {
         this.Userdata$ = auth.authState;
     }
     ngOnInit() {
+        this.listEvents = [];
+        this.listSubEvents = [];
         this.Userdata$.subscribe(user => {
             this.iduser = user.uid;
         });
+        console.log('entro al oninit');
         this.eventos$ = this.eventoService.getAllEvents();
         const sub1 = this.eventos$.subscribe(eventos => {
             eventos.forEach(evento => {
-                //console.log(evento);
+                console.log(evento);
                 if (evento.idUsers) {
                     evento.idUsers.forEach(element => {
                         if (element == this.iduser) {
+                            console.log('llego aqui');
                             this.listEvents.push(evento);
                             console.log('se agregó: ', evento.title);
                         }
@@ -184,7 +188,7 @@ let AgendaPage = class AgendaPage {
                         console.log('llego aqui');
                         evento.idSubevents.forEach(idsub => {
                             this.subevento$ = this.eventoService.getOneSubEvent(idsub);
-                            this.subevento$.subscribe(sub => {
+                            const subSub2 = this.subevento$.subscribe(sub => {
                                 if (sub.idUsers) {
                                     sub.idUsers.forEach(ids => {
                                         if (ids == this.iduser) {
@@ -196,15 +200,13 @@ let AgendaPage = class AgendaPage {
                                 else {
                                     console.log('No hay usuarios registrados en: ', sub);
                                 }
+                                subSub2.unsubscribe();
                             });
                         });
                     }
                 }
             });
             sub1.unsubscribe();
-        });
-        this.listEvents.forEach(element => {
-            console.log(element);
         });
     }
     delete(evt) {
@@ -222,7 +224,9 @@ let AgendaPage = class AgendaPage {
                         text: 'Aceptar',
                         handler: () => {
                             console.log('Eliminado');
-                            this.eventoService.deleteOnEvent(this.iduser, evt.id);
+                            this.eventoService.deleteOnEvent(this.iduser, evt.id).then(() => {
+                                this.ngOnInit();
+                            });
                         }
                     }
                 ]
@@ -246,7 +250,9 @@ let AgendaPage = class AgendaPage {
                         text: 'Aceptar',
                         handler: () => {
                             console.log('Eliminado');
-                            this.eventoService.deleteOnSubEvent(this.iduser, subevt.id);
+                            this.eventoService.deleteOnSubEvent(this.iduser, subevt.id).then(() => {
+                                this.ngOnInit();
+                            });
                         }
                     }
                 ]
