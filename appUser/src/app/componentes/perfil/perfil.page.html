@@ -18,7 +18,7 @@
               <ion-icon name="image"></ion-icon> Galeria
             </ion-button>
             <ion-button block (click)="onUploadCamera()" style="background-color: #2D6082;" color="white">
-              <ion-icon name="image"></ion-icon> Cámara
+              <ion-icon name="camera-sharp"></ion-icon> Cámara
             </ion-button>
           </div>
           <div class="field">
@@ -47,12 +47,18 @@
             </ion-item>
           </div>
           <div class="mat-dialog-actions">
-            <div class="button">
+            <div class="button" *ngIf="this.band; else guardado">
               <br>
               <ion-button type="submit" expand="full" shape="round" [disabled]="profileForm.invalid">
                 <ion-icon name="save-outline"></ion-icon> Guardar
               </ion-button>
             </div>
+            <ng-template #guardado>
+              <br>
+              <div>
+                <ion-card style="text-align: center; width: 80%; background-color: blanchedalmond;margin: auto;"><h2 style="background-color: blanchedalmond;margin: auto;">Guardado!</h2></ion-card>
+              </div>
+            </ng-template>
           </div>
         </Form>
       </ion-card-content>

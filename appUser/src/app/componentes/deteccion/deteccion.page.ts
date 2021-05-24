@@ -28,11 +28,13 @@ export class DeteccionPage implements OnInit {
   public idSala: any;
   public actualBeacon: String= "";
   public estado: Number = 0;
+  public band: boolean = false;
   public Userdata$: Observable<firebase.User>;
   constructor(public platform: Platform, private route: ActivatedRoute, public authService: AuthService, public eventoService: EventosService, public auth: AngularFireAuth, public beaconService: BeaconService) {
     this.Userdata$ = auth.authState
   }
   startScanning() {
+    this.band = true;
     this.platform.ready().then(() => {
       // @ts-ignore
       evothings.eddystone.startScan((BeaconData) => {
@@ -95,6 +97,7 @@ export class DeteccionPage implements OnInit {
     });
   }
   stopScan() {
+    this.band = false;
     evothings.eddystone.stopScan();
   }
   ngOnInit() {

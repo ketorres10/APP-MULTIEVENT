@@ -17,6 +17,7 @@ export class PerfilPage implements OnInit {
   public user$: Observable<UserI>;
   public idUser: string;
   clickedImage: string;
+  public band: boolean = true;
   public base64Image: any;
   public profileForm: FormGroup;
   //public image2: any;
@@ -38,8 +39,11 @@ export class PerfilPage implements OnInit {
       this.idUser = user.uid;
     });
   }
+  
   onSaveUser(user: UserI): void {
     this.authSvc.preSaveProfile(user, this.base64Image, this.idUser);
+    this.band = false;
+
   }
   private initValuesForm(user: UserI) {
     console.log(user);

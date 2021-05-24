@@ -12,7 +12,7 @@
     <ion-card>
       <ion-card-content class="card-escaner">
         <h2>ESCANEAR</h2>
-        <ion-button (click)="startScanning()" style="background-color: #DC7633;" color="whith" class="button">
+        <ion-button (click)="startScanning()" [disabled]='band' style="background-color: #DC7633;" color="whith" class="button">
           <ion-icon name="play"></ion-icon>
         </ion-button>
         <ion-button (click)="stopScan()" style="background-color: #DC7633;" color="whith" class="button">

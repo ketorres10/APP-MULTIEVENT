@@ -53,15 +53,16 @@ export class AuthService {
       //recibe un email y un password
       //res es un objeto que es auth que nos da acceso a las propiedades del id, etc
       console.log("registro", user);
-      if(user.urlImage){
+      if (user.urlImage) {
         console.log(user.urlImage);
-      }else{
+      } else {
         user.urlImage = "";
       }
       this.AFauth.createUserWithEmailAndPassword(user.email, user.password).then(res => {
         console.log("llego al register");
         const uid = res.user.uid;
         //apuntar a la base de datos
+        this.AFauth.signInWithEmailAndPassword(user.email, user.password);
         this.db.collection('users').doc(uid).set({
           displayName: user.displayName,
           email: user.email,
@@ -71,7 +72,7 @@ export class AuthService {
           urlImage: user.urlImage,
           uid: uid,
         });
-        this.router.navigate(['../eventos/']); 
+        this.router.navigate(['/eventos']);
         resolve(res)
       }).catch(err => reject(err))
     })
@@ -81,21 +82,20 @@ export class AuthService {
   preSaveProfile(user: UserI, image?: string, idUser?: string): void {
     console.log(image);
     if (idUser) {
-      if(image){
+      if (image) {
         this.uploadImage(user, image, idUser);
-      }else{
+      } else {
         console.log("llego aqui");
         this.updateUserProfile(user, idUser);
-      this.router.navigate(['../eventos/']); 
       }
     } else {
-      if(image){
+      if (image) {
         this.uploadImage(user, image);
-      }else{
+      } else {
         console.log('entro en este');
         this.register(user);
       }
-      
+
     }
   }
   private uploadImage(user: UserI, image: string, idUser?: string): void {
@@ -106,9 +106,9 @@ export class AuthService {
       console.log('Image uploaded');
       fileRef.getDownloadURL().subscribe(urlImage => {
         user.urlImage = urlImage;
-        if(idUser){
+        if (idUser) {
           this.updateUserProfile(user, idUser);
-        }else{
+        } else {
           this.register(user);
         }
       })

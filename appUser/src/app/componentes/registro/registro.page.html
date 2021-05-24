@@ -6,7 +6,7 @@
 <ion-content padding>
   <ion-card-content>
     <ion-card-content>
-      <div class="containerImagen">
+<!--       <div class="containerImagen">
         <img [src]="base64Image" height="200" width="200" class="foto" /> <br>
         <ion-button block (click)="onUploadGaleria()" style="background-color: #2D6082;" color="white">
           <ion-icon name="image"></ion-icon> Galeria
@@ -14,7 +14,7 @@
         <ion-button block (click)="onUploadCamera()" style="background-color: #2D6082;" color="white">
           <ion-icon name="image"></ion-icon> Cámara
         </ion-button>
-      </div>
+      </div> -->
       <!-- (ngSubmit)="onSubmitRegister(newUserForm.value) -->
       <Form [formGroup]="newUserForm">
         <ion-card-content style="background-color: white;">
@@ -41,7 +41,7 @@
               <ion-label class="fie" position="floating" style="font-size: 1.2em;">
                 <ion-icon name="lock-open"> </ion-icon>Contraseña
               </ion-label>
-              <ion-input type="password" maxlength="8" formControlName="password"></ion-input>
+              <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
           </div>
           <div class="field">

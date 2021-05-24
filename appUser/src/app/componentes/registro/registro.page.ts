@@ -38,61 +38,60 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-onUploadGaleria() {
-  console.log("sdsd");
-  this.camara.getPicture({
-    sourceType: this.camara.PictureSourceType.PHOTOLIBRARY,
-    destinationType: this.camara.DestinationType.DATA_URL,
-    mediaType: this.camara.MediaType.PICTURE,
-    allowEdit: false,
-    encodingType: this.camara.EncodingType.JPEG,
-    targetHeight: 1024,
-    targetWidth: 1024,
-    correctOrientation: true,
-    saveToPhotoAlbum: true,
-  }).then((res) => {
-    this.base64Image = 'data:image/png;base64,' + res;
-    this.clickedImage = res;
-    //this.handleImage(this.clickedImage);
-  }).catch(error => {
-    console.log(error);
-  })
-}
-
-onUploadCamera() {
-  this.camara.getPicture({
-    destinationType: this.camara.DestinationType.DATA_URL,
-    encodingType: this.camara.EncodingType.JPEG,
-    mediaType: this.camara.MediaType.PICTURE,
-    allowEdit: false,
-    targetHeight: 1024,
-    targetWidth: 1024,
-    correctOrientation: true,
-    saveToPhotoAlbum: true,
-  }).then(res => {
-    this.base64Image = 'data:image/png;base64,' + res;
-    this.clickedImage = res;
-    //this.handleImage(this.clickedImage);
-  }).catch(error => {
-    console.log(error);
-  })
-}
-
-//metodo retorna una promesa
-onSubmitRegister(user: UserI) {
-  console.log('image', this.clickedImage);
-  if(this.base64Image){
-    this.auth.preSaveProfile(user, this.base64Image);
-  }else{
-    this.auth.preSaveProfile(user);
+  onUploadGaleria() {
+    console.log("sdsd");
+    this.camara.getPicture({
+      sourceType: this.camara.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camara.DestinationType.DATA_URL,
+      mediaType: this.camara.MediaType.PICTURE,
+      allowEdit: false,
+      encodingType: this.camara.EncodingType.JPEG,
+      targetHeight: 1024,
+      targetWidth: 1024,
+      correctOrientation: true,
+      saveToPhotoAlbum: true,
+    }).then((res) => {
+      this.base64Image = 'data:image/png;base64,' + res;
+      this.clickedImage = res;
+      //this.handleImage(this.clickedImage);
+    }).catch(error => {
+      console.log(error);
+    })
   }
-  
-  /*     console.log("entro aqui", user);
-      this.auth.register(user).then(auth => {
-        console.log(user);
-        this.router.navigate(['../eventos/']);
-      }).catch(err => console.log(err)) */
-}
+
+  onUploadCamera() {
+    this.camara.getPicture({
+      destinationType: this.camara.DestinationType.DATA_URL,
+      encodingType: this.camara.EncodingType.JPEG,
+      mediaType: this.camara.MediaType.PICTURE,
+      allowEdit: false,
+      targetHeight: 1024,
+      targetWidth: 1024,
+      correctOrientation: true,
+      saveToPhotoAlbum: true,
+    }).then(res => {
+      this.base64Image = 'data:image/png;base64,' + res;
+      this.clickedImage = res;
+      //this.handleImage(this.clickedImage);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+  //metodo retorna una promesa
+  onSubmitRegister(user: UserI) {
+    console.log('image', this.clickedImage);
+    if (this.base64Image) {
+      this.auth.preSaveProfile(user, this.base64Image);
+    } else {
+      this.auth.preSaveProfile(user);
+    }
+
+    /*console.log("entro aqui", user);
+    this.auth.register(user).then(auth => {
+      console.log(user);
+      this.router.navigate(['../eventos/']);
+    }).catch(err => console.log(err))*/
+  }
   /*  handleImage(image: string): void {
        this.image = image;
      } */

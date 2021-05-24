@@ -132,7 +132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"this.currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <h2><i>{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>";
+    __webpack_exports__["default"] = "<ion-app>\n  <ion-menu side=\"start\" type=\"overlay\" contentId=\"main\" swipe-gesture=\"false\" color=\"primary\">\n    <ion-header>\n      <div class=\"profile-pic\" *ngIf=\"userData$ | async as user;\">\n        <img [src]=\"this.currentImage\" alt=\"foto de perfil\" class=\"avatar\">\n        <ion-card-content class=\"detailUser\">\n          <h1>{{user.displayName}}</h1>\n          <ion-icon name=\"mail-outline\" style=\"color: aliceblue;float: left;\"></ion-icon><h2><i> &nbsp;&nbsp;{{user.email}}</i></h2>\n        </ion-card-content>\n      </div>\n    </ion-header>\n    <ion-content>\n      <div class=\"container-actividades\">\n        <!--\n        <ion-note (click)=\"irEventos()\" class=\"actividad\">\n          <ion-icon name=\"home\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-note><br>\n        <ion-note (click)=\"agenda()\" class=\"actividad\">\n          <ion-icon name=\"calendar\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-note><br>\n        <ion-note (click)=\"deteccion()\" class=\"actividad\">\n          <ion-icon name=\"radio\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección Sala\n        </ion-note><br>\n        <ion-note (click)=\"perfil()\" class=\"actividad\">\n          <ion-icon name=\"create\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-note><br>\n        <ion-note (click)=\"cerrarSesion()\" class=\"actividad\">\n          <ion-icon name=\"log-out\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-note>\n        -->\n        <ion-item-divider>Actividades</ion-item-divider>\n        <ion-item (click)=\"irEventos()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"home-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Inicio\n        </ion-item>\n        <ion-item (click)=\"agenda()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"calendar-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Mi Agenda\n        </ion-item>\n        <ion-item (click)=\"deteccion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"radio-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Detección\n        </ion-item>\n        <ion-item (click)=\"cerrarSesion()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"log-out-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión\n        </ion-item>\n        <br>\n        <ion-item-divider>Configuración</ion-item-divider>\n        <ion-item (click)=\"perfil()\" routerLinkActive=\"['activate']\">\n          <ion-icon name=\"create-outline\"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;Perfil\n        </ion-item>\n\n      </div>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"main\"></ion-router-outlet>\n</ion-app>";
     /***/
   },
 
@@ -1556,6 +1556,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log("llego al register");
               var uid = res.user.uid; //apuntar a la base de datos
 
+              _this11.AFauth.signInWithEmailAndPassword(user.email, user.password);
+
               _this11.db.collection('users').doc(uid).set({
                 displayName: user.displayName,
                 email: user.email,
@@ -1566,7 +1568,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 uid: uid
               });
 
-              _this11.router.navigate(['../eventos/']);
+              _this11.router.navigate(['/eventos']);
 
               resolve(res);
             })["catch"](function (err) {
@@ -1585,7 +1587,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             } else {
               console.log("llego aqui");
               this.updateUserProfile(user, idUser);
-              this.router.navigate(['../eventos/']);
             }
           } else {
             if (image) {

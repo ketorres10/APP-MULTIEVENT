@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
     this.userData$ = AFauth.authState;
   }
   ngOnInit() {
-
     this.authSvc.userData$.subscribe(user => {
       this.user$ = this.authSvc.getUser(user.uid);
       this.user$.subscribe(us => {

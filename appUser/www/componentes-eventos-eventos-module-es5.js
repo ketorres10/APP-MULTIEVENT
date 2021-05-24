@@ -276,7 +276,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this = this;
 
-          this.router.navigate(['../eventos/']);
           this.eventos$ = this.eventoService.getAllEvents();
           var subs_events = this.eventos$.subscribe(function (eventos) {
             eventos.forEach(function (element) {

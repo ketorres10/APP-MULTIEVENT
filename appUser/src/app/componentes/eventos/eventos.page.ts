@@ -22,7 +22,6 @@ export class EventosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate(['../eventos/']);
     this.eventos$ = this.eventoService.getAllEvents();
     const subs_events = this.eventos$.subscribe(eventos => {
         eventos.forEach(element => {
